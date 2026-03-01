@@ -1,99 +1,79 @@
 steps:
   # Step 0: Build Helm Dependencies
   - name: 'alpine/helm:3.17.1'
-    id: 'Build Helm Deps'
+    id: 'helm-deps'
     entrypoint: 'sh'
     args:
       - '-c'
       - |
+        if [ "${_ONLY}" != "helm-deps" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         cd cloud/terraform/gcp/gke/helm/gateway-infra && helm dependency build
 
   # Step 1: Security Scan (Checkov)
   - name: 'bridgecrew/checkov:latest'
-    id: 'Security Scan - Checkov'
+    id: 'checkov'
     args:
-      - '--directory=cloud/terraform'
-      - '--download-external-modules=true'
-      - '--compact'
-      - '--soft-fail'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "checkov" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        /usr/bin/checkov --directory=cloud/terraform --download-external-modules=true --compact --soft-fail
+    entrypoint: 'sh'
 
   # Step 2: Security Scan (Trivy)
   - name: 'aquasec/trivy:latest'
-    id: 'Security Scan - Trivy'
-    entrypoint: 'trivy'
+    id: 'trivy'
+    entrypoint: 'sh'
     args:
-      - 'fs'
-      - '.'
-      - '--severity=HIGH,CRITICAL'
-      - '--exit-code=0'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "trivy" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        trivy fs . --severity=HIGH,CRITICAL --exit-code=0
 
   # Step 3: Deploy Artifact Registry (GAR)
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    id: 'Deploy GAR'
-    entrypoint: 'gcloud'
+    id: 'gar'
+    entrypoint: 'bash'
     args: 
-      - 'infra-manager'
-      - 'deployments'
-      - 'apply'
-      - 'projects/${PROJECT_ID}/locations/${_REGION}/deployments/gar-registry'
-      - '--service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com'
-      - '--local-source=cloud/terraform/gcp/gar'
-      - '--inputs-file=terraform.tfvars'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "gar" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gar-registry \
+          --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
+          --local-source=cloud/terraform/gcp/gar \
+          --inputs-file=terraform.tfvars
 
   # Step 4: Publish Helm Charts to GAR
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    id: 'Publish Helm Charts'
+    id: 'publish-charts'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
+        if [ "${_ONLY}" != "publish-charts" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         # Install Helm
         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
-        # Extract values from terraform.tfvars or use defaults
-        # Using [[:space:]]* to handle leading whitespace/tabs
         RAW_REGION=$$(grep -E '^[[:space:]]*region[[:space:]]*=' terraform.tfvars | cut -d'=' -f2 | tr -d ' "' || echo "")
         REGION=$${RAW_REGION:-"${_REGION}"}
         
         RAW_DEPLOYMENT_NAME=$$(grep -E '^[[:space:]]*deployment_name[[:space:]]*=' terraform.tfvars | cut -d'=' -f2 | tr -d ' "' || echo "")
         DEPLOYMENT_NAME=$${RAW_DEPLOYMENT_NAME:-"liferay-self-hosted"}
 
-        echo "DEBUG: Extracted REGION: '$$REGION'"
-        echo "DEBUG: Extracted DEPLOYMENT_NAME: '$$DEPLOYMENT_NAME'"
-        echo "DEBUG: PROJECT_ID: '${PROJECT_ID}'"
-
         GAR_REPO="$$DEPLOYMENT_NAME-registry"
-        GAR_REPO_URL="$$REGION-docker.pkg.dev/${PROJECT_ID}/$$GAR_REPO"
-        
-        echo "Pushing charts to $$GAR_REPO_URL"
-        
-        # Authenticate Helm with GAR
         gcloud auth configure-docker "$$REGION-docker.pkg.dev" --quiet
         
-        # Helper to push a chart
         push_chart() {
           CHART_PATH_ARG="$$1"
-          echo "---------------------------------------------------"
-          echo "Packaging and pushing $$CHART_PATH_ARG..."
-          
-          # Build dependencies if they exist
           if [ -f "$$CHART_PATH_ARG/Chart.yaml" ]; then
-            echo "Building dependencies for $$CHART_PATH_ARG..."
             helm dependency build "$$CHART_PATH_ARG"
           fi
-
-          # Get chart name and version
           CHART_NAME=$$(helm show chart "$$CHART_PATH_ARG" | grep '^name:' | cut -d' ' -f2)
           CHART_VERSION=$$(helm show chart "$$CHART_PATH_ARG" | grep '^version:' | cut -d' ' -f2)
-          
           helm package "$$CHART_PATH_ARG"
           helm push "$$CHART_NAME-$$CHART_VERSION.tgz" "oci://$$REGION-docker.pkg.dev/${PROJECT_ID}/$$GAR_REPO"
-          
-          # Cleanup packaged file
           rm "$$CHART_NAME-$$CHART_VERSION.tgz"
         }
         
-        # Push our charts (Order matters for local dependencies)
         push_chart "cloud/helm/default"
         push_chart "cloud/helm/gcp"
         push_chart "cloud/helm/gcp-infrastructure"
@@ -101,42 +81,43 @@ steps:
 
   # Step 5: Deploy the Network/Base stack
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    id: 'Deploy GKE'
-    entrypoint: 'gcloud'
+    id: 'gke'
+    entrypoint: 'bash'
     args: 
-      - 'infra-manager'
-      - 'deployments'
-      - 'apply'
-      - 'projects/${PROJECT_ID}/locations/${_REGION}/deployments/gke-network'
-      - '--service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com'
-      - '--local-source=cloud/terraform/gcp/gke'
-      - '--inputs-file=terraform.tfvars'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "gke" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gke-network \
+          --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
+          --local-source=cloud/terraform/gcp/gke \
+          --inputs-file=terraform.tfvars
 
   # Step 6: Deploy the Gitops Platform stack
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    id: Gitops Platform
+    id: 'platform'
+    entrypoint: 'bash'
     args:
-      - 'infra-manager'
-      - 'deployments'
-      - 'apply'
-      - 'projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-platform'
-      - '--service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com'
-      - '--local-source=cloud/terraform/gcp/gitops/platform'
-      - '--inputs-file=terraform.tfvars'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "platform" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-platform \
+          --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
+          --local-source=cloud/terraform/gcp/gitops/platform \
+          --inputs-file=terraform.tfvars
 
   # Step 7: Deploy GitOps Resources
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    id: Gitops Resources
+    id: 'resources'
+    entrypoint: 'bash'
     args:
-      - 'infra-manager'
-      - 'deployments'
-      - 'apply'
-      - 'projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-resources'
-      - '--service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com'
-      - '--local-source=cloud/terraform/gcp/gitops/resources'
-      - '--inputs-file=terraform.tfvars'
+      - '-c'
+      - |
+        if [ "${_ONLY}" != "resources" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
+        gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-resources \
+          --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
+          --local-source=cloud/terraform/gcp/gitops/resources \
+          --inputs-file=terraform.tfvars
 
 substitutions:
   _REGION: 'us-central1'
+  _ONLY: 'all'
