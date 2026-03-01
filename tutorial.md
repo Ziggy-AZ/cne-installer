@@ -68,23 +68,16 @@ Click the link below to create a new repository in your GitHub account using the
 > Once created, copy your repository URL and add it to the `liferay_git_repo_url` variable in your `terraform.tfvars` file.
 
 ### 2. Configure GitHub App
-To allow ArgoCD to sync from your new repository and provide SSO for your team, create a GitHub App:
+To allow ArgoCD to sync from your new repository and provide SSO for your team, we recommend using the [GitHub App Manifest Tool](https://ziggy-az.github.io/cne-installer/) to automate the setup with the correct permissions.
 
-[Create GitHub App](https://github.com/settings/apps/new)
-
-**Required Settings:**
-*   **Homepage URL:** `https://argocd.<your-domain>`
-*   **Callback URL:** `https://argocd.<your-domain>/api/dex/callback`
-*   **Webhook URL:** `https://argocd.<your-domain>/api/webhook`
-*   **Repository Permissions:**
-    *   `Contents`: Read-only
-    *   `Metadata`: Read-only
-    *   `Webhooks`: Read & write
-*   **Organization Permissions:**
-    *   `Members`: Read-only (for SSO groups)
+**Steps:**
+1. **Enter Details**: Provide your GitHub Organization and ArgoCD Base URL.
+2. **Register**: Click **Register GitHub App** to be redirected to GitHub.
+3. **Install**: After creating the app, navigate to **Install App** in the GitHub settings and install it on your organization.
+4. **Finalize**: After installation, follow the success page to retrieve your **App ID**, **Installation ID**, and **Private Key**.
 
 > [!TIP]
-> After creating the app, generate a **Client Secret** and a **Webhook Secret**. You will need these for the next step.
+> You will store these credentials securely in the next step using a helper script.
 
 ## Optional: Advanced Configuration
 Before running the deployment, you can customize your environment by editing the Terraform variables file directly.
