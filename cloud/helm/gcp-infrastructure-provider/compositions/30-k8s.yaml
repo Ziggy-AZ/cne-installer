@@ -25,6 +25,9 @@ metadata:
     gotemplating.fn.crossplane.io/composition-resource-name: liferay-db-grant-job
   name: {{ $jobName }}
 spec:
+  readiness:
+    policy: DeriveFromObject
+    celQuery: "object.status.conditions.exists(c, c.type == 'Complete' && c.status == 'True')"
   forProvider:
     manifest:
       apiVersion: batch/v1
@@ -33,7 +36,6 @@ spec:
         name: {{ $jobName }}
         namespace: {{ $namespace }}
       spec:
-        activeDeadlineSeconds: 300
         template:
           spec:
             serviceAccountName: liferay-default

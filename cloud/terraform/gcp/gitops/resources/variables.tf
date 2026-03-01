@@ -80,16 +80,18 @@ variable "infrastructure_helm_chart_config" {
       path       = optional(string)
   })
 }
+
 variable "infrastructure_provider_helm_chart_config" {
   default = {}
   type = object(
     {
       image_name = optional(string, "liferay-gcp-infrastructure-provider")
       image_url  = optional(string, "oci://us-central1-docker.pkg.dev/gcp-liferay/gcp-liferay-registry/liferay-gcp-infrastructure-provider")
-      version    = optional(string, "0.1.3")
+      version    = optional(string, "0.1.4")
       path       = optional(string)
   })
 }
+
 variable "liferay_git_repo_config" {
   default = {
     auth         = {}
