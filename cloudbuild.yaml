@@ -30,7 +30,7 @@ steps:
         trivy fs . --severity=HIGH,CRITICAL --exit-code=1 --skip-dirs cloud/terraform/gcp/gke/helm/gateway-infra
 
   # Step 3: Deploy Artifact Registry (GAR)
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'us-central1-docker.pkg.dev/cloud-sdk-release/google-cloud-sdk:510.0.0-slim'
     id: 'gar'
     entrypoint: 'bash'
     args: 
@@ -43,7 +43,7 @@ steps:
           --inputs-file=terraform.tfvars
 
   # Step 4: Publish Helm Charts to GAR
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'us-central1-docker.pkg.dev/cloud-sdk-release/google-cloud-sdk:510.0.0-slim'
     id: 'publish-charts'
     entrypoint: 'bash'
     args:
@@ -80,7 +80,7 @@ steps:
         push_chart "cloud/helm/gcp-infrastructure-provider"
 
   # Step 5: Deploy the Network/Base stack
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'us-central1-docker.pkg.dev/cloud-sdk-release/google-cloud-sdk:510.0.0-slim'
     id: 'gke'
     entrypoint: 'bash'
     args: 
@@ -93,7 +93,7 @@ steps:
           --inputs-file=terraform.tfvars
 
   # Step 6: Deploy the Gitops Platform stack
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'us-central1-docker.pkg.dev/cloud-sdk-release/google-cloud-sdk:510.0.0-slim'
     id: 'platform'
     entrypoint: 'bash'
     args:
@@ -106,7 +106,7 @@ steps:
           --inputs-file=terraform.tfvars
 
   # Step 7: Deploy GitOps Resources
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'us-central1-docker.pkg.dev/cloud-sdk-release/google-cloud-sdk:510.0.0-slim'
     id: 'resources'
     entrypoint: 'bash'
     args:

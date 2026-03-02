@@ -88,7 +88,7 @@ locals {
 
   # Extract repository paths (e.g., "org/repo") from URLs for WIF conditions
   # This matches both https://github.com/org/repo and git@github.com:org/repo.git
-  git_repo_path_regex = "(?:github\\.com[:/])([^/]+/[^/.]+)(?:\\.git)?$"
+  git_repo_path_regex = "(?:github\\.com[:/])([^/]+/[^/.]+?)(?:/|\\.git)?$"
   
   workspace_repo_path    = can(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)) ? regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)[0] : var.liferay_workspace_git_repo_url != "" ? var.liferay_workspace_git_repo_url : null
 
