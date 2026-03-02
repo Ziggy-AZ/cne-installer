@@ -5,7 +5,7 @@ metadata:
         argocd.argoproj.io/sync-wave: "-80"
     name: provider-gcp-sql
 spec:
-    package: xpkg.upbound.io/upbound/provider-gcp-sql:v2.4.0
+    package: xpkg.upbound.io/upbound/provider-gcp-sql:v2.5.0
     runtimeConfigRef:
         name: gcp-sql-config
 ---
@@ -16,7 +16,7 @@ metadata:
         argocd.argoproj.io/sync-wave: "-80"
     name: provider-gcp-storage
 spec:
-    package: xpkg.upbound.io/upbound/provider-gcp-storage:v2.4.0
+    package: xpkg.upbound.io/upbound/provider-gcp-storage:v2.5.0
     runtimeConfigRef:
         name: gcp-storage-config
 ---
@@ -27,7 +27,7 @@ metadata:
         argocd.argoproj.io/sync-wave: "-80"
     name: provider-gcp-compute
 spec:
-    package: xpkg.upbound.io/upbound/provider-gcp-compute:v2.4.0
+    package: xpkg.upbound.io/upbound/provider-gcp-compute:v2.5.0
     runtimeConfigRef:
         name: gcp-compute-config
 ---
@@ -51,6 +51,6 @@ metadata:
         argocd.argoproj.io/sync-wave: "-80"
     name: provider-gcp-cloudplatform
 spec:
-    package: xpkg.upbound.io/upbound/provider-gcp-cloudplatform:v2.4.0
+    package: xpkg.upbound.io/upbound/provider-gcp-cloudplatform:v2.5.0
     runtimeConfigRef:
         name: gcp-cloudplatform-config
