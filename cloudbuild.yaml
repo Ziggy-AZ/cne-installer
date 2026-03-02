@@ -64,14 +64,14 @@ steps:
         
         push_chart() {
           CHART_PATH_ARG="$1"
-          if [ -f "$CHART_PATH_ARG/Chart.yaml" ]; then
-            helm dependency build "$CHART_PATH_ARG"
+          if [ -f "$$CHART_PATH_ARG/Chart.yaml" ]; then
+            helm dependency build "$$CHART_PATH_ARG"
           fi
-          CHART_NAME=$(helm show chart "$CHART_PATH_ARG" | grep '^name:' | cut -d' ' -f2)
-          CHART_VERSION=$(helm show chart "$CHART_PATH_ARG" | grep '^version:' | cut -d' ' -f2)
-          helm package "$CHART_PATH_ARG"
-          helm push "$CHART_NAME-$CHART_VERSION.tgz" "oci://$${REGION}-docker.pkg.dev/${PROJECT_ID}/$${GAR_REPO}"
-          rm "$CHART_NAME-$CHART_VERSION.tgz"
+          CHART_NAME=$(helm show chart "$$CHART_PATH_ARG" | grep '^name:' | cut -d' ' -f2)
+          CHART_VERSION=$(helm show chart "$$CHART_PATH_ARG" | grep '^version:' | cut -d' ' -f2)
+          helm package "$$CHART_PATH_ARG"
+          helm push "$$CHART_NAME-$$CHART_VERSION.tgz" "oci://$${REGION}-docker.pkg.dev/${PROJECT_ID}/$${GAR_REPO}"
+          rm "$$CHART_NAME-$$CHART_VERSION.tgz"
         }
         
         push_chart "cloud/helm/default"
