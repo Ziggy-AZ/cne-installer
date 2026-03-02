@@ -78,8 +78,9 @@ steps:
           CHART_NAME=$(helm show chart "$$CHART_PATH_ARG" | grep '^name:' | cut -d' ' -f2)
           CHART_VERSION=$(helm show chart "$$CHART_PATH_ARG" | grep '^version:' | cut -d' ' -f2)
           
-          # Check if the version already exists in GAR
-          if gcloud artifacts versions describe "$$CHART_VERSION" --package="$$CHART_NAME" --repository="$$GAR_REPO" --location="$$REGION" >/dev/null 2>&1; then
+          # Check if the version already exists in GAR (OCI path format)
+          IMAGE_PATH="$$REGION-docker.pkg.dev/${PROJECT_ID}/$$GAR_REPO/$$CHART_NAME"
+          if gcloud artifacts docker images describe "$$IMAGE_PATH:$$CHART_VERSION" --project="${PROJECT_ID}" >/dev/null 2>&1; then
             echo "Version $$CHART_VERSION of $$CHART_NAME already exists in GAR. Skipping push."
             return 0
           fi
