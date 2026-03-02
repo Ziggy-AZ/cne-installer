@@ -88,7 +88,7 @@ variable "infrastructure_provider_helm_chart_config" {
     {
       image_name = optional(string, "liferay-gcp-infrastructure-provider")
       image_url  = optional(string, "oci://us-central1-docker.pkg.dev/gcp-liferay/liferay-deployment-registry/liferay-gcp-infrastructure-provider")
-      version    = optional(string, "0.1.11")
+      version    = optional(string, "0.1.12")
       path       = optional(string)
   })
 }

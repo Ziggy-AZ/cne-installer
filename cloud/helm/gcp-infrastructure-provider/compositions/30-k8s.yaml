@@ -97,8 +97,8 @@ spec:
 # This is conditionally included ONLY when the Grant Job is finished.
 {{- $isReady := false -}}
 {{- if .observed.resources -}}
-  {{- if (index .observed.resources $jobName) -}}
-    {{- $job := index .observed.resources $jobName -}}
+  {{- if (index .observed.resources "liferay-db-grant-job") -}}
+    {{- $job := index .observed.resources "liferay-db-grant-job" -}}
     {{- range $cond := $job.resource.status.conditions | default list }}
       {{- if and (eq $cond.type "Ready") (eq $cond.status "True") }}
         {{- $isReady = true }}
