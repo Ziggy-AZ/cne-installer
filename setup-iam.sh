@@ -35,6 +35,9 @@ RESOURCES_ROLES=(
     "roles/artifactregistry.admin"
     "roles/logging.logWriter"
     "roles/monitoring.metricWriter"
+    "roles/serviceusage.serviceUsageAdmin"
+    "roles/iam.workloadIdentityPoolAdmin"
+    "roles/config.admin"
 )
 
 echo "Ensuring project-level IAM bindings..."
@@ -48,11 +51,19 @@ done
 # 3. Get the Project Number
 PROJECT_NUMBER=$(gcloud projects describe "$PROJECT_ID" --format="value(projectNumber)")
 
-# 4. Grant Infra Manager Service Agent permission to "act as" the Runner
+# 4. Grant Infra Manager Service Agent permissions
 echo "Configuring Infrastructure Manager Service Agent..."
+# The Service Agent needs this role on the project to manage deployments
 gcloud projects add-iam-policy-binding "$PROJECT_ID" \
     --member="serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-config.iam.gserviceaccount.com" \
     --role="roles/config.agent" \
+    --quiet > /dev/null
+
+# CRITICAL: The Service Agent must be able to "act as" the Runner Service Account
+gcloud iam service-accounts add-iam-policy-binding "$SA_EMAIL" \
+    --member="serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-config.iam.gserviceaccount.com" \
+    --role="roles/iam.serviceAccountUser" \
+    --project="$PROJECT_ID" \
     --quiet > /dev/null
 
 CLOUD_BUILD_SA="${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com"
