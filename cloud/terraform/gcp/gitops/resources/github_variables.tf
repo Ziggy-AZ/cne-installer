@@ -16,7 +16,7 @@ locals {
 
 resource "github_actions_variable" "workspace_vars" {
   for_each      = local.workspace_vars
-  repository    = local.workspace_repo_path
+  repository    = var.liferay_workspace_git_repo_path
   variable_name = each.key
   value         = each.value
 }
