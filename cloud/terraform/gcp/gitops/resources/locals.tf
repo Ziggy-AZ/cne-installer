@@ -86,16 +86,11 @@ locals {
   oidc_provider                     = "${var.project_id}.svc.id.goog"
   terraform_manager_name            = "liferay-cloud-native-terraform"
 
-  # Extract "owner/repo" by explicitly trimming known prefixes and suffixes.
-  # This is much more reliable than regex in various Terraform environments.
-  workspace_repo_path = var.liferay_workspace_git_repo_url != "" ? trim(trimsuffix(trimprefix(trimprefix(var.liferay_workspace_git_repo_url, "https://github.com/"), "git@github.com:"), ".git"), "/") : null
 
 
-  # Create a unique suffix based on the URL to prevent "already exists" errors during recovery
-  repo_url_hash = substr(sha256(var.liferay_git_repo_url), 0, 6)
 
   allowed_github_repos = compact([
-    local.workspace_repo_path
+    var.liferay_workspace_git_repo_path
   ])
 
   # Since environment names are dynamic (discovered by ArgoCD), 
