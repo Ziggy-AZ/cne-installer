@@ -88,9 +88,12 @@ locals {
 
   # Extract repository paths (e.g., "org/repo") from URLs for WIF conditions
   # This matches both https://github.com/org/repo and git@github.com:org/repo.git
-  git_repo_path_regex = "(?:github\\.com[:/])([^/]+/[^/.]+?)(?:/|\\.git)?$"
+  git_repo_path_regex = "github\\.com[/:][^/]+/[^/.]+"
   
-  workspace_repo_path    = can(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)) ? regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)[0] : var.liferay_workspace_git_repo_url != "" ? var.liferay_workspace_git_repo_url : null
+  workspace_repo_path    = can(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)) ? replace(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url), "/^github\\.com[/:]/", "") : var.liferay_workspace_git_repo_url != "" ? var.liferay_workspace_git_repo_url : null
+
+  # Create a unique suffix based on the URL to prevent "already exists" errors during recovery
+  repo_url_hash = substr(sha256(var.liferay_git_repo_url), 0, 6)
 
   allowed_github_repos = compact([
     local.workspace_repo_path

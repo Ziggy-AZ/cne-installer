@@ -7,6 +7,9 @@ if [ -z "$PROJECT_ID" ]; then
     exit 1
 fi
 
+# Track Start Time
+START_TIME=$SECONDS
+
 # Attempt to extract region from terraform.tfvars if not provided as an env var
 if [ -z "$REGION" ]; then
     if [ -f "terraform.tfvars" ]; then
@@ -49,3 +52,10 @@ gcloud beta builds submit . \
     --config=cloudbuild.yaml \
     --substitutions=_REGION="$TF_VAR_region",_ONLY="$ONLY_STEP" \
     "${EXTRA_ARGS[@]}"
+
+# Calculate and Output Elapsed Time
+ELAPSED_TIME=$((SECONDS - START_TIME))
+echo "------------------------------------"
+echo "Build Finished: $(date)"
+printf "Total Duration: %02dm:%02ds\n" $((ELAPSED_TIME/60)) $((ELAPSED_TIME%60))
+echo "------------------------------------"
