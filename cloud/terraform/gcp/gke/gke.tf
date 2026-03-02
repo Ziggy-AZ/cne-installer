@@ -56,20 +56,18 @@ module "gke" {
   # Resolves the 10.0.0.0/28 CIDR conflict
   master_ipv4_cidr_block = "172.16.0.0/28"
 
-  master_authorized_networks = concat(
-    [
-      {
-        cidr_block   = var.vpc_cidr
-        display_name = "VPC-Internal"
-      }
-    ],
-    var.authorized_ipv4_cidr_block != "" ? [
-      {
-        cidr_block   = var.authorized_ipv4_cidr_block
-        display_name = "User-Authorized-Access"
-      }
-    ] : []
-  )
+  # If authorized_ipv4_cidr_block is empty, we disable authorized networks 
+  # to allow Infrastructure Manager (running in a Google-managed project) to reach the API.
+  master_authorized_networks = var.authorized_ipv4_cidr_block != "" ? [
+    {
+      cidr_block   = var.vpc_cidr
+      display_name = "VPC-Internal"
+    },
+    {
+      cidr_block   = var.authorized_ipv4_cidr_block
+      display_name = "User-Authorized-Access"
+    }
+  ] : []
 
   depends_on = [module.vpc]
 }
