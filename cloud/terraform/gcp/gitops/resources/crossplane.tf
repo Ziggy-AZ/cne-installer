@@ -1,8 +1,11 @@
 # ---------------------------------------------------------
 # 1. GSA for Cloud Platform Provider (Required for IAM management)
 # ---------------------------------------------------------
-# Upbound's cloudplatform provider currently performs better with a 
+# Upbound's cloudplatform provider currently only works with a 
 # dedicated GSA for high-privilege IAM and Service Account operations.
+# Extensive tests were done with a KSA but it fails with 400 errors due to 
+# terms of service not being accepted: 
+#       Caller must use first-party authentication in order to accept terms of service and use this API.
 
 resource "google_service_account" "cloudplatform_gsa" {
   account_id   = "${var.deployment_name}-cp-iam"
