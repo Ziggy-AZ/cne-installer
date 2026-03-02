@@ -14,10 +14,10 @@ resource "google_service_account" "cloudplatform_gsa" {
 }
 
 locals {
+  # We removed securityAdmin as projectIamAdmin is sufficient for the policy bindings needed here.
   cloudplatform_roles = [
     "roles/iam.serviceAccountAdmin",
-    "roles/resourcemanager.projectIamAdmin",
-    "roles/iam.securityAdmin"
+    "roles/resourcemanager.projectIamAdmin"
   ]
 }
 
@@ -40,6 +40,7 @@ resource "google_service_account_iam_member" "cloudplatform_wi_binding" {
 # SQL, Storage, and Compute use the leaner Direct KSA pattern.
 
 locals {
+  # The principal format for direct KSA binding follows the ns/NAMESPACE/sa/KSA hierarchy.
   ksa_principal_base = "principal://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${var.project_id}.svc.id.goog/subject/ns/${var.crossplane_namespace}/sa"
   
   direct_provider_ksas = {
