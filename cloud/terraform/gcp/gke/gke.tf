@@ -29,7 +29,7 @@ module "gke" {
   region     = var.region
 
   regional = true # Autopilot is always regional
-  zones    = []
+  zones    = var.node_zones
 
   network           = module.vpc.network_name
   subnetwork        = module.vpc.subnets_names[0]

@@ -7,6 +7,12 @@ variable "region" {
   default = "us-central1"
 }
 
+variable "node_zones" {
+  description = "The zones where the GKE cluster nodes should be located. If empty, the cluster will be spread across all zones in the region."
+  type        = list(string)
+  default     = []
+}
+
 variable "deployment_name" {
   default = "liferay-gcp"
   validation {

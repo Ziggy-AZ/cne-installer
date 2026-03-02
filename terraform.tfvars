@@ -10,6 +10,10 @@
 # Example: ["example.com", "myportal.io"]
 # domains = []
 
+# GKE Node Zones: Specify the zones for the GKE cluster. If empty, it uses all zones in the region.
+# Example: ["us-central1-a", "us-central1-b"]
+# node_zones = []
+
 # GitOps Repository: The URL of your own GitOps repository (created from the template).
 liferay_git_repo_url = ""
 
