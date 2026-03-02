@@ -42,7 +42,7 @@ steps:
     args: 
       - '-c'
       - |
-        set -o pipefail
+        set -e -o pipefail
         echo "[$(date)] Starting: gar"
         if [ "${_ONLY}" != "gar" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gar-registry \
@@ -58,7 +58,7 @@ steps:
     args:
       - '-c'
       - |
-        set -o pipefail
+        set -e -o pipefail
         echo "[$(date)] Starting: publish-charts"
         if [ "${_ONLY}" != "publish-charts" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         # Install Helm
@@ -100,7 +100,7 @@ steps:
     args: 
       - '-c'
       - |
-        set -o pipefail
+        set -e -o pipefail
         echo "[$(date)] Starting: gke"
         if [ "${_ONLY}" != "gke" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gke-network \
@@ -116,7 +116,7 @@ steps:
     args:
       - '-c'
       - |
-        set -o pipefail
+        set -e -o pipefail
         echo "[$(date)] Starting: platform"
         if [ "${_ONLY}" != "platform" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-platform \
@@ -132,7 +132,7 @@ steps:
     args:
       - '-c'
       - |
-        set -o pipefail
+        set -e -o pipefail
         echo "[$(date)] Starting: resources"
         if [ "${_ONLY}" != "resources" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-resources \
