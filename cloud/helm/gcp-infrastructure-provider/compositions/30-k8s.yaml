@@ -26,8 +26,7 @@ metadata:
   name: {{ $jobName }}
 spec:
   readiness:
-    policy: DeriveFromObject
-    celQuery: "object.status.atProvider.manifest.status.conditions.exists(c, c.type == 'Complete' && c.status == 'True')"
+    celQuery: "object.status.atProvider.manifest.status.succeeded == 1"
   forProvider:
     manifest:
       apiVersion: batch/v1
@@ -100,19 +99,9 @@ spec:
 {{- if .observed.resources -}}
   {{- if (index .observed.resources $jobName) -}}
     {{- $job := index .observed.resources $jobName -}}
-    {{- if $job.resource -}}
-      {{- if $job.resource.status -}}
-        {{- if $job.resource.status.atProvider -}}
-          {{- if $job.resource.status.atProvider.manifest -}}
-            {{- if $job.resource.status.atProvider.manifest.status -}}
-              {{- range $cond := $job.resource.status.atProvider.manifest.status.conditions | default list }}
-                {{- if and (eq $cond.type "Complete") (eq $cond.status "True") }}
-                  {{- $isReady = true }}
-                {{- end }}
-              {{- end }}
-            {{- end }}
-          {{- end }}
-        {{- end }}
+    {{- range $cond := $job.resource.status.conditions | default list }}
+      {{- if and (eq $cond.type "Ready") (eq $cond.status "True") }}
+        {{- $isReady = true }}
       {{- end }}
     {{- end }}
   {{- end }}
