@@ -38,6 +38,7 @@ RESOURCES_ROLES=(
     "roles/serviceusage.serviceUsageAdmin"
     "roles/iam.workloadIdentityPoolAdmin"
     "roles/config.admin"
+    "roles/servicenetworking.networksAdmin"
 )
 
 echo "Ensuring project-level IAM bindings..."
