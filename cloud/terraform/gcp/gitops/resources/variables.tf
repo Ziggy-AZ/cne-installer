@@ -11,6 +11,7 @@ variable "deployment_name" {
     condition     = can(regex("^[a-z0-9-]*$", var.deployment_name))
     error_message = "The deployment_name must contain only lowercase letters, numbers, and hyphens."
   }
+  default = "liferay-gcp"
 }
 variable "external_secrets_namespace" {
   default = "external-secrets"

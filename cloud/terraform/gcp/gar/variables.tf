@@ -1,5 +1,3 @@
-# Added project_id. Kept ecr_repository_names so we can generate the correct image URLs in the output.
-
 variable "deployment_name" {
   default = "liferay-self-hosted"
 }
