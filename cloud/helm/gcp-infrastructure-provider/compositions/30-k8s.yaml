@@ -96,12 +96,19 @@ spec:
 ---
 # 8. Managed Service Details Secret
 # This is conditionally included ONLY when the Grant Job is finished.
-{{- $job := index .observed.resources $jobName | default dict -}}
-{{- $jobStatus := $job.resource.status | default dict -}}
 {{- $isReady := false -}}
-{{- range $cond := $jobStatus.conditions | default list }}
-  {{- if and (eq $cond.type "Complete") (eq $cond.status "True") }}
-    {{- $isReady = true }}
+{{- if .observed.resources -}}
+  {{- if (index .observed.resources $jobName) -}}
+    {{- $job := index .observed.resources $jobName -}}
+    {{- if $job.resource -}}
+      {{- if $job.resource.status -}}
+        {{- range $cond := $job.resource.status.conditions | default list }}
+          {{- if and (eq $cond.type "Complete") (eq $cond.status "True") }}
+            {{- $isReady = true }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
   {{- end }}
 {{- end }}
 
