@@ -6,8 +6,10 @@ steps:
     args:
       - '-c'
       - |
+        echo "[$(date)] Starting: helm-deps"
         if [ "${_ONLY}" != "helm-deps" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         cd cloud/terraform/gcp/gke/helm/gateway-infra && helm dependency build
+        echo "[$(date)] Finished: helm-deps"
 
   # Step 1: Security Scan (Checkov)
   - name: 'bridgecrew/checkov:latest'
@@ -15,8 +17,10 @@ steps:
     args:
       - '-c'
       - |
+        echo "[$(date)] Starting: checkov"
         if [ "${_ONLY}" != "checkov" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         checkov --directory=. --config-file=.checkov.yaml --download-external-modules=true --skip-framework secrets
+        echo "[$(date)] Finished: checkov"
     entrypoint: 'sh'
 
   # Step 2: Security Scan (Trivy)
@@ -26,8 +30,10 @@ steps:
     args:
       - '-c'
       - |
+        echo "[$(date)] Starting: trivy"
         if [ "${_ONLY}" != "trivy" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         trivy fs . --severity=HIGH,CRITICAL --exit-code=1 --skip-dirs cloud/terraform/gcp/gke/helm/gateway-infra
+        echo "[$(date)] Finished: trivy"
 
   # Step 3: Deploy Artifact Registry (GAR)
   - name: 'google/cloud-sdk:510.0.0-slim'
@@ -36,11 +42,14 @@ steps:
     args: 
       - '-c'
       - |
+        set -o pipefail
+        echo "[$(date)] Starting: gar"
         if [ "${_ONLY}" != "gar" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gar-registry \
           --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
           --local-source=cloud/terraform/gcp/gar \
-          --inputs-file=terraform.tfvars
+          --inputs-file=terraform.tfvars 2>&1 | while read -r line; do printf "[%s] %s\n" "$(date '+%H:%M:%S')" "$line"; done
+        echo "[$(date)] Finished: gar"
 
   # Step 4: Publish Helm Charts to GAR
   - name: 'google/cloud-sdk:510.0.0-slim'
@@ -49,6 +58,8 @@ steps:
     args:
       - '-c'
       - |
+        set -o pipefail
+        echo "[$(date)] Starting: publish-charts"
         if [ "${_ONLY}" != "publish-charts" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         # Install Helm
         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
@@ -74,10 +85,13 @@ steps:
           rm "$$CHART_NAME-$$CHART_VERSION.tgz"
         }
         
-        push_chart "cloud/helm/default"
-        push_chart "cloud/helm/gcp"
-        push_chart "cloud/helm/gcp-infrastructure"
-        push_chart "cloud/helm/gcp-infrastructure-provider"
+        {
+          push_chart "cloud/helm/default"
+          push_chart "cloud/helm/gcp"
+          push_chart "cloud/helm/gcp-infrastructure"
+          push_chart "cloud/helm/gcp-infrastructure-provider"
+        } 2>&1 | while read -r line; do printf "[%s] %s\n" "$(date '+%H:%M:%S')" "$line"; done
+        echo "[$(date)] Finished: publish-charts"
 
   # Step 5: Deploy the Network/Base stack
   - name: 'google/cloud-sdk:510.0.0-slim'
@@ -86,11 +100,14 @@ steps:
     args: 
       - '-c'
       - |
+        set -o pipefail
+        echo "[$(date)] Starting: gke"
         if [ "${_ONLY}" != "gke" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gke-network \
           --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
           --local-source=cloud/terraform/gcp/gke \
-          --inputs-file=terraform.tfvars
+          --inputs-file=terraform.tfvars 2>&1 | while read -r line; do printf "[%s] %s\n" "$(date '+%H:%M:%S')" "$line"; done
+        echo "[$(date)] Finished: gke"
 
   # Step 6: Deploy the Gitops Platform stack
   - name: 'google/cloud-sdk:510.0.0-slim'
@@ -99,11 +116,14 @@ steps:
     args:
       - '-c'
       - |
+        set -o pipefail
+        echo "[$(date)] Starting: platform"
         if [ "${_ONLY}" != "platform" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-platform \
           --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
           --local-source=cloud/terraform/gcp/gitops/platform \
-          --inputs-file=terraform.tfvars
+          --inputs-file=terraform.tfvars 2>&1 | while read -r line; do printf "[%s] %s\n" "$(date '+%H:%M:%S')" "$line"; done
+        echo "[$(date)] Finished: platform"
 
   # Step 7: Deploy GitOps Resources
   - name: 'google/cloud-sdk:510.0.0-slim'
@@ -112,11 +132,14 @@ steps:
     args:
       - '-c'
       - |
+        set -o pipefail
+        echo "[$(date)] Starting: resources"
         if [ "${_ONLY}" != "resources" ] && [ "${_ONLY}" != "all" ]; then echo "Skipping..."; exit 0; fi
         gcloud infra-manager deployments apply projects/${PROJECT_ID}/locations/${_REGION}/deployments/gitops-resources \
           --service-account=projects/${PROJECT_ID}/serviceAccounts/infra-manager-runner@${PROJECT_ID}.iam.gserviceaccount.com \
           --local-source=cloud/terraform/gcp/gitops/resources \
-          --inputs-file=terraform.tfvars
+          --inputs-file=terraform.tfvars 2>&1 | while read -r line; do printf "[%s] %s\n" "$(date '+%H:%M:%S')" "$line"; done
+        echo "[$(date)] Finished: resources"
 
 substitutions:
   _REGION: 'us-central1'

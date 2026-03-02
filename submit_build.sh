@@ -39,6 +39,7 @@ TF_VAR_region="$REGION"
 gcloud config set project "$PROJECT_ID"
 
 echo "------------------------------------"
+echo "Build Started: $(date)"
 echo "Submitting Build for Project: $PROJECT_ID"
 echo "Region: $TF_VAR_region"
 echo "Only Step: $ONLY_STEP"

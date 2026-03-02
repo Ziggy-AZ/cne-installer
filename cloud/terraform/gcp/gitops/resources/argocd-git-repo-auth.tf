@@ -4,13 +4,15 @@
 # This stack configures how ArgoCD authenticates to your Git repositories.
 # It uses External Secrets Operator (ESO) to sync secrets from Google Secret Manager.
 
-# Using kubernetes_resource instead of manifest for better recovery from existing resources
-resource "kubernetes_resource" "git_repo_credentials_external_secret" {
+resource "kubernetes_manifest" "git_repo_credentials_external_secret" {
   depends_on = [
-    kubernetes_resource.git_repo_credentials_secret_store,
+    kubernetes_manifest.git_repo_credentials_secret_store,
   ]
+  field_manager {
+    force_conflicts = true
+    name            = local.terraform_manager_name
+  }
   for_each = local.git_repo_auth_configs
-  
   manifest = {
     apiVersion = "external-secrets.io/v1"
     kind       = "ExternalSecret"
@@ -113,7 +115,11 @@ resource "kubernetes_resource" "git_repo_credentials_external_secret" {
   }
 }
 
-resource "kubernetes_resource" "git_repo_credentials_secret_store" {
+resource "kubernetes_manifest" "git_repo_credentials_secret_store" {
+  field_manager {
+    force_conflicts = true
+    name            = local.terraform_manager_name
+  }
   for_each = local.git_repo_auth_configs
   manifest = {
     apiVersion = "external-secrets.io/v1"
