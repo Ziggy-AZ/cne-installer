@@ -86,11 +86,13 @@ locals {
   oidc_provider                     = "${var.project_id}.svc.id.goog"
   terraform_manager_name            = "liferay-cloud-native-terraform"
 
-  # Extract repository paths (e.g., "org/repo") from URLs for WIF conditions
-  # This matches both https://github.com/org/repo and git@github.com:org/repo.git
-  git_repo_path_regex = "github\\.com[/:][^/]+/[^/.]+"
-  
-  workspace_repo_path    = can(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url)) ? replace(regex(local.git_repo_path_regex, var.liferay_workspace_git_repo_url), "/^github\\.com[/:]/", "") : var.liferay_workspace_git_repo_url != "" ? var.liferay_workspace_git_repo_url : null
+  # Robustly extract "owner/repo" from various GitHub URL formats:
+  # https://github.com/owner/repo/ -> owner/repo
+  # https://github.com/owner/repo.git -> owner/repo
+  # git@github.com:owner/repo.git -> owner/repo
+  github_repo_name = var.liferay_workspace_git_repo_url != "" ? trim(replace(replace(replace(var.liferay_workspace_git_repo_url, "/^https?:\\/\\/github\\.com\\//", ""), "/^git@github\\.com:/", ""), "/\\.git$/", ""), "/") : ""
+
+  workspace_repo_path = local.github_repo_name != "" ? local.github_repo_name : null
 
   # Create a unique suffix based on the URL to prevent "already exists" errors during recovery
   repo_url_hash = substr(sha256(var.liferay_git_repo_url), 0, 6)
