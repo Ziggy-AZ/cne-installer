@@ -37,9 +37,11 @@ RESOURCES_ROLES=(
     "roles/monitoring.metricWriter"
     "roles/serviceusage.serviceUsageAdmin"
     "roles/iam.workloadIdentityPoolAdmin"
-    "roles/config.admin"
-    "roles/servicenetworking.networksAdmin"
-)
+    "roles/config.admin",
+    "roles/servicenetworking.networksAdmin",
+    "roles/iam.serviceAccountUser"
+    )
+
 
 echo "Ensuring project-level IAM bindings..."
 for ROLE in "${RESOURCES_ROLES[@]}"; do
