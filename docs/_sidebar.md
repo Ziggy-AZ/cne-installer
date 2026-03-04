@@ -2,8 +2,9 @@
 - Architecture
   - [Harmonization Summary](architecture/harmonization-summary.md)
   - [Harmonization Plan](architecture/harmonization-plan.md)
-  - [Artifact Management](architecture/artifact-management-comparison.md)
   - [Application Delivery](architecture/application-delivery-comparison.md)
+  - [Artifact Management](architecture/artifact-management-comparison.md)
+  - [Bootstrap & POC](architecture/bootstrap-comparison.md)
   - [Gateway Comparison](architecture/gateway-comparison.md)
   - [GitOps Platform](architecture/gitops-platform-comparison.md)
   - [Infrastructure Provisioning](architecture/infrastructure-provisioning-comparison.md)
