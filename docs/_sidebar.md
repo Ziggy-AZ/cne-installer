@@ -1,7 +1,15 @@
 - [Home](README.md)
 - Architecture
+  - [Harmonization Summary](architecture/harmonization-summary.md)
   - [Harmonization Plan](architecture/harmonization-plan.md)
+  - [Artifact Management](architecture/artifact-management-comparison.md)
+  - [Application Delivery](architecture/application-delivery-comparison.md)
   - [Gateway Comparison](architecture/gateway-comparison.md)
+  - [GitOps Platform](architecture/gitops-platform-comparison.md)
+  - [Infrastructure Provisioning](architecture/infrastructure-provisioning-comparison.md)
+  - [Kubernetes Orchestration](architecture/kubernetes-orchestration-comparison.md)
+  - [Resource Compositions](architecture/resource-compositions-comparison.md)
+  - [VPC Comparison](architecture/vpc-comparison.md)
 - Tools
   - [GitHub App Generator](github-app-generator.html)
 - Main Project
