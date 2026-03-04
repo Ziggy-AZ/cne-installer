@@ -48,5 +48,5 @@ else
 fi
 
 echo "------------------------------------"
-echo "✅ Secret stored successfully!"
+echo "SUCCESS: Secret stored successfully."
 echo "------------------------------------"
