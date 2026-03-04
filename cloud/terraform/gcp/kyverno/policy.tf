@@ -29,9 +29,12 @@ resource "helm_release" "kyverno_policies" {
 										{
 											resources={
 												namespaces=[
+													"argo-cd",
 													"gatekeeper-system",
 													"gke-system",
+													"infra",
 													"kube-system",
+													"kyverno"
 												]
 											}
 										}
@@ -81,9 +84,6 @@ resource "helm_release" "kyverno_policies" {
 													]
 												}
 											}
-											# REMOVED: forced tolerations. 
-											# By removing the toleration, pods will only go to Spot nodes IF they are preferred,
-											# but will schedule on Standard nodes immediately if Spot is unavailable.
 										}
 									}
 								}
