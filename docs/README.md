@@ -2,23 +2,24 @@
 
 Welcome to the documentation for the **Liferay Cloud Native GCP Installer**. This project provides a robust, automated infrastructure for deploying Liferay DXP on Google Cloud Platform using GKE Autopilot, Crossplane, and ArgoCD.
 
-## Quick Links
+## Architecture & Harmonization
 
-- [Architecture Harmonization Plan](architecture/harmonization-plan.md)
-- [Kubernetes Gateway Comparison](architecture/gateway-comparison.md)
+Detailed comparisons between the GCP and AWS implementations:
+
+- **[Harmonization Summary](architecture/harmonization-summary.md)** (Feature Matrix & TODO)
+- [Application Delivery](architecture/application-delivery-comparison.md)
+- [Artifact Management](architecture/artifact-management-comparison.md)
+- [Gateway API](architecture/gateway-comparison.md)
+- [GitOps Platform](architecture/gitops-platform-comparison.md)
+- [Infrastructure Provisioning](architecture/infrastructure-provisioning-comparison.md)
+- [Kubernetes Orchestration](architecture/kubernetes-orchestration-comparison.md)
+- [Resource Compositions](architecture/resource-compositions-comparison.md)
+- [VPC Infrastructure](architecture/vpc-comparison.md)
+
+## Tools
+
 - [GitHub App Generator](github-app-generator.html)
-
-## Project Overview
-
-This repository contains the Terraform and Helm configurations required to bootstrap a complete Liferay environment. 
-
-### Key Components
-
-- **GKE Autopilot**: Secure, managed Kubernetes cluster.
-- **Crossplane**: Infrastructure-as-Code inside Kubernetes.
-- **ArgoCD**: GitOps continuous delivery.
-- **Envoy Gateway**: Modern ingress management via the Gateway API.
 
 ## Getting Started
 
-To begin the installation, refer to the [root README](../README.md) and the [setup tutorial](../tutorial.md) in the main repository.
+To begin the installation, refer to the [Root README](https://github.com/Ziggy-AZ/cne-installer/blob/main/README.md) and the [Setup Tutorial](https://github.com/Ziggy-AZ/cne-installer/blob/main/tutorial.md) in the main repository.

@@ -13,5 +13,5 @@
 - Tools
   - [GitHub App Generator](github-app-generator.html)
 - Main Project
-  - [Root README](../README.md)
-  - [Setup Tutorial](../tutorial.md)
+  - [Root README](https://github.com/Ziggy-AZ/cne-installer/blob/main/README.md)
+  - [Setup Tutorial](https://github.com/Ziggy-AZ/cne-installer/blob/main/tutorial.md)
