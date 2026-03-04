@@ -23,19 +23,22 @@ resource "helm_release" "kyverno_policies" {
 					spec={
 						background=false
 						rules=[
-							exclude={
-								any=[
-									{
-										resources={
-											namespaces=[
-												"gatekeeper-system",
-												"gke-system",
-												"kube-system",
-											]
+							{
+								exclude={
+									any=[
+										{
+											resources={
+												namespaces=[
+													"argo-cd",
+													"gatekeeper-system",
+													"gke-system",
+													"infra",
+													"kube-system",
+												]
+											}
 										}
-									}
-								]
-							}
+									]
+								}
 								match={
 									any=[
 										{
