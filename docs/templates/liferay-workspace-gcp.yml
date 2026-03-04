@@ -1,70 +1,70 @@
 name: Liferay Workspace GCP Deployment
 
 on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to (e.g. dev, prd)'
-        required: true
-        default: 'dev'
+    push:
+      branches: [ "main" ]
+    workflow_dispatch:
+      inputs:
+        environment:
+          description: 'Environment to deploy to (e.g. dev, prd)'
+          required: true
+          default: 'dev'
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write'
+    build-and-deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: 'read'
+        id-token: 'write'
 
-    env:
-      # These come from GitHub Actions Variables (automatically set by the installer)
-      GCP_REGION: ${{ vars.GCP_REGION }}
-      GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
-      GCP_GAR_REPOSITORY: ${{ vars.GCP_GAR_REPOSITORY }}
-      GCP_WIF_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-      GCS_BUCKET_PREFIX: ${{ vars.GCS_BUCKET_PREFIX }}
-      
-      # Target environment (default to dev for branch pushes)
-      DEPLOY_ENV: ${{ github.event.inputs.environment || 'dev' }}
+      env:
+        # These come from GitHub Actions Variables (automatically set by the installer)
+        GCP_REGION: ${{ vars.GCP_REGION }}
+        GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+        GCP_GAR_REPOSITORY: ${{ vars.GCP_GAR_REPOSITORY }}
+        GCP_WIF_PROVIDER: ${{ vars.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        GCS_BUCKET_PREFIX: ${{ vars.GCS_BUCKET_PREFIX }}
+        
+        # Target environment (default to dev for branch pushes)
+        DEPLOY_ENV: ${{ github.event.inputs.environment || 'dev' }}
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'microsoft'
-          cache: 'gradle'
+        - name: Set up JDK 21
+          uses: actions/setup-java@v4
+          with:
+            java-version: '21'
+            distribution: 'microsoft'
+            cache: 'gradle'
 
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ env.GCP_WIF_PROVIDER }}
+        - name: Authenticate to Google Cloud
+          id: auth
+          uses: google-github-actions/auth@v2
+          with:
+            workload_identity_provider: ${{ env.GCP_WIF_PROVIDER }}
 
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
+        - name: Set up Cloud SDK
+          uses: google-github-actions/setup-gcloud@v2
 
-      - name: Configure Docker for GAR
-        run: |
-          gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
+        - name: Configure Docker for GAR
+          run: |
+            gcloud auth configure-docker ${{ env.GCP_REGION }}-docker.pkg.dev --quiet
 
-      - name: Build and Push (OSGi + Client Extensions)
-        run: |
-          chmod +x gradlew
-          # This builds OSGi modules AND runs client extension build/push tasks
-          ./gradlew build deploy
+        - name: Build and Push (OSGi + Client Extensions)
+          run: |
+            chmod +x gradlew
+            # This builds OSGi modules AND runs client extension build/push tasks
+            ./gradlew build deploy
 
-      - name: Upload OSGi modules to GCS
-        uses: google-github-actions/upload-cloud-storage@v2
-        with:
-          path: bundles/osgi/modules/
-          # The installer grants access to any bucket starting with prefix and ending with -overlay
-          # Match your environment's specific bucket name here.
-          destination: ${{ env.GCS_BUCKET_PREFIX }}-${{ env.DEPLOY_ENV }}-overlay/workspace_build_${{ github.run_number }}/osgi/
-          parent: false
-          process_gcloudignore: false
-          gzip: false
+        - name: Upload OSGi modules to GCS
+          uses: google-github-actions/upload-cloud-storage@v2
+          with:
+            path: bundles/osgi/modules/
+            # The installer grants access to any bucket starting with prefix and ending with -overlay
+            # Match your environment's specific bucket name here.
+            destination: ${{ env.GCS_BUCKET_PREFIX }}-${{ env.DEPLOY_ENV }}-overlay/workspace_build_${{ github.run_number }}/osgi/
+            parent: false
+            process_gcloudignore: false
+            gzip: false

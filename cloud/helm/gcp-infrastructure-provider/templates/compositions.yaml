@@ -1,50 +1,50 @@
 {{- $templates := list -}}
 {{- range $path, $_ := .Files.Glob "compositions/**" -}}
-  {{- $content := $.Files.Get $path | trim -}}
-  {{- if $content -}}
-    {{- $templates = append $templates $content -}}
-  {{- end -}}
+      {{- $content := $.Files.Get $path | trim -}}
+      {{- if $content -}}
+        {{- $templates = append $templates $content -}}
+      {{- end -}}
 {{- end -}}
 {{- $templateHash := join "\n" $templates | sha256sum -}}
 apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
-  # checkov:skip=CKV_K8S_21:Namespace is set dynamically by Helm/ArgoCD
-  annotations:
-    argocd.argoproj.io/sync-wave: "-50"
-    liferay.com/template-hash: {{ $templateHash | quote }}
-  labels:
-    liferay.com/template-hash: {{ printf "h-%s" $templateHash | trunc 63 | quote }}
-  name: liferay-gcp-infrastructure-provider.gcp.liferay.com
+      # checkov:skip=CKV_K8S_21:Namespace is set dynamically by Helm/ArgoCD
+      annotations:
+        argocd.argoproj.io/sync-wave: "-50"
+        liferay.com/template-hash: {{ $templateHash | quote }}
+      labels:
+        liferay.com/template-hash: {{ printf "h-%s" $templateHash | trunc 63 | quote }}
+      name: liferay-gcp-infrastructure-provider.gcp.liferay.com
 spec:
-  compositeTypeRef:
-    apiVersion: gcp.liferay.com/v1alpha1
-    kind: LiferayInfrastructure
-  mode: Pipeline
-  pipeline:
-    - step: environment-configs
-      functionRef:
-        name: function-environment-configs
-      input:
-        apiVersion: environmentconfigs.fn.crossplane.io/v1beta1
-        kind: Input
-        spec:
-          environmentConfigs:
-          - type: Reference
-            ref: 
-              name: environment-config
-          - type: Reference
-            ref: 
-              name: liferay-template-store
-    - step: go-templating
-      functionRef:
-        name: function-go-templating
-      input:
-        apiVersion: template.fn.crossplane.io/v1beta1
-        kind: GoTemplate
-        source: Environment
-        environment:
-          key: liferay-templates
-    - step: auto-ready
-      functionRef:
-        name: function-auto-ready
+      compositeTypeRef:
+        apiVersion: gcp.liferay.com/v1alpha1
+        kind: LiferayInfrastructure
+      mode: Pipeline
+      pipeline:
+        - step: environment-configs
+          functionRef:
+            name: function-environment-configs
+          input:
+            apiVersion: environmentconfigs.fn.crossplane.io/v1beta1
+            kind: Input
+            spec:
+              environmentConfigs:
+              - type: Reference
+                ref: 
+                  name: environment-config
+              - type: Reference
+                ref: 
+                  name: liferay-template-store
+        - step: go-templating
+          functionRef:
+            name: function-go-templating
+          input:
+            apiVersion: template.fn.crossplane.io/v1beta1
+            kind: GoTemplate
+            source: Environment
+            environment:
+              key: liferay-templates
+        - step: auto-ready
+          functionRef:
+            name: function-auto-ready

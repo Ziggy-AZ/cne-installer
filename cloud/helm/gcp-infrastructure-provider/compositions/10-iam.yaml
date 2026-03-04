@@ -3,46 +3,46 @@
 apiVersion: cloudplatform.gcp.m.upbound.io/v1beta1
 kind: ServiceAccount
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-gsa
-  name: {{ $gsaName }}
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-gsa
+      name: {{ $gsaName }}
 spec:
-  forProvider:
-    displayName: "Liferay {{ $gsaName }} Service Account"
+      forProvider:
+        displayName: "Liferay {{ $gsaName }} Service Account"
 ---
 # 2. Workload Identity Binding
 apiVersion: cloudplatform.gcp.m.upbound.io/v1beta1
 kind: ServiceAccountIAMMember
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-wi-binding
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-wi-binding
 spec:
-  forProvider:
-    serviceAccountIdRef:
-      name: {{ $gsaName }}
-    role: roles/iam.workloadIdentityUser
-    member: "serviceAccount:{{ $env.projectId }}.svc.id.goog[{{ $namespace }}/liferay-default]"
+      forProvider:
+        serviceAccountIdRef:
+          name: {{ $gsaName }}
+        role: roles/iam.workloadIdentityUser
+        member: "serviceAccount:{{ $env.projectId }}.svc.id.goog[{{ $namespace }}/liferay-default]"
 ---
 # 3. Grant SQL User role to the GSA
 apiVersion: cloudplatform.gcp.m.upbound.io/v1beta1
 kind: ProjectIAMMember
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-sql-instance-user-role
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-sql-instance-user-role
 spec:
-  forProvider:
-    project: {{ $env.projectId }}
-    role: roles/cloudsql.instanceUser
-    member: "serviceAccount:{{ $gsaEmail }}"
+      forProvider:
+        project: {{ $env.projectId }}
+        role: roles/cloudsql.instanceUser
+        member: "serviceAccount:{{ $gsaEmail }}"
 ---
 # 4. Grant SQL Client role to the GSA
 apiVersion: cloudplatform.gcp.m.upbound.io/v1beta1
 kind: ProjectIAMMember
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-sql-client-role
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-sql-client-role
 spec:
-  forProvider:
-    project: {{ $env.projectId }}
-    role: roles/cloudsql.client
-    member: "serviceAccount:{{ $gsaEmail }}"
+      forProvider:
+        project: {{ $env.projectId }}
+        role: roles/cloudsql.client
+        member: "serviceAccount:{{ $gsaEmail }}"

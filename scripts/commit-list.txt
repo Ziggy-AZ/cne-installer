@@ -1,0 +1,2745 @@
+commit 0f7f3a9c0df0b5e8b1a65227387394286d53bbb9
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:39:28 2026 -0300
+
+    LCD-49975 Wordsmith, like a Tesla car, not a Tesla Car
+
+commit cac4b1fbb819d7e9fedd262a5606c8b001d44e92
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:37:37 2026 -0300
+
+    LCD-49975 Wordsmith
+
+commit 51926d98803a277fb6cd6e55de9f56c27aa6b13c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:37:05 2026 -0300
+
+    LCD-49975 Use "
+
+commit 4052e0bcf526501c9c30a5566f0c5c9d4e83c6c7
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:36:57 2026 -0300
+
+    LCD-49975 Consistency
+
+commit 4939b481d3c30bae0b50c604f745d33ee8dbe8d7
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:35:59 2026 -0300
+
+    LCD-49975 Consistency
+
+commit cd32ce759f4078fa79b4697eee9f8aeffe3c803c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:35:34 2026 -0300
+
+    LCD-49975 Wordsmith
+
+commit 5563d217d4cecc1f984969d90bc5454539ed6b60
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:35:17 2026 -0300
+
+    LCD-49975 Brand name is Argo CD
+
+commit a2b35f0d5371aa65bb887d90ff588478c86d70bd
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:34:43 2026 -0300
+
+    LCD-49975 Match shell scripts in liferay-docker
+
+commit c1838f33955c0201e16f242790bce9ce3a7fcb78
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 3 07:33:43 2026 -0300
+
+    LCD-49975 Show dependency
+
+commit e03d998acc365771d38f9ce05949b1b5e141315d
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Fri Feb 27 10:23:55 2026 -0600
+
+    LCD-49975 Add back required export
+
+commit 4dd42dfa3d62baa6c3d97be019d740eba6d424d8
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Fri Feb 27 13:10:59 2026 -0300
+
+    LCD-49975 No need
+
+commit 9b66fb1a76b4db23bac17e68ff0e18684e1244ac
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Fri Feb 27 13:06:06 2026 -0300
+
+    LCD-49975 SF
+
+commit 058c738d2c14fecc91a7f6392908bbd3d9161d65
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Fri Feb 27 09:28:37 2026 -0600
+
+    LCD-49975 SF
+
+commit 7f9a8713091ceb7cff1d01cefadd4ecfa9cd9b46
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Wed Feb 25 19:19:11 2026 -0600
+
+    LCD-49975 SF
+
+commit 76c9dbbf3c0235a16aa3f46f491890e005e49118
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Wed Feb 25 19:16:11 2026 -0600
+
+    LCD-49975 Bump bootstrap version
+
+commit 23ad7d8e9983e3bf1230addc69ff4e0b26d316a9
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Wed Feb 25 19:13:01 2026 -0600
+
+    LCD-49975 Support user-defined argocd namespace name
+
+commit 10d8373b95822945d62bf4df694a3e9a548a59b8
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Tue Feb 24 16:28:19 2026 -0600
+
+    LCD-49975 Remove defaults for region and deployment_name
+
+commit 94ce18990bc8a6d0e4c0f7f832456dd7b762bc91
+Author: Brian Greenwald <brian.greenwald@liferay.com>
+Date:   Tue Feb 24 16:27:46 2026 -0600
+
+    LCD-49975 Add script to bootstrap aws setup from a single config file
+
+commit 16da26940b3db826e896c11abf756266ec82a081
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Mon Mar 2 14:31:01 2026 -0600
+
+    LCD-49854 use latest version
+
+commit 19f7b7ba6b9da58f21513621531b38a4c62f4955
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Mon Mar 2 14:29:55 2026 -0600
+
+    LCD-49810 use latest versions
+
+commit 1ddf42875a69a249c26fa6ddaf0648890f4c6043
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Mon Mar 2 11:27:10 2026 -0600
+
+    LCD-49931 until we improve bootstrap experience leave files in tmp
+
+commit a8de7f9f46f5b8ef2f5bf281e9a2b56e41a24467
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Mon Mar 2 11:26:23 2026 -0600
+
+    LCD-49931 fix sf error
+
+commit 42ec5172c8df85a6316732b60f4ad0e8c1faa279
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Feb 28 12:29:36 2026 +0800
+
+    LCD-49854 Auto SF
+
+commit a86c9747bd7fc86138338fc4636e3f0adfcb404f
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Feb 27 13:54:08 2026 -0300
+
+    LCD-50044 Remove invalid argocd configuration
+
+commit 5e7eebf6b7b3d7dc0387788558a8761d0e6f1431
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 26 16:04:00 2026 -0300
+
+    LCD-49854 Install `eck-operator` via kustomize
+
+commit e8d6bf575023b973c9a72e85120db0067d8eec60
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 26 16:03:38 2026 -0300
+
+    LCD-49854 Grant permissions to ArgoCD to install helm charts via kustomize
+
+commit 7964a510ea9c33da1c62c56740e5cf1aa29af568
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 26 16:02:57 2026 -0300
+
+    LCD-49854 Update opensearch config structure to be `search.opensearch`
+
+commit 5d4b306aa10d2f5811982de276fc9c1e3532cbed
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Feb 27 09:11:39 2026 -0300
+
+    LCD-49931 Rename
+
+commit ddb52ca8e7ff500467337a9313bf190ed8f8c02c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Feb 27 09:10:53 2026 -0300
+
+    LCD-49931 SF
+
+commit 16a598ff9c12a4959c97924ad6e1eadff6c2289f
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Feb 27 09:07:23 2026 -0300
+
+    LCD-49931 We only have to separate them if we are checking the return status with the special 0 symbol, which we are not doing here
+
+commit 865787a223399d1215efdfbe2d98a79b400a1c51
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 26 13:23:48 2026 -0600
+
+    LCD-49931 sort
+
+commit 0e30a6e424c6335e193cc8ea73f31ced6c22d2b2
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 26 12:55:34 2026 -0600
+
+    LCD-49931 fixes
+
+commit 8bc890f290c9f4ee22170b92aa581c4514529a19
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Feb 26 14:55:03 2026 -0300
+
+    LCD-49931 Wordsmith
+
+commit 03ddc1fdd64a8f6aa5c9a4f48afe61cf4b55c416
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 26 09:21:13 2026 -0600
+
+    LCD-49931 review
+
+commit 1927c24e6513fecdd85bacfc90b015edc10e6347
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Wed Feb 25 15:40:41 2026 -0600
+
+    LCD-49931 initial bootstrap.sh
+
+commit 5ec23b15b9d8c20c27885c36ae94a2a8dcd998fe
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Feb 26 11:26:35 2026 -0500
+
+    LCD-49942 Restore default:false for booleans
+
+commit b0c70cec051f238e6db5628a5b3c3c4cd884bc25
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 21:13:19 2026 -0500
+
+    LCD-49942 Make nested region settings optional, fallback to baseRegion
+
+commit 52e4dad36233e3a7bdcb7485495e0c865c828486
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 21:11:19 2026 -0500
+
+    LCD-49942 Consolidate defaults toward values.yaml, remove unnecessary default settings
+
+commit 1a17716a21fa6fa0eec51615c2d7515860a533c6
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 21:08:17 2026 -0500
+
+    LCD-49942 Add sensible portalProperties defaults
+
+commit 27533e0917a277b325aad0576a00fc1c5423abe6
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Feb 26 08:42:26 2026 -0500
+
+    LCD-49817 SF
+
+commit 07e0534712d9f6b2fdbd667f6ce8db6f7d12e25a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 21:05:32 2026 -0500
+
+    LCD-49817 Domain configuration for Argo
+
+commit 209e2bfa3537ac69080b36eda1c5cb978ac1b7e2
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Feb 26 09:16:22 2026 -0300
+
+    LCD-49810 Simplify
+
+commit 616a3bdfb8b0a45e1b0dc970242fd6aebc358e35
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 17:24:43 2026 -0500
+
+    LCD-49810 Clarify security group rules, remove unnecessary EnvoyProxy annotations
+
+commit bc6ef53189cde1b89baf104e4d829b6ffb621458
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 13:36:29 2026 -0500
+
+    LCD-49810 Make robotic
+
+commit b97442eebb5ef473a351314c0c18b8fe4015c809
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 12:22:01 2026 -0500
+
+    LCD-49810 Improve Helm error message
+
+commit 1eb4ed7a1b0403d45d0f28c780b9d0bf5202ba04
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 25 10:55:19 2026 -0500
+
+    LCD-49810 Fixes to merge issues on master
+
+commit c7f2577c35b8a18d91325c509d2446eb5d7c8b96
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Feb 24 15:44:25 2026 -0500
+
+    LCD-49810 Fixes
+
+commit e9f02895795aea3549a9c0c052581415344b99fc
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Feb 24 15:41:57 2026 -0500
+
+    LCD-49810 Fixes
+
+commit f30a0bba2c87a79ece12c5b29db9926b9c2e3372
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Feb 24 15:39:11 2026 -0500
+
+    LCD-49810 Fixes
+
+commit 77f153648400bf212fadb0c39ab1766f97cdd68b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Feb 24 08:50:10 2026 -0500
+
+    LCD-49810 Reorganize secret store blocks
+
+commit ccd214020a4664f0a4bc1dd56d31959608befbf3
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 16:37:49 2026 -0500
+
+    LCD-49810 SF
+
+commit 621185e3b3bc9f66e3d19a1597c88a80b930d50a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 14:59:41 2026 -0500
+
+    LCD-49810 SF
+
+commit 98fe3cc7b2f8ac6c672bff6090a069db333a48f1
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 04:50:12 2026 -0500
+
+    LCD-49810 Fix after rebase
+
+commit 9848b656473175ff2d9283e92cb8f3b4e58e0867
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 04:47:25 2026 -0500
+
+    LCD-49810 SF
+
+commit 59ebba1543350f4450d8583c3b7167de1c70d6c5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 04:45:06 2026 -0500
+
+    LCD-49810 Fix after rebase
+
+commit a247d0a77af2e100f5610dbd505d9af7015452c1
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:47:36 2026 -0500
+
+    LCD-49810 Add labels to appset apps
+
+commit db74534bc303eb0c80c5e5cf78a8aa072bd985f3
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:45:30 2026 -0500
+
+    LCD-49810 Move EnvoyProxy and GatewayClass into aws-infrastructure-provider chart, make configurable via gitops
+
+commit 2db002f647c68bd749bc74238a4c58b1d1b5a0f5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:42:04 2026 -0500
+
+    LCD-49810 Improve gateway UI naming
+
+commit 1468e8174469353e9ee48ed9310dae15ff3c6e8a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:36:48 2026 -0500
+
+    LCD-49810 Improve sanitization of k8s friendly string
+
+commit 923c676945780d980e879dd2cd1310928932983d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:36:25 2026 -0500
+
+    LCD-49810 Remove hardcoding of crossplane namespace
+
+commit 520d39be07a50b9581cfa2546fa6a1a707b6dcb8
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:36:00 2026 -0500
+
+    LCD-49810 Remove unnecessary crossplane rolebinding groups
+
+commit dece3d551ab7adf498491c748cd9de1a64361dbe
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:35:32 2026 -0500
+
+    LCD-49810 Ensure rbac exists before crossplane needs it
+
+commit f368a3e22648c88674eaa7f031dd5e0f1507fbf7
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 20 03:35:00 2026 -0500
+
+    LCD-49810 Use domainNameSelector instead of explicit domainName on DomainPolicy to reduce API overload
+
+commit 0e53f831afa5a09fe4525f756bd939a01baa24eb
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Feb 18 16:17:39 2026 -0500
+
+    LCD-49810 Restore UX and re-evaluate naming on 'dev mode' changes
+
+commit f36a3f1b96b7d042c7f099c01aaeaae05130f4be
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 23:11:51 2026 -0500
+
+    LCD-49810 Add missing syncOptions
+
+commit 89bf5e48578b5cb3d7969b61ca186f1d8150bdc0
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:47:01 2026 -0500
+
+    LCD-49810 SF
+
+commit 44a7e34965ed7e396bdd5b6cb30d764f1c52828b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:43:37 2026 -0500
+
+    LCD-49810 SF
+
+commit 890aadea60236aab445d4bb5b0b7ec9e15201e8d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:13:42 2026 -0500
+
+    LCD-49810 Implement ArgoCD optimizations, tune resources according to benchmarking
+
+commit 5fa09520f42250508caa1477c67ec13cadf22a61
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:12:56 2026 -0500
+
+    LCD-49810 Increase crossplane resources
+
+commit 07c01adb8268563b9d05e30ee3d0dd15dd84e525
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:12:25 2026 -0500
+
+    LCD-49810 Remove upgrade_install
+
+commit 6cc8d23b5614ad51815b45c0ef8a792760e79d18
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:10:55 2026 -0500
+
+    LCD-49810 Implement TLS and License mechanisms
+
+commit e837e1cf4081f7c9d82046e9ffb28271167c5bc5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:09:23 2026 -0500
+
+    LCD-49810 Generalize ESO to cluster-scope, update interfaces accordingly
+
+commit 0c0bb2d8ba61c64bbee8947e333c3511980b0f07
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:06:07 2026 -0500
+
+    LCD-49810 Update hashicorp/aws provider version
+
+commit 48c41781e0efbfa0153e7a33b596b3a195430c8e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 22:05:23 2026 -0500
+
+    LCD-49810 Implement Envoy Gateway API
+
+commit 39b887797aab495a87baaaf9579af583cf7007e8
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 21:49:29 2026 -0500
+
+    LCD-49810 Improve value formatting
+
+commit 4bc7960f03218fef7476d77c905a777052406e4e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 21:49:03 2026 -0500
+
+    LCD-49810 Expose database engine
+
+commit 5d27913a60aa257e3eb72611ecfe5f9f82a11ae0
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Feb 13 21:48:15 2026 -0500
+
+    LCD-49810 Improve uidHash uniqueness
+
+commit ffb3b18dbf4b4607241df5fd37eb91a0cf120897
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Feb 24 14:22:11 2026 -0600
+
+    LCD-49898 add placeholder file for aws bootstrap script
+    
+    The full implementation of the bootstrap script will be added in
+    LCD-49803
+
+commit b812fd5608d5c834ba80691b840c4a109615eccb
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Feb 24 14:20:54 2026 -0600
+
+    LCD-49898 add github action for publishing aws bootstrap scripts
+
+commit 7ede26bd00f0530358d921c26b0a31c04bbe61f0
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Feb 23 19:28:42 2026 -0600
+
+    LCD-49986 Update clusterworkflowtemplate
+
+commit f2715604cb6bb9ec8854f4b2ce46b52e713c0aeb
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Feb 23 19:29:28 2026 -0600
+
+    LCD-49987 Update script templates
+
+commit 63bba5280aee5bdc3bca5a8344f9d61ebc5ef150
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Feb 24 09:13:52 2026 -0600
+
+    LCD-49930 Update to crossplane implementation for all files except _scripts.tpl and argoworkflowtemplate.yaml
+
+commit 3025b8fe12b4fa3658141b7c5f0a791b94cf73ff
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Sat Feb 21 05:33:30 2026 -0600
+
+    LCD-49885 SF
+
+commit ba65045f3dd891a643dbc2216687ff96660566af
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 13:23:02 2026 -0600
+
+    LCD-49885 track owner reference for managed service details
+
+commit 87ba5955d4e7272b595699aafca1f7fb0515b33e
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:29:42 2026 -0600
+
+    LCD-49885 match argocd nomenclature
+
+commit 84aecd8246295f2c706f5e958de7622c5c2626b4
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:25:03 2026 -0600
+
+    LCD-49885 fix status
+
+commit 7f2d693ba2361bf8eb9cf544715d55c57c711d7b
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:22:26 2026 -0600
+
+    LCD-49885 rename
+
+commit 821a90743d4dc23adf1c65caf6ec50a26928ebba
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:14:41 2026 -0600
+
+    LCD-49885 normalize
+
+commit ccf72e9f02d4ee612e61595005bb83e30969588b
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:10:22 2026 -0600
+
+    LCD-49885 normalize
+
+commit 61b0dfbc7672457723c573d3ec3a2258cf2bff69
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 19 11:07:33 2026 -0600
+
+    LCD-49885 simplify
+
+commit 69aa55828571acaf98209fd4013131b62b86b58a
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Fri Feb 13 10:40:53 2026 -0600
+
+    LCD-49885 provide custom health details for LiferayInfrastructure resource
+
+commit d15a087f81341ae8c1d18d48c0585c14a2d8f7a3
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Feb 23 13:24:06 2026 -0300
+
+    LCD-49855 Can I sort this?
+
+commit ab1cbca2fcf79427fb60ad7b677fb2f033b30c82
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 23 11:55:52 2026 -0300
+
+    LCD-49855 Update Opensearch specs
+
+commit c1700aaf789d945a91945c299bc2abc2169a8238
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 23 10:37:29 2026 -0300
+
+    LCD-49855 SF
+
+commit 352db78ff67e140890b0f8d4fe23a4c4337e6683
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 23 09:39:38 2026 -0300
+
+    LCD-49855 Update CRD to have extra properties from Elasticsearch spec
+
+commit 5f519a05b7ce3c33bf94aff6054a579a510d51f5
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 23 09:19:23 2026 -0300
+
+    LCD-49855 Relocate default values
+
+commit 6ddb714ababfa97ae23749376a43cd702b98e563
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 23 09:11:53 2026 -0300
+
+    LCD-49855 Make OpenSearch initContainer soft-fail to prevent deployment blocks on non-standard non-slim images
+
+commit 0bbc129be28447c4c6811a30e190c99579318e4d
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Feb 20 18:44:58 2026 -0300
+
+    LCD-49855 Simplify configs between ES and OS
+
+commit a73bc861aa18224b75c9e4a989d41268bef8a8a7
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Feb 13 12:59:53 2026 -0300
+
+    LCD-49855 Store required information to allow Liferay to configure to Elasticsearch
+
+commit fe737417ad77e3c91ed667b4c62ef8810f7ae666
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Feb 13 12:59:19 2026 -0300
+
+    LCD-49855 SF
+
+commit 8074114a835887def802445c7ad50bcb5c786a38
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 12 16:07:23 2026 -0300
+
+    LCD-49855 Create toggle for disabling ElasticSearch deployment
+
+commit a332c79e0635dfa4391b9b45dfa874351c5f87c6
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 12 16:01:15 2026 -0300
+
+    LCD-49855 Implement sensible defaults and allow k8s customization via Helm chart
+
+commit 849bd70fac7db2389e7b8ffcb0cdd2cfd1315a98
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 12 15:30:39 2026 -0300
+
+    LCD-49855 `mmap` should be configurable depending on specific ElasticSearch instances deployed
+    
+    Refer to
+    https://learn.liferay.com/w/dxp/search/installing-and-upgrading-a-search-engine/elasticsearch/installing-elasticsearch#adjusting-mmap
+
+commit 8bb001cbfdd336710765f0a2f0a3844665861167
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Feb 12 10:25:18 2026 -0300
+
+    LCD-49855 Add ElasticSearch instances under `aws-infrastructure` chart
+
+commit 7188e52e0dc9c0c77387a0fb1101fa3471eb30dd
+Author: Bryan Engler <bryan.engler@liferay.com>
+Date:   Mon Feb 2 12:02:58 2026 -0800
+
+    LPD-76358 Prepare to replace elasticsearch 7 with elasticsearch 8
+
+commit 2baedd613e0b61a4ecee39a84c526ebb1ca851d0
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Feb 19 14:34:09 2026 -0600
+
+    LCD-49902 backup-restore chart should construct base name of resources
+
+commit 6cf289e0bda37cecee318b36ecf5aadc43869e26
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Feb 18 16:39:35 2026 -0600
+
+    LCD-49892 Add parameters needed for a backup restore and simplify UX
+
+commit 529a93cb8c2636a90d0de4b8848a38fb1b8af666
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Feb 12 11:03:08 2026 -0600
+
+    LCD-49881 Install argo-workflows helm chart
+
+commit 5e644d1114292ed65d76c3dc5988d5321059a751
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Feb 13 11:54:19 2026 -0600
+
+    LCD-49882 Add resources for backup restore
+
+commit 87c6cd193c2a8e09f682b845a809ee28611fc2fc
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Feb 11 17:22:57 2026 -0600
+
+    LCD-49733 Inconsistent use of json in this file, standardize with strict syntax of data resources
+
+commit deda328aba58fe00329093c54fe57561dcfe6ef3
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Feb 10 12:01:35 2026 -0600
+
+    LCD-49733 Fix JSON syntax
+
+commit 0a2d683e90af24ad7be0e8e59d0013a1685d248a
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Feb 12 10:05:23 2026 -0600
+
+    LCD-49733 Add backup creation resources to composition
+
+commit b51d803b87a9e0a6767b1f321ef3819e57b7f54f
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Feb 10 12:42:12 2026 -0600
+
+    LCD-49733 Add backup to schema and configure provider
+
+commit 189d751469775813a0fd9968bcac8b716cea10dd
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Feb 11 13:40:01 2026 -0600
+
+    LCD-49733 Add backup values to aws-infrastructure helm chart
+
+commit 218607cbe6d428a0206b3d1b0e5d1803db545e30
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Feb 11 14:28:33 2026 -0600
+
+    LCD-49733 Grant crossplane k8s service accounts necessary backup permissions
+
+commit 08e7865ed141ef0b76320ef5e35c9c10f7d661ea
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 9 11:26:26 2026 -0300
+
+    LCD-49512 Update curl statement to use dynamic URL
+
+commit 06972eeae197993e3b37e3329c88e913f5097528
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 9 11:25:43 2026 -0300
+
+    LCD-49512 Dynamically update URL format and product_version depending on what Liferay version the customer deploys
+
+commit 719b00cc6fa242337ec44e8359017276570f8a87
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Feb 9 10:01:51 2026 -0600
+
+    LCD-49802 Allow developers to use a git repo
+
+commit e52bd6e9ef6ff44b73c2deed8cf6c620d917fabe
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 5 10:45:33 2026 -0600
+
+    LPD-78078 bump versions to fix inadvertent GAR versions
+
+commit ea6ec8aba84f8ebb30280b29642cc029ee4c214e
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Feb 5 10:26:57 2026 -0600
+
+    LPD-78078 quote policies to prevent parse errors
+
+commit fd4224d30adaf134a3b7df25c69c6782355bf65f
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Feb 3 17:51:20 2026 -0600
+
+    LCD-49714 bump versions to properly update GAR
+    
+    Some intervening versions were inadvertently pushed directly to GAR
+    Bumping everything to 0.2.0 moves past invalid versions.
+
+commit ff80f6c5d0e9ee6da418f9764dc8c6a63cf942fa
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Feb 3 17:10:53 2026 -0600
+
+    LCD-49714 always enable portlet session replication
+    
+    Since the liferay-default helm chart always assumes that the tomcat
+    cluster session replication is overridden by our own Liferay component,
+    we must always enable the liferay portlet session replication since
+    LiferayDeltaManager assumes it.
+
+commit 7f876cebfb0feedef0decd3fdb5a339af26119f4
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Feb 4 17:33:07 2026 +0000
+
+    LCD-49511 At the top
+
+commit 4b1ee1c08bd176a63decda320d7dbf96f8ca8797
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Feb 4 17:31:52 2026 +0000
+
+    LCD-49511 Match existing usage: git grep -A 30 'curl' cloud/**
+
+commit 2904122cfa09d10a757f73b805efb40512af3e58
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Feb 4 17:30:56 2026 +0000
+
+    LCD-49511 Missing space: git grep '$( \' cloud/**
+
+commit ba72ae5f5f1b227d214889a779eb6ad602f1b9a1
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Feb 3 14:42:11 2026 -0300
+
+    LCD-49511 This specific go template wasn't aligned with the `if` condition
+
+commit 40ceee819df952556559c3bb1eec25e85d10a308
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Feb 3 14:41:50 2026 -0300
+
+    LCD-49511 Standardize init containers to follow correct formatting for YAML files
+
+commit 3ef4cad58d1a1626cd05da6e5695f7aaae6c9fa2
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 2 20:24:41 2026 -0300
+
+    LCD-49511 SF
+
+commit 64f07a7cc5e78abc1e1efe607275985c2cb6ef42
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Feb 2 19:11:07 2026 -0300
+
+    LCD-49511 Separate download process onto a function instead of loop
+
+commit 5d8ea974e7d049598206098ce674ae54c27fea46
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Jan 29 07:45:35 2026 -0300
+
+    LCD-49511 Make `cp` commands in-line
+
+commit dd4338496d8fc57e80e7b1c05466236d76473527
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Jan 26 15:04:18 2026 -0300
+
+    LCD-49511 Update echo to not log HTTP status code fragment
+
+commit 09d9b9866e23a1561463bbf7ed3f723fec6347f3
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Jan 26 11:00:38 2026 -0300
+
+    LCD-49511 SF
+
+commit 137d263f2e35b17c7453573e993f938ab642d3b3
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Jan 26 08:19:23 2026 -0300
+
+    LCD-49511 Standardize existing code to use complete flag values
+
+commit 3e45f25b0cff0201e0f74e215ff92a8e62be88ce
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Jan 26 08:07:31 2026 -0300
+
+    LCD-49511 SF
+
+commit 8194462c36d9f68afa206cf51a29833bf0bdc671
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Jan 23 15:25:28 2026 -0300
+
+    LCD-49511 SF
+
+commit 5f5df640d8a260964e9ada910e377aeda9aebfae
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Jan 23 14:08:18 2026 -0300
+
+    LCD-49511 In order to use local variables, they must be set within a function
+
+commit 220b0c88e06d56a2b634d3ac380fde349a344866
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Jan 23 13:58:13 2026 -0300
+
+    LCD-49511 Instead of always using `--force`, only delete the OpenSearch files if they do exist
+
+commit d29780e6d82cb864e3397c2cc2614d79001a5c35
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Jan 23 13:57:37 2026 -0300
+
+    LCD-49511 Better follow existing styleguides
+
+commit 7e89d56cd5a02bba172c30883615a3e2075031bb
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Wed Jan 21 09:01:40 2026 -0300
+
+    LCD-49511 Remove `--fail` so that error log displayed to customers
+
+commit 959f10fecffbf1d96a2bc750f18e37d01fc20395
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Wed Jan 21 08:53:59 2026 -0300
+
+    LCD-49511 Run `ant format-source-current-branch`
+
+commit ba13984d98e75cb4378d3b6c139f4f11f91e36db
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Wed Jan 21 08:50:55 2026 -0300
+
+    LCD-49511 Since script is downloading 2 files, it must use a for loop so that the http status code isn't concatenated (e.g. `200200`)
+
+commit 3d171b1600a8401ab0c037ef8d8f2382f73bec68
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Jan 20 16:28:37 2026 -0300
+
+    LCD-49511 Typo
+
+commit f99b222f8c62b24f171b4e04f29f2034dadf7087
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Jan 20 16:15:13 2026 -0300
+
+    LCD-49511 For OpenSearch in particular, we must remove any existing modules that could persist in the disk at Liferay startup
+
+commit dac204b71ecb44850fc6f44b8e532fcc928b7351
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Fri Jan 23 15:03:39 2026 -0300
+
+    LCD-49511 Implement initContainer for OpenSearch module installation on startup
+
+commit 5996826331cbd9086c35a5f6b509127cb73b7a87
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Jan 27 20:08:15 2026 -0600
+
+    LCD-49553 sf
+
+commit 842a6171265f1a52c0c9814959239b05a2ea4652
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Tue Jan 27 10:17:35 2026 -0600
+
+    LCD-49553 add overlay bucket to liferay infrastructure composition
+
+commit 7b014b045c0b6835b6e3c3ff3dd6487608a43666
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Jan 26 15:21:01 2026 +0800
+
+    LCD-49382 Wordsmith
+
+commit 53c92b6dc8e07a155fb6d920e040143fd4af5e6d
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Jan 24 12:57:15 2026 +0800
+
+    LCD-49382 Auto SF
+
+commit b0d7ea2058134dad0edec63d2b47e043c252a4ac
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Jan 23 21:09:05 2026 -0500
+
+    LCD-49382 Clarity over brevity
+
+commit 14e4f4c2ef813d2d490523ff62cc97b197880ee9
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jan 21 12:22:57 2026 -0500
+
+    LCD-49382 Fix SF bug (sync-wave values need quotes to be treated as strings)
+
+commit 063aeb8df5dd258cd8ae5f64e299aeef1a73fdd1
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jan 21 11:12:22 2026 -0500
+
+    LCD-49382 SF
+
+commit d979afd457ad6c6cb2bdcb9f6998a55224d09160
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jan 21 10:49:50 2026 -0500
+
+    LCD-49382 Expose database engineVersion
+
+commit 3d8aa20cd77d86eb291e19a53a19e67eff8e1311
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jan 21 10:06:50 2026 -0500
+
+    LCD-49382 Bump chart versions
+
+commit af312b2b3578d79ef3dc5662a5555efbc3dec36e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jan 21 09:56:01 2026 -0500
+
+    LCD-49382 Adjust yaml list formatting to match standard
+
+commit 727d29a96949bd5d08a36eb88db36981d4af9ccc
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Jan 20 20:57:20 2026 -0500
+
+    LCD-49382 Implement Crossplane infrastructure charts
+
+commit 7508019c9e4d58368b7f64ce92befffed99244ed
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Jan 20 20:06:02 2026 -0500
+
+    LCD-49382 Implement Crossplane bootstrap
+
+commit 5d3e4e032f0fdcad9c8667dd32e357f148b40335
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Jan 20 20:05:40 2026 -0500
+
+    LCD-49382 Update gitops to support Crossplane infrastructure
+
+commit fd221e7cf8079d4d27daf58f5723d5fc79f73bb9
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Jan 20 17:36:49 2026 -0500
+
+    LCD-49382 Update cluster variable use
+
+commit c2d6744de4006635eede11165d4bb6691461c117
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 21:26:43 2026 -0500
+
+    LCD-49382 Update providers
+
+commit 54b930019c584ca7993825c74bf8b29e324a83b0
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:14:12 2026 -0500
+
+    LCD-49382 SF
+
+commit 5b1e05e8a97d7ee17db9fe51dfe71a0e83bcf302
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:12:33 2026 -0500
+
+    LCD-49382 Add data blocks for resources script
+
+commit 39c2e546c3e5ff47a5ef5fe90f040893095963cd
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:10:29 2026 -0500
+
+    LCD-49382 Rename file
+
+commit 287112cbb83c90908a30c620eef6ad1dc10340da
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:10:03 2026 -0500
+
+    LCD-49382 Set crossplane_namespace variable
+
+commit 5ee9c4a8671958319ef8997f0588954798f5ec2d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:09:46 2026 -0500
+
+    LCD-49382 Improve resource configurations on ArgoCD
+
+commit 63c16edf4962261e4f269be5ca3bec8f462e6e0e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:06:08 2026 -0500
+
+    LCD-49382 Update EKS bootstrap providers, improve kubernetes config
+
+commit 871cb12939499961485cbadc71b2caf55bf10d2c
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:05:33 2026 -0500
+
+    LCD-49382 Auto-update kubeconfig with new cluster
+
+commit b17b0c1c662f0142745031893234f4ab07101442
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:05:14 2026 -0500
+
+    LCD-49382 Use auto node iam, SF
+
+commit 5e4ce0781abb08f8a3b9d5e91971ddf474b7895b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 18:03:57 2026 -0500
+
+    LCD-49382 Use local for cluster name
+
+commit ce54850c9f73adadddcbbdeb30a7895a5b4790d3
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 17:59:01 2026 -0500
+
+    LCD-49382 Don't use locals in data
+
+commit 287c97791e19157878499aacfddd5f5ad5344d86
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jan 15 17:58:41 2026 -0500
+
+    LCD-49382 Move storageclass creation to EKS bootstrap
+
+commit 6f2449d23d82af9a6dd7b6af1f4b2dbbfd773ffb
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Wed Jan 21 14:44:27 2026 -0600
+
+    LCD-49522 move to default chart and use more flexible from/into construct
+    
+    This moves the overlay support into the default helm chart so it can be
+    shared by all cloud providers.  Also this makes the copy operation more
+    flexible, below is the updated syntax how to use
+    
+    overlay:
+        bucketName: ""
+        copy:
+            - from: builds_01/osgi/modules
+              into: osgi/modules
+            - from: common/third-party-jars
+              into: osgi/modules
+            - from: files/license.xml
+              into: deploy
+        enabled: true
+
+commit a2427c54ede05ececfaa64267706febaee0542b7
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Sat Jan 10 11:16:58 2026 +0800
+
+    LCD-49361 Wordsmith
+
+commit 98901cd1467cc1c9e8ae66a30a3a0b68b7cb5dd8
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Jan 8 16:31:54 2026 -0600
+
+    LCD-49361 add support to helm charts for overlaying files into container from s3 bucket
+    
+    Customizing the liferay helm chart would look like this
+    
+    liferay-default:
+        overlay:
+            bucketName: mybucketid
+            bucketPath: overlay_build_01
+            dirs:
+                - osgi/client-extensions
+                - osgi/modules
+            enabled: true
+
+commit 156efe6546b4c630725df69d01c5b1e810a16172
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Jan 8 16:29:56 2026 -0600
+
+    LCD-49361 rename from extensions to overlay
+
+commit cebd69dc47dace86d191de43b17b6fc8d9b748cd
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Jan 6 12:05:04 2026 +0800
+
+    LCD-49360 Sort
+
+commit 24300bfd54f7c930d49cfe357863bf2cefaed58e
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Fri Jan 2 18:35:11 2026 -0600
+
+    LCD-49360 sf
+
+commit 42c8aadc9a647fb0546fd747b080ef634b193850
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Fri Jan 2 18:11:13 2026 -0600
+
+    LCD-49360 add s3 bucket for extensions and CI user to upload
+
+commit 3193fcc0bba73a50a1b45bcb0748f966f5f401b9
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Fri Jan 2 17:06:14 2026 -0600
+
+    LCD-49360 add s3 csi driver with readonly access to extensions buckets
+
+commit 90c7edca20a9e11e3bda61631d0bd55d640f8bac
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Thu Jan 1 13:25:41 2026 +0800
+
+    LCD-49373 Auto SF
+
+commit 00a2ab09e890c1ff7addb2cb1b6ee9e5ba8631c5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 30 08:06:07 2025 -0500
+
+    LCD-49013 SF
+
+commit c6c320f9fbf2223cb5a549886dc72064bf29159d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Dec 29 13:46:29 2025 -0500
+
+    LCD-49013 Minor tweaks
+
+commit c8cd86e17568fbccd355a9bf424d13574379985b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Dec 29 13:45:48 2025 -0500
+
+    LCD-49013 Minor tweaks
+
+commit 6b145a246459f98d5a7fc9be173486e00d56ea61
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Dec 26 15:38:57 2025 -0500
+
+    LCD-49013 Fix trailing commas
+
+commit 40729d629da0869ffbcdf97b741dbef421eb3f9b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Dec 26 09:47:21 2025 -0500
+
+    LCD-49013 Label improvements, sa automount setting
+
+commit b0ff709e125d44fc3a442af4c85b0c0455524b7a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Dec 26 09:02:33 2025 -0500
+
+    LCD-49013 Simplify default secretstore configuration behavior
+
+commit f01c1850557148b8eb26c0a4d9b9f35b28a8f8ad
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 23 22:10:52 2025 -0500
+
+    LCD-49013 Remove dxp from the applicationset naming
+
+commit 0ddf08333909e11ff9e668bd35f81942cdfa8176
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 23 21:56:42 2025 -0500
+
+    LCD-49013 Use yamldecode<-jsonencode to enable HCL input
+
+commit 55e081e17dd89e98b0016ec0dc7d3a8cdd4b06e5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 23 20:48:02 2025 -0500
+
+    LCD-49373 Add ingress controller to EKS bootstrap so that it's ready for GitOps Liferay instances
+
+commit 4935c6b76cc06bbea99f14a5ec3f7d85cbf27f2d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 23 20:46:18 2025 -0500
+
+    LCD-49369 Implement ArgoCD improvements, enable ArgoCD to use ECR-hosted Liferay Helm chart as chart source
+
+commit 8dee6630d09fdeaf32080f680cfda08099be6874
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Dec 3 20:26:28 2025 -0500
+
+    LCD-49013 Support https and ssh auth strategies explicitly, add external-secrets namespace variable
+
+commit ac09f1a57260db17ffc056988ef7ba3b196e35a4
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Dec 2 18:48:05 2025 -0500
+
+    LCD-49013 Implement argocd, split from external-secrets in both platform and resources scripts
+
+commit e0efa592ce64e5cbf9893ed5581f29325e66e4bf
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Dec 1 11:46:26 2025 -0500
+
+    LCD-49013 Use two-script configuration instead of single-script, for stability
+
+commit 09f401d309855577acf39f2c4f0a08e34c8ee15f
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Dec 1 09:59:15 2025 -0500
+
+    LCD-49013 Use variable for argocd_namespace
+
+commit cb5509d423e4a73f380f6f31e3b8efedd4a8eeec
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Dec 23 13:42:11 2025 -0300
+
+    LCD-49329 We must update `aws-marketplace` dependencies from standard liferay chart
+
+commit 14f198a1e1aaa2c181d6042c3f3796873e5d9b66
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 15:54:28 2025 -0300
+
+    LCD-49329 Bump patch chart version
+
+commit c0d2115accf9ed0b4da80d483dd75f01680b7159
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 15:53:53 2025 -0300
+
+    LCD-49329 Update liferay chart to use `gp3` as default storageClass
+
+commit 6459e3881d2b4edc87ca0ebafcb8aa5d4c279590
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Sun Dec 28 18:01:13 2025 +0800
+
+    LCD-49326 Only one
+
+commit 41d7195af87a6761616d1930e0d9a563b402ad5f
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 15:51:32 2025 -0300
+
+    LCD-49326 Remove variables previously used by Managed Node Groups
+
+commit b1048d8645646726892aee26af02fd6292c8f41b
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 15:01:24 2025 -0300
+
+    LCD-49326 SF
+
+commit e75859791f2801f398c55ff52664c8778812a5b4
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 14:56:13 2025 -0300
+
+    LCD-49326 In order to properly use Auto Mode, we must prevent Managed Node Groups from being created
+
+commit c0b5802dd60dd360e6df9706cbbf191cd1b36884
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 14:55:42 2025 -0300
+
+    LCD-49326 EKS Auto Mode requires extra IAM permissions to scale compute, storage and network resources
+    
+    Refer to
+    https://docs.aws.amazon.com/eks/latest/userguide/auto-learn-iam.html#auto-learn-cluster-iam-role
+
+commit 3baa324660cfa3f7546756a0603fcf39308fa664
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 14:54:23 2025 -0300
+
+    LCD-49326 We must enable `compute_config` to enable EKS Auto Mode in order to have multiple DXP instances in clustered mode
+    
+    `general-purpose` is a node pool automatically created by EKS.
+
+commit b3fe7f380ee59a70fb07f92b997238d80de8349e
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Sun Dec 28 17:44:28 2025 +0800
+
+    LCD-49328 SF
+
+commit ff85a656f462e2c4e344ba602f69eba23e27e4f4
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Thu Dec 18 15:46:39 2025 -0300
+
+    LCD-49328 gp3 storage class is a more cost-effective approach to handling volumes on EKS. It's also configured to run on EKS Auto Mode
+    
+    Refer to
+    https://docs.aws.amazon.com/eks/latest/userguide/create-storage-class.html
+
+commit 7927f7a7fdf85c2ffc081fc4a859fdf7cce510f2
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Dec 17 09:10:51 2025 +0800
+
+    LCD-49300 case sensitive sort
+
+commit 4a5cca2a194477c8e94b304fcd214cfc8ad7ad11
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Tue Dec 16 14:54:14 2025 -0300
+
+    LCD-49300 Simplify gitignore
+
+commit 2a7adda747944b974220d519154b511d01c8b425
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Dec 15 14:28:52 2025 -0300
+
+    LCD-49300 For CNE we must also remove the lock file because it will lock customers to using modules under specific versions
+
+commit 286d33cc11a4ef0bab60f5cbd3f095f6f85c1119
+Author: Carlos Alvarez <carlos.alvarez@liferay.com>
+Date:   Mon Dec 15 14:28:09 2025 -0300
+
+    LCD-49300 Follow terraform standard practices to ignore transient files created by `terraform init` and other operations
+    
+    This follows best-practices specified under
+    https://github.com/github/gitignore/blob/main/Terraform.gitignore and
+    https://spacelift.io/blog/terraform-files#gitignore-file
+
+commit 392d7c22a7bc17542449610e91d56e88c51674a2
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Sat Dec 13 13:05:27 2025 +0800
+
+    LCD-49238 Not needed
+
+commit 7bcf2b1a7dc2b382ecb1949a39c1085260dee6b4
+Author: Gregory Amerson <gregory.amerson@liferay.com>
+Date:   Thu Dec 11 11:30:32 2025 -0600
+
+    LCD-49238 improve cloud-init and boot installer based on review feedback
+
+commit 01e9fb89b4e4c9437aca2125a2da5872b33d587c
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Fri Nov 21 15:23:11 2025 +0800
+
+    LCD-49012 Auto SF
+
+commit 7360a3f9af373d4029be8ab4d69ddf926b00d651
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Nov 20 13:02:42 2025 +0100
+
+    LCD-49012 Rename custom resources helm chart dir to custom-resources
+
+commit f00d0d6b455e5f7c2dd46f43629972a8c17590e7
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Nov 20 13:02:03 2025 +0100
+
+    LCD-49012 Re-add EOF newline (needed on tfvars for it to work)
+
+commit 11403c0342286ba30f22260bf1e9a1d6d8bae07c
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Nov 20 11:56:47 2025 +0100
+
+    LCD-49012 Shorten chart naming, propagate to directory and reference
+
+commit 6f9408d0a3dca7379e4857c7ed30f300a71d5a12
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Nov 20 11:22:08 2025 +0100
+
+    LCD-49012 SF
+
+commit b2f4df73772796015804f8281547daef235da4a4
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Nov 20 11:20:54 2025 +0100
+
+    LCD-49012 Is this too much?
+
+commit 12157a9e672ec3bbdc22054fce946a77d384c96b
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Nov 19 17:06:56 2025 +0100
+
+    LCD-49012 Namespace internal eso chart to liferay-aws
+
+commit d6c4d9199d079649b1655a8fd0c9e7b1b3674c4a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Nov 19 00:23:46 2025 +0100
+
+    LCD-49012 Fix broken heredoc (requires EOF newline)
+
+commit be06b8738a8c3c79d7ef5bfe2d23d462c0946131
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Nov 19 00:23:17 2025 +0100
+
+    LCD-49012 Use us-east-1 for boilerplate
+
+commit 5cf7d26987fe1d00943bf658ea38aa4eb3855550
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Nov 19 00:22:45 2025 +0100
+
+    LCD-49012 Case-sensitive sort
+
+commit e3c5ba69a226eae48e4ce068b28beca30a7f63fb
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Nov 19 00:22:18 2025 +0100
+
+    LCD-49012 Standardize Chart.yaml
+
+commit 9e7d6288ee06ff12f2f70cf62736703f92ac060b
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Nov 17 15:26:25 2025 +0100
+
+    LCD-49012 Never used
+
+commit ab494bf2bb0039a40f0156b243beb5d4c80a8abf
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Nov 17 15:22:47 2025 +0100
+
+    LCD-49012 SF
+
+commit 534115275288aac93303482194263b009164de6d
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Nov 17 15:20:44 2025 +0100
+
+    LCD-49012 SF
+
+commit 340921efcec049e58446c2f7659c07098013ebcf
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Sat Nov 15 01:00:36 2025 -0500
+
+    LCD-49012 Implement Terraform script to bootstrap External Secrets Operator
+
+commit a570491babe9e01393113c69d3f698d1e03797ed
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Oct 23 17:15:07 2025 -0300
+
+    LPD-67987 Can you see if this will mess up Chrome?
+
+commit 663788305a1badf045b6cd14dc2cec920d56ae63
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 15:46:05 2025 -0400
+
+    LPD-67987 add ingress
+
+commit a3993af1a877b3f8348005b51454bc6eaf781ca7
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 15:18:31 2025 -0400
+
+    LPD-67987 use a null resource to handle the intricacies of service linked roles
+
+commit a4c15934024784d1cedff09f8d9b75b9558d02c3
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 14:49:52 2025 -0400
+
+    LPD-67987 consitency
+
+commit 113a1fba19bfef364d459ef543bf78a5a60b750f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 14:31:48 2025 -0400
+
+    LPD-67987 add service linked role
+
+commit dc0efd14302a7d314854706ed99134df8fe85132
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 14:31:03 2025 -0400
+
+    LPD-67987 more arn partition
+
+commit 99c9faeb927de4f28b7328a74f93a30703e469c3
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 09:21:10 2025 -0400
+
+    LPD-67987 troubleshooting failing ebs csi addon
+
+commit 40201a4af7f160827368dcfbeecd118770a0bd41
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Oct 21 13:00:50 2025 -0400
+
+    LPD-67987 use the latest available version of Kubernetes
+
+commit 74af9528ff304db3efee56dc9b0408e4c545913f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Oct 17 13:14:22 2025 -0400
+
+    LPD-67987 generate the node group name
+
+commit ba2ae59c21dd5482fe1aea3de925caf6fee67628
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 23 09:20:14 2025 -0400
+
+    LPD-67987 allow to override the AWS policy partition
+
+commit db774f8eeb9186989174ae46b45f2785b2462f7a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Oct 20 19:31:02 2025 -0400
+
+    LPD-69109 Bump default and aws chart tags to trigger GAR release
+
+commit 51085733cb559c36f90f0083c0f1deedc2ec0c53
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Oct 20 10:29:19 2025 -0300
+
+    LPD-63872 SF
+
+commit 877990a6d4af7e3a20bf6aab6e94bf358d0bf289
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Fri Oct 17 17:43:52 2025 -0300
+
+    LPD-63872 Sort variables because order seems to not matter
+
+commit b03672b93c3e0725065e85344982eff421458350
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Fri Oct 17 17:41:12 2025 -0300
+
+    LPD-63872 Optimize
+
+commit 4670f0f47ff968112ce3aab45bb3d2c6ac43c8e2
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Fri Oct 17 17:37:56 2025 -0300
+
+    LPD-63872 As used
+
+commit 76608bc5c977aeb33673925c997e7f3a8fa0f34c
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Oct 17 14:24:57 2025 -0400
+
+    LPD-63872 source formatting
+
+commit 8cf931c834083e2d107e8cdf2c3c6c838c1c182d
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 16 17:31:07 2025 -0400
+
+    LPD-63872 common file naming
+
+commit 06125ba6ca0c6a7f689aba4a374a0df356b93039
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 13:38:02 2025 -0300
+
+    LPD-63872 Declare variables and assign their values at the same time whenever is possible.
+
+commit 65f01e7b47d2327ac7933ffd597fee95cf1ed689
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 13:27:56 2025 -0300
+
+    LPD-63872 Add blank lines if instructions order matters
+
+commit 99354a699c670924600edcd752bb6ee51749cbd2
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 13:25:11 2025 -0300
+
+    LPD-63872 Declare variables as used
+
+commit 66f9b5fee47ead6887803ed381b07f862e7f4c9a
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 13:24:28 2025 -0300
+
+    LPD-63872 Separate logic in functions
+
+commit 7205b8f6d73532e9cd14e09219d3dce340b5f43c
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 09:44:42 2025 -0300
+
+    LPD-63872 Do not declare variables used a single time
+
+commit 7b3ecc1a95f2711df3c7f42789aa66ab38f20bbb
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 09:36:54 2025 -0300
+
+    LPD-63872 Reuse
+
+commit 1095b5a06bdc221f753b363b4610443e14e25069
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 09:19:21 2025 -0300
+
+    LPD-63872 Add blank lines if instructions order matters
+
+commit e0077a4a550d6b0a09b195d52a964f80e86a5038
+Author: Renato Rego <renato.rego@liferay.com>
+Date:   Thu Oct 16 09:13:22 2025 -0300
+
+    LPD-63872 Use tab instead of space to perform tabulation/indentation
+
+commit 0b5e85c6b8e54d7c771c8e7295d8037ef1819d59
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Oct 15 12:48:40 2025 -0400
+
+    LPD-63872 simplify helm command
+
+commit bda3fabcd424c8e0be639c6cec1d2f4ff0fc8b4f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Oct 15 11:23:39 2025 -0400
+
+    LPD-63872 move tree to last provisioner step
+
+commit 44c683e0f0709f25e9199e845c2e40f1fe298a58
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Oct 14 15:11:55 2025 -0400
+
+    LPD-63872 manual SF shell scripts
+
+commit 5a2ae8fc80048229943ce70f18325556cee5d9ed
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Oct 14 15:14:57 2025 -0300
+
+    LPD-63872 SF
+
+commit aa7069533461e742f60183c067f3c40a28ac9cd7
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 9 10:33:00 2025 -0400
+
+    LPD-67855 build the ami
+
+commit ea2f570605bb59bb4f0b57d4f7323a7099e8f765
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 9 09:24:09 2025 -0400
+
+    LPD-67855 setup ECR repository
+
+commit b2850d1dd296d9ce56f457c63ce0b6783dca5aef
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Oct 9 09:22:54 2025 -0400
+
+    LPD-67855 improve stability of eks and dependencies executions
+
+commit 733856de85092dc8671c379bc3c27975f42ad04f
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Oct 14 15:36:10 2025 -0400
+
+    LPD-68571 Update wait-on-services initContainer to use /dev/tcp in absence of netcat on DXP image
+
+commit 9c434812aa37336c2246f51b2a530988f33973fb
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Oct 10 18:29:53 2025 -0400
+
+    LPD-68315 Bump AWSMP chart version
+
+commit 6bfad7c5eeca7396b9756980c32197057cc003f2
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Oct 10 17:51:25 2025 -0400
+
+    LPD-67108 Bump default, aws, and aws-marketplace chart versions and update dependency tags
+
+commit d23642a094bbed999236d42ba04c0e2a826007b6
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Oct 10 17:51:09 2025 -0400
+
+    LPD-68313 Update aws-marketplace chart repository and tag
+
+commit 1b426e96894c047cfd294312489af4df209115f3
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Oct 10 17:50:57 2025 -0400
+
+    LPD-68312 Move default chart initContainers to customInitContainers
+
+commit c260f7af087d327d40e32830f96b095ab6241598
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Oct 10 18:04:59 2025 -0400
+
+    LPD-68314 Enable restarting of pods with secret/configmap subpath update
+
+commit 68c49ca9e56c9bc326b315626b1d8273d9bed391
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Oct 10 10:30:13 2025 -0400
+
+    LPD-68223 increment versions
+
+commit 377fb5b4e3812a1a6099081a7d6550b682211f6f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Oct 10 10:29:56 2025 -0400
+
+    LPD-68223 Enable `--set-file` for more consice certificate configuration (helm change)
+
+commit adf37acdf2ca65220ae8ca84767f65ac1558549f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Oct 10 10:29:23 2025 -0400
+
+    LPD-68224 Remove direct usage of bash image in DXP initContainers because DXP has bash
+
+commit c6c5efa7e8a944a15be06d98966515f47703b3b4
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Oct 2 21:45:20 2025 -0400
+
+    LPD-67111 Empty K8s TF provider on AWS Backup & Restore
+
+commit ff78e6351e0b786bc29d05bfe9fda22a18a6c9cc
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Oct 2 21:41:05 2025 -0400
+
+    LPD-67109 Update aws chart version
+
+commit 5eb11e1ae337dc4babe462f53f7e51ac05bcb3c8
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Oct 2 21:40:01 2025 -0400
+
+    LPD-67109 Enable slim configuration by default in AWS chart
+
+commit f1d1d1683e4244a27f70cadfdbac0fcdfc1e1a3d
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 17 07:27:58 2025 -0500
+
+    LPD-65509 Release charts. Use minor version as we should have all along for new features before 1.0.0.
+
+commit 33de4f230583aa01c8c6624abf0919bfbb634754
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 17 07:23:07 2025 -0500
+
+    LPD-65773 Be consistent in new lines before end of template
+
+commit 3b1097f66900a371a611c5b640b63bc6de477170
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Wed Sep 17 09:47:35 2025 +0800
+
+    LPD-65260 Manual SF
+
+commit 7394c19b0c181fd9930002480e233dcbb77e393b
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Sep 16 09:31:50 2025 -0500
+
+    LPD-65528 Fix rollback logic
+
+commit b73acd7555d00252b17a01f1c7c85f72a9b27254
+Author: Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com>
+Date:   Mon Sep 15 16:55:04 2025 -0300
+
+    LPD-65534 Generate username/password with random_string and no upper-case/digits/special chars
+
+commit 30da8cbd0f3320c8fcec70075ecda4a8c677cb70
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Sep 16 11:02:23 2025 -0500
+
+    LPD-65595 Remove deprecated state locking mechanism
+
+commit a7f32cc9fb1c17579bf424e1cc5606655899fcb4
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Sep 15 16:47:41 2025 -0500
+
+    LPD-65507 Setup resource requests for each template
+
+commit 8aa0b549322101278aaa51844b95732c36d98942
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Sep 15 12:48:51 2025 -0500
+
+    LPD-65507 Provide options for cost optimization
+
+commit 6a141936b30adb52e891fe7a5f0a90c78462df65
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Sep 15 10:26:17 2025 -0500
+
+    LPD-65442 Suppress verbose logging output
+
+commit ca41353e4be90a9b63b8439cc3d77f795fbb78d6
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Sep 15 09:32:37 2025 -0500
+
+    LPD-65440 Do not enable the chart by default
+
+commit 2462a85f3533a3a904c8edd633df4fe7713859f0
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Mon Sep 15 09:24:00 2025 -0500
+
+    LPD-65441 Add missing permission
+
+commit 9479a4fc1051048530614e0b4c9a7e8e3d3d63c7
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Sep 12 12:19:33 2025 -0500
+
+    LPD-65330 Make rollout timeout configurable
+
+commit 9d7e8d63ed3400fd48488a8b9f063628d5b7f482
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 18:08:46 2025 -0500
+
+    LPD-65260 Single quotes are still needed
+
+commit 2fc63ec3770cb7225bd148df497f2d22c431bf72
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 16:00:10 2025 -0500
+
+    LPD-65256 Make probes less aggressive and give Liferay more time to start so that we don't get database corruptions
+
+commit 0ec1cf592c05f3c12fa9ecaab02d5c94fe0106c5
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Sep 11 18:14:37 2025 -0300
+
+    LPD-65240 Is this OK?
+
+commit db3d5a3880c2c54ff9a4a54d788f35d5a0af48a4
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 15:07:42 2025 -0500
+
+    LPD-65240 Fix template name
+
+commit 2c2ab8925960e006f5a064ef09ebabec7b1f62ce
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 14:04:39 2025 -0500
+
+    LPD-65240 Escape the dollar sign
+
+commit c69b9c2fa935de3821558e67ce2e93906111024b
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 13:53:45 2025 -0500
+
+    LPD-65240 Fix reference
+
+commit fa5a64c0687a9f550942f58d0eaea5b3be4b039e
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 13:36:42 2025 -0500
+
+    LPD-65240 When strings begin with a literal { they must be quoted, and our source-formatter respects this
+
+commit 270e1733dca9c7bca42b5599a7912b3dc31a094e
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 11 13:09:20 2025 -0500
+
+    LPD-65240 Use double-quotes where possible
+
+commit c68592e2b1cad50fef813d45e4648680acec530a
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Sep 11 14:41:20 2025 -0300
+
+    LPD-64801 SF
+
+commit 50885f125c0169bdc131f312ad941b5724251317
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Sep 11 14:39:27 2025 -0300
+
+    LPD-64801 SF
+
+commit 8ea60cd346e7c4dabeaa8a79950bce4e613e275e
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 10:03:13 2025 -0500
+
+    LPD-64801 Add script to get peer recovery points
+
+commit 41d92bfc8ae4e802873ce9f5408bd821661aaea7
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Sep 11 14:36:59 2025 -0300
+
+    LPD-64803 SF
+
+commit 3dfe0737f45c4e08b8a7bb21e62a91c2d896f37a
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 15:04:06 2025 -0500
+
+    LPD-64803 Add applyTerraformModule shell script
+
+commit 50c602aeda1a7308e5aae91207ed1a220d3c5081
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 14:48:42 2025 -0500
+
+    LPD-64802 Add shell script to checkout git repository
+
+commit 27843a4d1ecf7c750e0899a3d582224586ed6845
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 14:13:04 2025 -0500
+
+    LPD-65147 The "set -e" flag causes the shell to exit on error, which is what we want with every command run in these scripts. This is why there is no explicit exit code checking. Defining variables with local and then assigning a value always masks the exit code, whether the -e flag is set or not, which is very, very bad.
+
+commit c2c1dae511c880d90900920541b0074e6433712a
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Sep 10 15:58:59 2025 -0300
+
+    LPD-64800 Are we actually testing the exit code status anywhere? I don't see where it's being tested.
+
+commit d6be62ed439819ef4e9d26cd3625a471549bc544
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 09:57:22 2025 -0500
+
+    LPD-64800 Add script to restore s3 bucket
+
+commit bccacd16f5b26a6ec87bcfa812311bdb423e9dcb
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 10 10:43:06 2025 -0500
+
+    LPD-64939 Improve readability by removing named templates for string patterns
+
+commit 84d568a4391d7314d5ae6881697d0c0fc7364ac5
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Sep 10 11:28:19 2025 -0300
+
+    LPD-64744 Wordsmith
+
+commit 6493d7c0fa80e4c5ca09a8dacec2a502be952e3e
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Sep 10 11:26:52 2025 -0300
+
+    LPD-64744 SF
+
+commit 150299a3a4d2e94e25bcfab4d4eb470605955355
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Sep 9 15:36:40 2025 -0500
+
+    LPD-64744 Add get-dependencies-module-outputs shell script
+
+commit 6cc72ddb8723980beeaca133a3578fbab0dcb546
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Sep 9 15:18:52 2025 -0500
+
+    LPD-64927 Do not use helper templates for string constants
+
+commit db0aaa2dde3ee0a71d3a383cc0d50516f9bf134f
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Sep 8 13:13:24 2025 -0300
+
+    LPD-64782 Sublime case sensitive sort
+
+commit ce0b017576b94be107800c1142f505091faafe8d
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Sep 5 14:38:10 2025 -0500
+
+    LPD-64782 Add clusterworkflowtemplate
+
+commit fb26f1597ff823e5479e7201b5cced7231820120
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Sep 6 21:15:11 2025 +0800
+
+    LPD-63871 Auto SF
+
+commit 4abbc32bdad8fe26ba9935e8f45a86bed298e615
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Sep 5 13:45:51 2025 -0500
+
+    LPD-64755 SF email address, alphabetization, \t in all .yaml and .tpl files (not found)
+
+commit 767f4930125f677967aefbe1d39a0bfb7e37098c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Sep 5 15:30:02 2025 -0300
+
+    LPD-64697 SF
+
+commit 4233845e8cbe2a2de2a22f620d25815e5bdf6298
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 4 15:53:35 2025 -0500
+
+    LPD-64697 Add helper templates
+
+commit d557d0c32de7872e17e9009ea7f9a6b577e083ac
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Sep 5 15:24:48 2025 -0300
+
+    LPD-63871 SF
+
+commit 40fa01dedb70a9120c97c2db70a0f58a9430398d
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Sep 5 15:23:08 2025 -0300
+
+    LPD-63871 SF
+
+commit 786f352bf7851479989c5b2d94a02d3acdf12f19
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Sep 5 07:41:37 2025 -0500
+
+    LPD-63871 Add supporting manifests
+
+commit 1168054842c3d34faef0ea3dc3eeab316aa5a590
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 4 15:41:10 2025 -0500
+
+    LPD-63870 Update service account name in terraform module
+
+commit 14c113f401842a988d863815db7f0b04532a9acd
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Thu Sep 4 14:44:02 2025 -0500
+
+    LPD-63870 Add initial chart scaffolding
+
+commit c2f0681c72d5f2920b82ebf72e3003e595c5bd17
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Wed Sep 3 09:15:53 2025 -0500
+
+    LPD-64375 Use more restrictive and unused rds security group
+
+commit 9e10f373065efd78c645c3d13c7142a3ff7c0ee1
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Aug 26 15:59:02 2025 -0500
+
+    LPD-63867 Add backup-restore-workflow terraform module
+
+commit c2b5efda82746f3ffe9f7bd281d2342deb3f1622
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Tue Aug 26 14:32:31 2025 -0500
+
+    LPD-63869 Create provider configuration that works for both humans and containers running in k8s cluster. Adding more than one path is a hack to enable fallback to in-cluster configuration
+
+commit b619a517ab95255f5fbeb091c49d04155ef2d30f
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Aug 26 07:51:53 2025 +0900
+
+    LPD-63455 #sfme
+
+commit 9c0bb11c0d7c20c04c08f8995b8d580a77c83107
+Author: Timothy Bell <timothy.bell@liferay.com>
+Date:   Fri Aug 22 12:22:41 2025 -0500
+
+    LPD-63455 Add outputs needed for restore workflow and only backup active data sources
+
+commit db8268a41e4c933f401078aecb233ef0e10584a5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Aug 22 12:07:48 2025 -0400
+
+    LPD-63567 Derive variables where possible in Terraform dependencies module
+
+commit 6ea3d6d1f5254c4beecdc97eaf2b93636fef40a7
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Aug 20 13:08:21 2025 -0400
+
+    LPD-63331 Implement BYO Certificate interface on Helm chart
+
+commit 790584422bd698f2e4f49fc07594da0637c06010
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Wed Aug 20 08:31:38 2025 -0500
+
+    LPD-63041 Terraform doesn't require variable ordering
+
+commit a559730f6a775ec68414364c7cdcc0a3edec6fa5
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Tue Aug 19 12:48:31 2025 -0500
+
+    LPD-63041 Setup blue/green rds instances
+
+commit 1f51063b654fa40bb2c1234b8b348371ccadb2c4
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Tue Aug 19 11:31:26 2025 -0500
+
+    LPD-63041 Modularize rds instance creation
+
+commit 296bda243352e3c3039d079dd06a8d23d3e244c8
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 14:35:04 2025 -0500
+
+    LPD-63032 Simplify bucket prefix and add configurations to enable backups
+
+commit 7fa568c40bfefbf20eb6e5fd2267cae7f24d78b7
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Tue Aug 19 10:18:21 2025 -0500
+
+    LPD-63032 Move s3-bucket to its own module
+
+commit a65ecb9c7072e0394e01a96296721d72cb6bf122
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:53:54 2025 -0500
+
+    LPD-63039 Move to passwords.tf to break down the large file
+
+commit 09cc8daca051c78f33a13e36987c7d73e16ffc0d
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:38:05 2025 -0500
+
+    LPD-63039 Move to `data.tf`
+
+commit 2df3245ecae3dec66447d88ee0ec7d550a8c6dd2
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:36:23 2025 -0500
+
+    LPD-63039 Resources do not go in variables.tf
+
+commit 702d7b8601da81b27057f3d298f7f8150ab7b1c4
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:32:55 2025 -0500
+
+    LPD-63039 Remove unused variables
+
+commit d4ef9aca32396ae0365c662573ffc5e28446193f
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:31:04 2025 -0500
+
+    LPD-63039 Make plural following terraform conventions
+
+commit 983ebfcaa56ee75465bdf5f89f3e10933628ad61
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:30:09 2025 -0500
+
+    LPD-63039 Remove modules from path
+
+commit 9110597ed0d60c128c90a341f9102b3de0d78720
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Fri Aug 15 11:29:44 2025 -0500
+
+    LPD-63039 Follow example in other terraform directory of having providers.tf
+
+commit 2d1f45764fe392407f5dc3abacfd685e291b26cf
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Aug 15 11:24:45 2025 +0800
+
+    LPD-62910 Do we need this?
+
+commit 8b3b2e179af5670c0658a72552d36ab773717e49
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Aug 15 11:24:38 2025 +0800
+
+    LPD-62910 Consistency
+
+commit 8a49625b173379c0f896160a54823817db6ff5f9
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Thu Aug 14 15:06:40 2025 -0500
+
+    LPD-62910 Add tags to enable backups
+
+commit 72391ea09c5d2c5a4043cdc037b494ff39d03c67
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Thu Aug 14 12:27:47 2025 -0500
+
+    LPD-62910 Add backup-plan reusable module
+
+commit e4dde7ae687e049488a9b9bb49a28d753c990c95
+Author: timscottbell <timothy.bell@liferay.com>
+Date:   Thu Aug 14 11:06:28 2025 -0500
+
+    LPD-62910 Add backup-vault reusable module
+
+commit c9bd058f303fb61efac4c7f8278384fdfc44b70e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Aug 14 10:13:39 2025 -0400
+
+    LPD-62390 Fix terraform formatting
+
+commit e9d8e5886fe0f6bc306d88efe9c5d6d60f263e7e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Aug 7 08:43:24 2025 -0400
+
+    LPD-62390 Enable CloudWatch and FluentBit agent OOTB
+
+commit 8fd0c10d9e1adc481a299b9dcf20736c7c3bbe11
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Aug 5 08:52:06 2025 +0800
+
+    LPD-61840 SF
+
+commit d5e7eb932836a3b5f72e75ecfe116615f0430cb5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Mon Aug 4 11:34:46 2025 -0400
+
+    LPD-61840 Implement AWS UX terraform improvements
+
+commit 4a19a94aae0a9b700e2a8eb82a9b792285b6841c
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Jun 26 09:40:00 2025 -0400
+
+    LCD-46943 release new chart version
+
+commit f65516c7fef634fd76de38c7eb773cdfd9786a35
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Jun 25 15:41:52 2025 -0400
+
+    LCD-46943 A exporter or connector must be able to retrieve, collect and aggregate the data in a cluster aware fashion
+
+commit e5d23782981f2d00e35649fcdf43e056d0291f07
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Jun 23 17:47:16 2025 -0400
+
+    LCD-46943 fix typo
+
+commit df697fe51710b4fa4c13099df10c2ab88bac1d39
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Jun 19 17:50:46 2025 -0400
+
+    LCD-47064 Fix "bad syntax for struct tag value"
+
+commit fb1e4996fef1136e9516437920155bf27421d2ab
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Jun 19 09:48:47 2025 -0300
+
+    LCD-46861 SF
+
+commit 59b2ccc6034bf5c957f0cb9a5c41d4d029fe73ed
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Jun 13 16:02:08 2025 -0400
+
+    LCD-46861 Move code to resources dir, format code, format Dockerfile
+
+commit 993f18ae48a0869b296b4484a88a660f448d474d
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Jun 13 11:20:16 2025 -0400
+
+    LCD-46861 Format Dockerfile
+
+commit f779464e8967579662ba758ffac472ad16e48daf
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Jun 13 09:59:35 2025 -0400
+
+    LCD-46861 Ordering
+
+commit ee79831d527423536ce25c9344d0c9516ffb64d8
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Jun 11 23:41:17 2025 -0400
+
+    LCD-46861 Operator scaffolding
+
+commit 49dc40209ee35b7bf7ba10327e80295530b8e641
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Jun 17 13:15:12 2025 -0300
+
+    LCD-47009 Sort, but put /opt/liferay last since it depends on /temp/liferay
+
+commit fd542ca8522fbb3fb679d816be0514da549d6459
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Jun 17 13:12:41 2025 -0300
+
+    LCD-47009 SF
+
+commit fcf8e0f7f7d3f1cc39cb48a5f9bed3b1316e71b8
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Jun 17 11:56:56 2025 -0400
+
+    LCD-47009 increment chart version
+
+commit 81979d53ffacbba7ae40854247fd5df75c5c7606
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Jun 16 13:49:44 2025 -0400
+
+    LCD-47009 add ability to specify customServicePorts
+
+commit a662dafe894660634ec6e1132a1bda627cb92679
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Jun 6 14:29:49 2025 -0400
+
+    LCD-47009 make sure liferay.pid is a mutable file
+
+commit 9db15e839294d45e461b4317828939bbf184af6f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Jun 6 14:29:18 2025 -0400
+
+    LCD-47009 Enable glowroot in the Liferay Helm chart
+
+commit a8718995e5e9206dfcc421a0b060115548430d34
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Jun 5 16:03:22 2025 -0400
+
+    LCD-46811 The official Helm chart does not safely retain the autogenerated password used for the default admin user
+
+commit 97562dbe6d126c120c56ab976929779e03327a75
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Jun 3 10:39:51 2025 -0400
+
+    LCD-46809 The random passwords generated in the AWS terraform dependencies script may cause Liferay to crash
+
+commit d4bc8f9a267839bbee23b520ead80cf23668981e
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri May 23 16:34:50 2025 -0400
+
+    LCD-46035 publish chart version 0.0.6
+
+commit cb1ec997b8511ec69b097375ea330060939d3422
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue May 6 09:33:03 2025 +0800
+
+    LCD-46128 SF
+
+commit 3d634ea01352d1696df993a04469efef7dc7febc
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Apr 24 10:44:12 2025 -0400
+
+    LCD-46128 Change the private VPC configuration to a public one to enable web access via LB/Ingress
+
+commit edea95b9c074516b35f3aee89c294b3f9fce801d
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Fri May 2 18:22:39 2025 -0400
+
+    LCD-46148 Normalize headings.
+
+commit 477ddbd27c736186d1122a51e3a072a8af0ee27a
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Thu May 1 11:40:28 2025 -0400
+
+    LCD-46148 SF, wordsmithing.
+
+commit 05c407d299d3863840f5c9885f197b31827857a4
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Thu May 1 11:25:28 2025 -0400
+
+    LCD-46148 Wordsmithing.
+
+commit 658d74afb2a747519f403fe24fa77a792f5baf81
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 29 10:15:40 2025 -0400
+
+    LCD-46148 Update the markdown installation instructions
+
+commit 5ca69a55993fa41719590b46741c3113d20dc058
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Apr 30 10:16:35 2025 -0400
+
+    LCD-46236 enforce policy rules for the auto generated OpenSearch password
+
+commit a29e7ee862428a74f43eff12e44d8cc9e5599bd3
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 29 13:39:41 2025 -0400
+
+    LCD-46219 Use a randomly generated bucket name to avoid collisions
+
+commit 16384f15a31c938a7ffd9198f197279144cd279b
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 29 10:13:27 2025 -0400
+
+    LCD-46211 Fix broken references in terraform
+
+commit 31c43a0fc0cedaec82b8b561bdde7014f85686e2
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Fri Apr 25 13:41:21 2025 +0800
+
+    LPD-52887 Rename
+
+commit 8313f5606469de437f8b5ef657ea3a1e7b600459
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Apr 24 12:25:01 2025 +0800
+
+    LCD-45690 SF complains and forces .markdown. I'm fine with changing it ,but we need to fix SF
+
+commit 3af47ff6b42e2cbffb3a722e28c6a525efbba9b0
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Apr 24 12:23:46 2025 +0800
+
+    LCD-45690 4 spaces
+
+commit c6c30a4906cb6cd90c9d2c938c1fb2d157aa41f7
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Thu Apr 17 20:00:18 2025 -0400
+
+    LCD-45690 Format code blocks in installation.md
+
+commit 73c427cb62540d93c4aa21afb8340ea0db49092a
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Fri Apr 11 15:04:18 2025 -0400
+
+    LCD-45690 SF
+
+commit 2be73a92b772b5c88d0581cf5a17b401b1bc3d76
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Mon Apr 7 17:57:33 2025 -0400
+
+    LCD-45690 Wordsmithing.
+
+commit 12065a45fc2c3c610b50fcdb54d3e2c1279b1176
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Mon Apr 7 15:57:27 2025 -0400
+
+    LCD-45690 Remove comment; question answered.
+
+commit 4c82ac931d400dad3651cc184bf8e70f8851288a
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Apr 4 18:13:08 2025 -0400
+
+    LCD-45690 Formatting fixes
+
+commit 875134727e0ce1529239c469e545d429399778e9
+Author: Rich Sezov <richard.sezov@liferay.com>
+Date:   Fri Apr 4 15:31:03 2025 -0400
+
+    LCD-45690 Wordsmithing.
+
+commit 8e8b372f268dd0b1f97c2ae30a30990efcb4d838
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Apr 4 14:17:14 2025 -0400
+
+    LCD-45690 Move terraform installation.md documentation into monorepo
+
+commit a9adce7d1c49b9863e89ec4fed5f9531f82ebf2c
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 22 14:16:19 2025 -0400
+
+    LCD-46035 add support for HorizontalPodAutoscaler behavior
+
+commit 1ab0a6d57ad3aad49bdb13efdc5c06a91272d3a2
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 22 12:29:26 2025 -0400
+
+    LCD-46035 fix broken composition case
+
+commit cd8ab6d871658c38fa7be20562c15088e37227d2
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 22 10:13:00 2025 -0400
+
+    LCD-46035 implement more flexible helm values composition
+
+commit 53a35fcf3ee53e465f889d5f3db678b5f2af2d91
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 22 10:11:57 2025 -0400
+
+    LCD-46035 add metrics-server EKS cluster addon to the scripts in order to support autoscaling
+
+commit 2a20c3e044d6d521806337362bb007dc26c271af
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Apr 21 09:57:20 2025 -0400
+
+    LCD-46004 increment the chart version
+
+commit 1e29907b7520b2a65a3e0055be4c50198f724a89
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Apr 21 09:53:00 2025 -0400
+
+    LCD-46004 reference correct configmap and not optionally
+
+commit 5f8d8990c9d8643956758967d05726c9ccf0b714
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Apr 21 09:14:57 2025 -0400
+
+    LCD-46004 adjust custom labels
+
+commit 41b555c1018dd0402e4e67a48e7f524964a894c4
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Apr 21 09:12:19 2025 -0400
+
+    LCD-46004 fix volume claim spec in AWS chart
+
+commit 8f4717fb4c3822cb804dfc11aec7e23832a8751a
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Apr 19 21:23:41 2025 +0800
+
+    LPD-52616 SF
+
+commit e4d4250f85b71d179206e6022269ca21f36008e1
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Apr 16 15:14:11 2025 -0400
+
+    LCD-45966 Fix a bug causing the Kubernetes Secret to not be created because the namespace is missing
+
+commit c0f07857b0c7a9e9621789c30dd045751174f655
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Wed Apr 16 20:36:24 2025 +0530
+
+    LCD-45750 SF
+
+commit d8204835fe64593b71ce0d789b301d31f6dddaff
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Apr 16 08:58:26 2025 -0400
+
+    LCD-45750 increment chart version to trigger release
+
+commit da33695c3115d7858d6e3e9c3f0fac0f8f7f5ae5
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 15 17:08:46 2025 -0400
+
+    LCD-45750 enable Tomcat's Kubernetes membership based session replication support
+
+commit 8a89d6dcf881cc40d3152afba4c9fb67c0296592
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 15 17:06:35 2025 -0400
+
+    LCD-45750 use bash in init scripts
+
+commit d0724cae2fb45db51c23a1abd0e7fe6658d3c164
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 15 17:01:39 2025 -0400
+
+    LCD-45234 more directory checking safety
+
+commit 3469c1ecb53381dd64ca7236e4f5b04c489ffe71
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 15 16:50:16 2025 -0400
+
+    LCD-45234 reference the correct configmap after renaming the chart
+
+commit 6ddf1dcf50629f50fe08cbba61df471405a1644c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Apr 14 21:36:14 2025 +0530
+
+    LCD-45234 no longer needed
+
+commit a224bd233b162e23105137aa6eb490c631c365e3
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Apr 14 11:36:30 2025 -0400
+
+    LCD-45234 create an inheritance model to avoid duplication of values
+
+commit a600dec883b518a2048b90ab0f0faa8c4f07d306
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Fri Apr 11 22:53:43 2025 +0800
+
+    LCD-45468 Auto SF
+
+commit 74e8868484e64e7b704d7bf10d7e64d50540546d
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Apr 11 18:13:39 2025 +0200
+
+    LCD-45834 Refactor
+
+commit c3c561aab1d265fd434dc896832681ffb33f0974
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Apr 11 17:28:03 2025 +0200
+
+    LCD-45834 Let's call it official for now. I'm torn between standard, official, and default.
+
+commit 60a05b812a0074172b924d9b20c1577f80edc66e
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Apr 11 11:08:10 2025 -0400
+
+    LCD-45834 update the directory structure
+
+commit ae4a5a8d2a51a054c6db9e0e8e776379015ace6c
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Apr 11 11:07:22 2025 -0400
+
+    LCD-45834 move the chart into a subdirectory
+
+commit defcb953ec7be756b06802d33cebdcbc8d1db342
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Apr 10 10:30:21 2025 -0400
+
+    LCD-45472 add protection when directory is absent
+
+commit 14d0aa946d8ae5ccb60e93f21caf073cca03f94f
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Thu Apr 10 16:54:06 2025 +0200
+
+    LCD-45468 Sort by mount path
+
+commit 23a04b68a0a2834bfd62c595f20cf0de05fd5417
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Apr 9 19:28:47 2025 -0400
+
+    LCD-45468 Remove descriptions from resource declarations
+
+commit 5eb116a3f82572c052da97c88c899fc3f85d811e
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Apr 9 19:21:40 2025 -0400
+
+    LCD-45468 Fix indentation in .yaml
+
+commit 6aefb7560c4b09f2f17b1882d0a04b3bef6c1ee5
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Apr 9 19:17:57 2025 -0400
+
+    LCD-45468 Fix indentation
+
+commit 95c2c01872fa1aba558de320330c033886e36858
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Apr 9 19:17:32 2025 -0400
+
+    LCD-45468 Sort
+
+commit 8cfb993814ec41d554a22d317660d2ded595fb47
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Wed Apr 9 18:55:06 2025 -0400
+
+    LCD-45468 Remove all line breaks from .tf files
+
+commit c32fdef9b3510e988e5bbe41d684262a04b3cadb
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Apr 8 11:49:02 2025 +0200
+
+    LCD-45468 Descriptions need to be complete sentences. Please fix all and resend.
+
+commit 1a7fc291e97e56af002d658248539cb1288fa16a
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Apr 8 11:48:38 2025 +0200
+
+    LCD-45468 We have a lot of unsorted stuff
+
+commit 7ac7d4f892d875ae7200dbd6928f1c985ffd4e69
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Apr 8 11:47:57 2025 +0200
+
+    LCD-45468 Consistency because sometimes we have line breaks and sometimes we don't, so let's make them all without spaces
+
+commit 6c787d65bdfadc2d2058640fb3cb271fb4f10929
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Apr 8 11:47:30 2025 +0200
+
+    LCD-45468 Consistency because sometimes we have line breaks and sometimes we don't, so let's make them all without spaces
+
+commit 41822b0a8f3cad66fa208e6cc4bb575c70f91cc3
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Apr 8 11:34:47 2025 +0200
+
+    LCD-45468 Spaces to tabs
+
+commit 2a2c43b78ddabe7460dd5d436cf11c40db39f4d9
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Fri Apr 4 14:07:20 2025 -0400
+
+    LCD-45468 Move cloud terraforms into monorepo
+
+commit 117a481eb93f1a379e6549f60dd56ac3eb1a14e0
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Thu Apr 10 10:38:01 2025 +0800
+
+    LCD-45472 Auto SF
+
+commit 774f7f095483511b753c2ef5f3edab8e476dcd2e
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Wed Apr 9 09:17:52 2025 -0400
+
+    LCD-45472 sort
+
+commit 8e3f8126187cb4c08af1743cb8d6d697875fa90a
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 8 13:59:50 2025 -0400
+
+    LCD-45472 adjust cluster syntax matches jgroups version
+
+commit d6e79d2fac1d0aefe02a0788ad2093e68de59779
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 8 11:24:27 2025 -0400
+
+    LCD-45472 add missing clustering mounts
+
+commit 6da72b5ef2b2642fcd7cbb15d465c1694165a683
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Tue Apr 8 11:20:49 2025 -0400
+
+    LCD-45472 fix shell script errors
+
+commit c538a0744e53a06830bd5d9fd6f16fe79f2831dd
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Apr 5 16:52:11 2025 +0800
+
+    LPD-52619 Auto SF
+
+commit 3db356a29b045ffe6d01383cbdc76de5be41de34
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Fri Apr 4 17:07:49 2025 +0200
+
+    LPD-52588 Please fix YAML array indentations everywhere, see modules/apps/analytics/analytics-settings-rest-impl/rest-openapi.yaml and cloud/helm/values.yaml #sfme
+
+commit 101be4d3d35d540670df063af456c48f92a080b0
+Author: jaredgorski <jared.gorski@liferay.com>
+Date:   Tue Apr 1 15:29:44 2025 -0400
+
+    LCD-45496 Fix helm test after re-ordering of ports
+
+commit aaa73fa2e9ba4e3fcce91083430d0bd4c116ed2e
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Sat Mar 29 23:42:11 2025 +0800
+
+    LPD-51646 Auto SF
+
+commit 425d27c40ba84e591936240226f85ec692f29bea
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Thu Mar 20 15:21:24 2025 -0400
+
+    LCD-45472 fix problem with portal properties overloading in the helm chart
+
+commit 272a46d1afb74e67952e5b56f66bbf692bdc326a
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 17:10:21 2025 -0300
+
+    LCD-45017 SF
+
+commit 33e673c53d045b2655ad04229a15e219fcf71fb4
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 17:06:41 2025 -0300
+
+    LCD-45017 Make it robotically ugly. Only add line breaks for define (or stuff inside bash)
+
+commit 7fb5a59fac96079249f49876b4c046d3614f11ce
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 17:06:00 2025 -0300
+
+    LCD-45017 SF
+
+commit c1809ab1c6b16d1f8bc69908c3ee616821011014
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 17:05:38 2025 -0300
+
+    LCD-45017 Make it robotically ugly
+
+commit a8bc11ba7ba89e05da73f09cdf0ac3e277621bec
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 17:01:56 2025 -0300
+
+    LCD-45017 SF
+
+commit 9f34caee0a4e765d2cc8f919a64815e7cd2a2340
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:59:50 2025 -0300
+
+    LCD-45017 SF
+
+commit f86c0c7fd793faf6b86e0401ae8abf6dded4b713
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:58:23 2025 -0300
+
+    LCD-45017 SF
+
+commit 3f8645eee17cfa7b2e1c16212a84eab24f3b390a
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:52:58 2025 -0300
+
+    LCD-45017 SF
+
+commit f8cd7cbec7b36def32802e40eb730fdfce5fc9ce
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:49:16 2025 -0300
+
+    LCD-45017 SF
+
+commit b16a17b9e325565506b8bba0654d8142674956dc
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:48:23 2025 -0300
+
+    LCD-45017 SF
+
+commit 3d83b59309cce4ec538f6612299e868ff1257419
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 24 16:38:47 2025 -0300
+
+    LCD-45017 SF
+
+commit 7ebe884b229f7df279f8cf99030f005840a722b9
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Wed Mar 19 13:22:44 2025 +0800
+
+    LCD-45017 Manual SF
+
+commit 7edac31971dadcd71925f76f752077d3e4034f37
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Wed Mar 19 10:54:54 2025 +0800
+
+    LCD-45017 SF
+
+commit 04a6dc0a03fa3d441c9b5d5959352753badc024f
+Author: Alan Huang <alan.huang@liferay.com>
+Date:   Wed Mar 19 10:48:28 2025 +0800
+
+    LCD-45017 SF
+
+commit 96156ec596c7115ab8875d5e915138ff76c44fcd
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Tue Mar 18 15:38:21 2025 -0300
+
+    LCD-45017 Ran auto SF
+
+commit 2376777f8e0cd4d720dc4c7095f3ccb74f8d0739
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Mar 17 15:10:27 2025 -0400
+
+    LCD-45107 sort and remove comments
+
+commit eb0a5023bc53ba6fe1224d6ec68d49b2dc4435ac
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Mar 17 12:25:17 2025 -0400
+
+    LCD-45107 move large globs into separate files
+
+commit 0771ca75bacf714e2433ceb58f174ebad7efc021
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Mar 17 12:17:15 2025 -0400
+
+    LCD-45107 sort
+
+commit f1ed1460ab053ab1c03b4b2ca0afbe40910e409f
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Mon Mar 17 10:06:06 2025 -0400
+
+    LCD-45107 use CDN url
+
+commit f4b1ffa306aa566313b82b99cc7b1588a96da56d
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Mar 14 13:10:54 2025 -0400
+
+    LCD-45107 add icon to pass lint requirements for AWS marketplace
+
+commit 46cf9d06e201f404f32d00ebf0b99c9c4611e941
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Mar 14 13:01:12 2025 -0400
+
+    LCD-44667 generate random passwords for the services and store them in a secret
+
+commit 370641a2e140c73430fee91fcaa341df9f6278d5
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Mar 14 11:16:22 2025 -0400
+
+    LCD-45108 change of all yaml and helm templates to indent 4
+
+commit 94079fb3290943bb5aed85f504deb845e61909fd
+Author: Raymond Augé <raymond.auge@liferay.com>
+Date:   Fri Mar 14 08:37:29 2025 -0400
+
+    LCD-45107 modify current chart contribution to account for requested directory structure changes
+
+commit 2e594aa4b87e9d7b030bce43450f2fc47a56a40c
+Author: Brian Chan <brian.chan@liferay.com>
+Date:   Mon Mar 3 16:38:43 2025 +0100
+
+    LCD-45017 Initial commit

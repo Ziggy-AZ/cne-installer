@@ -1,18 +1,18 @@
 apiVersion: gcp.m.upbound.io/v1beta1
 kind: ClusterProviderConfig
 metadata:
-    name: default
+        name: default
 spec:
-    projectID: {{ $.Values.gcp.projectId }}
-    credentials:
-        source: InjectedIdentity
+        projectID: {{ $.Values.gcp.projectId }}
+        credentials:
+            source: InjectedIdentity
 ---
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: ClusterProviderConfig
 metadata:
-    annotations:
-        argocd.argoproj.io/sync-wave: "-70"
-    name: default
+        annotations:
+            argocd.argoproj.io/sync-wave: "-70"
+        name: default
 spec:
-    credentials:
-        source: InjectedIdentity
+        credentials:
+            source: InjectedIdentity

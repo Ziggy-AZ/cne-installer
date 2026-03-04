@@ -2,50 +2,50 @@
 # Centralized suppressions for false positives and intentional architectural choices.
 
 directory:
-  - .
+    - .
 
 skip-check:
-  # --- Secrets Framework (Disabled separately in CLI but added here for safety) ---
-  - CKV_SECRET_6 # High entropy strings (false positives for OCI URLs/Regex)
+    # --- Secrets Framework (Disabled separately in CLI but added here for safety) ---
+    - CKV_SECRET_6 # High entropy strings (false positives for OCI URLs/Regex)
 
-  # --- GCP Terraform Infrastructure ---
-  - CKV_GCP_21  # Labels on GKE Cluster (Configured via labels but Checkov misses it in modules)
-  - CKV_GCP_12  # Network Policy (We use Autopilot which handles this differently)
-  - CKV_GCP_69  # GKE Metadata Server (Enabled in Autopilot by default)
-  - CKV_GCP_61  # VPC Flow Logs (Should be enabled in production, but optional for installer)
-  - CKV_GCP_49  # IAM Impersonation (Required for Crossplane providers to function)
-  - CKV_GCP_125 # OIDC Trust Policy (We have conditions, but Checkov logic is strict)
-  - CKV2_GCP_18 # Default Firewall (We define our own, but Checkov noise)
+    # --- GCP Terraform Infrastructure ---
+    - CKV_GCP_21  # Labels on GKE Cluster (Configured via labels but Checkov misses it in modules)
+    - CKV_GCP_12  # Network Policy (We use Autopilot which handles this differently)
+    - CKV_GCP_69  # GKE Metadata Server (Enabled in Autopilot by default)
+    - CKV_GCP_61  # VPC Flow Logs (Should be enabled in production, but optional for installer)
+    - CKV_GCP_49  # IAM Impersonation (Required for Crossplane providers to function)
+    - CKV_GCP_125 # OIDC Trust Policy (We have conditions, but Checkov logic is strict)
+    - CKV2_GCP_18 # Default Firewall (We define our own, but Checkov noise)
 
-  # --- Kubernetes / Helm Templates ---
-  - CKV_K8S_21  # Default Namespace (ArgoCD always overrides this)
-  - CKV_K8S_38  # SA Token Mounting (Intentional for certain pod types)
-  - CKV_K8S_43  # Image Digests (Tags are preferred for installer flexibility)
-  - CKV_K8S_22  # Read-only Filesystem (Liferay requires write access to several dirs)
-  - CKV_K8S_11  # CPU Limits (User configurable)
-  - CKV_K8S_10  # CPU Requests (User configurable)
-  - CKV_K8S_12  # Memory Requests (User configurable)
-  - CKV_K8S_13  # Memory Limits (User configurable)
-  - CKV_K8S_15  # Image Pull Policy (User configurable)
-  - CKV_K8S_29  # Security Context (Pod level)
-  - CKV_K8S_30  # Security Context (Container level)
-  - CKV_K8S_20  # Privilege Escalation
-  - CKV_K8S_31  # Seccomp Profile
-  - CKV_K8S_40  # Run as Non-Root (UID)
-  - CKV_K8S_35  # Secrets as Env Vars (Required by Java application design)
-  - CKV_K8S_14  # Image Tag
-  - CKV_K8S_28  # NET_RAW Capability
-  - CKV_K8S_37  # Capabilities
-  - CKV_K8S_49  # Wildcards in RBAC (Required for Crossplane orchestration)
-  - CKV_K8S_9   # Readiness Probes
-  - CKV_K8S_8   # Liveness Probes
-  - CKV_K8S_23  # Root Container
-  - CKV2_K8S_5  # Read all Secrets
-  - CKV2_K8S_6  # Network Policy Missing
-  - CKV_K8S_155 # Admission Controller permissions
+    # --- Kubernetes / Helm Templates ---
+    - CKV_K8S_21  # Default Namespace (ArgoCD always overrides this)
+    - CKV_K8S_38  # SA Token Mounting (Intentional for certain pod types)
+    - CKV_K8S_43  # Image Digests (Tags are preferred for installer flexibility)
+    - CKV_K8S_22  # Read-only Filesystem (Liferay requires write access to several dirs)
+    - CKV_K8S_11  # CPU Limits (User configurable)
+    - CKV_K8S_10  # CPU Requests (User configurable)
+    - CKV_K8S_12  # Memory Requests (User configurable)
+    - CKV_K8S_13  # Memory Limits (User configurable)
+    - CKV_K8S_15  # Image Pull Policy (User configurable)
+    - CKV_K8S_29  # Security Context (Pod level)
+    - CKV_K8S_30  # Security Context (Container level)
+    - CKV_K8S_20  # Privilege Escalation
+    - CKV_K8S_31  # Seccomp Profile
+    - CKV_K8S_40  # Run as Non-Root (UID)
+    - CKV_K8S_35  # Secrets as Env Vars (Required by Java application design)
+    - CKV_K8S_14  # Image Tag
+    - CKV_K8S_28  # NET_RAW Capability
+    - CKV_K8S_37  # Capabilities
+    - CKV_K8S_49  # Wildcards in RBAC (Required for Crossplane orchestration)
+    - CKV_K8S_9   # Readiness Probes
+    - CKV_K8S_8   # Liveness Probes
+    - CKV_K8S_23  # Root Container
+    - CKV2_K8S_5  # Read all Secrets
+    - CKV2_K8S_6  # Network Policy Missing
+    - CKV_K8S_155 # Admission Controller permissions
 
 skip-path:
-  - "cloud/terraform/gcp/gke/helm/gateway-infra"
+    - "cloud/terraform/gcp/gke/helm/gateway-infra"
 
 compact: true
 soft-fail: false

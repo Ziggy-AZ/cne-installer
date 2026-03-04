@@ -1,179 +1,179 @@
 apiVersion: apiextensions.crossplane.io/v2
 kind: CompositeResourceDefinition
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: ServerSideApply=true
-    argocd.argoproj.io/sync-wave: "-60"
-  name: liferayinfrastructures.gcp.liferay.com
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+        argocd.argoproj.io/sync-wave: "-60"
+      name: liferayinfrastructures.gcp.liferay.com
 spec:
-  group: gcp.liferay.com
-  names:
-    kind: LiferayInfrastructure
-    plural: liferayinfrastructures
-    shortNames:
-      - lfrinfra
-      - lri
-    singular: liferayinfrastructure
-  versions:
-    - name: v1alpha1
-      referenceable: true
-      schema:
-        openAPIV3Schema:
-          properties:
-            spec:
+      group: gcp.liferay.com
+      names:
+        kind: LiferayInfrastructure
+        plural: liferayinfrastructures
+        shortNames:
+          - lfrinfra
+          - lri
+        singular: liferayinfrastructure
+      versions:
+        - name: v1alpha1
+          referenceable: true
+          schema:
+            openAPIV3Schema:
               properties:
-                commonTags:
-                  additionalProperties: true
-                  default: {}
-                  type: object
-                database:
+                spec:
                   properties:
-                    activeSlot:
-                      default: blue
-                      enum:
-                        - blue
-                        - green
-                      type: string
-                    blue:
-                      properties:
-                        engineVersion: { type: string, default: "POSTGRES_16" }
-                        instanceClass: {
-                            type: string,
-                            default: "db-custom-1-3840",
-                          }
-                        region:
-                          default: us-central1
-                          type: string
-                        storageGB:
-                          default: 20
-                          type: integer
-                        username:
-                          default: liferay_database_admin
-                          type: string
-                      required:
-                        - region
+                    commonTags:
+                      additionalProperties: true
+                      default: {}
                       type: object
-                    green:
+                    database:
                       properties:
-                        engineVersion: { type: string, default: "POSTGRES_16" }
-                        instanceClass: {
-                            type: string,
-                            default: "db-custom-1-3840",
-                          }
-                        region:
-                          default: us-central1
+                        activeSlot:
+                          default: blue
+                          enum:
+                            - blue
+                            - green
                           type: string
-                        storageGB:
-                          default: 20
-                          type: integer
-                        username:
-                          default: liferay_database_admin
-                          type: string
+                        blue:
+                          properties:
+                            engineVersion: { type: string, default: "POSTGRES_16" }
+                            instanceClass: {
+                                type: string,
+                                default: "db-custom-1-3840",
+                              }
+                            region:
+                              default: us-central1
+                              type: string
+                            storageGB:
+                              default: 20
+                              type: integer
+                            username:
+                              default: liferay_database_admin
+                              type: string
+                          required:
+                            - region
+                          type: object
+                        green:
+                          properties:
+                            engineVersion: { type: string, default: "POSTGRES_16" }
+                            instanceClass: {
+                                type: string,
+                                default: "db-custom-1-3840",
+                              }
+                            region:
+                              default: us-central1
+                              type: string
+                            storageGB:
+                              default: 20
+                              type: integer
+                            username:
+                              default: liferay_database_admin
+                              type: string
+                          required:
+                            - region
+                          type: object
                       required:
-                        - region
+                        - activeSlot
                       type: object
-                  required:
-                    - activeSlot
-                  type: object
-                deletionProtection:
-                  default: false
-                  type: boolean
-                environmentId:
-                  type: string
-                overlay:
-                  properties:
-                    enabled:
+                    deletionProtection:
                       default: false
                       type: boolean
-                    githubRepo:
+                    environmentId:
                       type: string
-                      description: "The GitHub repository authorized to push customizations (e.g., 'org/repo')."
-                  type: object
-                projectId:
-                  type: string
-                search:
-                  properties:
-                    engineVersion:
-                      default: 8.12.0
-                      type: string
-                      description: "The ES version (e.g., 8.12.0)."
-                    instanceCount:
-                      default: 2
-                      type: integer
-                      description: "Number of nodes in the nodeSet."
-                    instanceType:
-                      default: t3.small.search
-                      type: string
-                    region:
-                      default: us-central1
-                      type: string
-                    username:
-                      default: liferay_search_admin
-                      type: string
-                    storageSize:
-                      type: string
-                      description: "Disk size (e.g., 50Gi)."
-                    memory:
-                      type: string
-                      description: "RAM limit for the container (e.g., 4Gi)."
-                    heapSize:
-                      type: string
-                      description: "JVM Heap size (recommended 50% of RAM)."
-                    tlsDisabled:
-                      type: boolean
-                      description: "Set to true for plain HTTP inside the cluster."
-                    env:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          name:
-                            type: string
-                          value:
-                            type: string
-                  required:
-                    - region
-                  type: object
-                storage:
-                  properties:
-                    activeSlot:
-                      default: blue
-                      enum:
-                        - blue
-                        - green
-                      type: string
-                    blue:
+                    overlay:
                       properties:
-                        enableVersioning:
-                          default: true
+                        enabled:
+                          default: false
                           type: boolean
+                        githubRepo:
+                          type: string
+                          description: "The GitHub repository authorized to push customizations (e.g., 'org/repo')."
+                      type: object
+                    projectId:
+                      type: string
+                    search:
+                      properties:
+                        engineVersion:
+                          default: 8.12.0
+                          type: string
+                          description: "The ES version (e.g., 8.12.0)."
+                        instanceCount:
+                          default: 2
+                          type: integer
+                          description: "Number of nodes in the nodeSet."
+                        instanceType:
+                          default: t3.small.search
+                          type: string
                         region:
                           default: us-central1
                           type: string
+                        username:
+                          default: liferay_search_admin
+                          type: string
+                        storageSize:
+                          type: string
+                          description: "Disk size (e.g., 50Gi)."
+                        memory:
+                          type: string
+                          description: "RAM limit for the container (e.g., 4Gi)."
+                        heapSize:
+                          type: string
+                          description: "JVM Heap size (recommended 50% of RAM)."
+                        tlsDisabled:
+                          type: boolean
+                          description: "Set to true for plain HTTP inside the cluster."
+                        env:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              value:
+                                type: string
                       required:
                         - region
                       type: object
-                    green:
+                    storage:
                       properties:
-                        enableVersioning:
-                          default: true
-                          type: boolean
-                        region:
-                          default: us-central1
+                        activeSlot:
+                          default: blue
+                          enum:
+                            - blue
+                            - green
                           type: string
+                        blue:
+                          properties:
+                            enableVersioning:
+                              default: true
+                              type: boolean
+                            region:
+                              default: us-central1
+                              type: string
+                          required:
+                            - region
+                          type: object
+                        green:
+                          properties:
+                            enableVersioning:
+                              default: true
+                              type: boolean
+                            region:
+                              default: us-central1
+                              type: string
+                          required:
+                            - region
+                          type: object
                       required:
-                        - region
+                        - activeSlot
                       type: object
                   required:
-                    - activeSlot
+                    - database
+                    - deletionProtection
+                    - environmentId
+                    - projectId
+                    - search
+                    - storage
                   type: object
-              required:
-                - database
-                - deletionProtection
-                - environmentId
-                - projectId
-                - search
-                - storage
               type: object
-          type: object
-      served: true
+          served: true

@@ -2,34 +2,34 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-    name: {{ .Values.overlay.bucketName }}
-spec:
-    accessModes:
-        -   ReadWriteMany
-    capacity:
-        storage: 10Gi
-    claimRef:
         name: {{ .Values.overlay.bucketName }}
-        namespace: {{ .Release.Namespace }}
-    csi:
-        driver: {{ .Values.overlay.driver | default "s3.csi.aws.com" }}
-        volumeAttributes:
-            bucketName: {{ .Values.overlay.bucketName }}
-            {{- if eq (.Values.overlay.driver | default "s3.csi.aws.com") "gcsfuse.csi.storage.gke.io" }}
-            mountOptions: "implicit-dirs"
-            {{- end }}
-        volumeHandle: {{ .Values.overlay.bucketName }}
-    storageClassName: {{ .Values.overlay.bucketName }}
+spec:
+        accessModes:
+            -   ReadWriteMany
+        capacity:
+            storage: 10Gi
+        claimRef:
+            name: {{ .Values.overlay.bucketName }}
+            namespace: {{ .Release.Namespace }}
+        csi:
+            driver: {{ .Values.overlay.driver | default "s3.csi.aws.com" }}
+            volumeAttributes:
+                bucketName: {{ .Values.overlay.bucketName }}
+                {{- if eq (.Values.overlay.driver | default "s3.csi.aws.com") "gcsfuse.csi.storage.gke.io" }}
+                mountOptions: "implicit-dirs"
+                {{- end }}
+            volumeHandle: {{ .Values.overlay.bucketName }}
+        storageClassName: {{ .Values.overlay.bucketName }}
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-    name: {{ .Values.overlay.bucketName }}
+        name: {{ .Values.overlay.bucketName }}
 spec:
-    accessModes:
-        -   ReadWriteMany
-    resources:
-        requests:
-            storage: 10Gi
-    storageClassName: {{ .Values.overlay.bucketName }}
+        accessModes:
+            -   ReadWriteMany
+        resources:
+            requests:
+                storage: 10Gi
+        storageClassName: {{ .Values.overlay.bucketName }}
 {{- end }}

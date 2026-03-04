@@ -1,15 +1,15 @@
 kind: HTTPRoute
 apiVersion: gateway.networking.k8s.io/v1
 metadata:
-  name: liferay-route
-  namespace: {{ .Release.Namespace }}
+      name: liferay-route
+      namespace: {{ .Release.Namespace }}
 spec:
-    hostnames:
-    - {{ .Release.Namespace }}.{{ .Values.rootDomain }}
-    parentRefs:
-    - name: shared-gateway
-      namespace: infra
-    rules:
-    - backendRefs:
-      - name: liferay-default
-        port: 8080
+        hostnames:
+        - {{ .Release.Namespace }}.{{ .Values.rootDomain }}
+        parentRefs:
+        - name: shared-gateway
+          namespace: infra
+        rules:
+        - backendRefs:
+          - name: liferay-default
+            port: 8080

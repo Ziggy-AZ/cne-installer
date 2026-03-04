@@ -1,31 +1,22 @@
-# Terraform
-.terraform/
+*.bak
+*.key
+*.pem
+*.swp
 *.tfstate
 *.tfstate.backup
 *.tfvars.json
-override.tf
-override.tf.json
 *_override.tf
 *_override.tf.json
-.terraform.lock.hcl
-
-# Credentials & Secrets
+.DS_Store
 .env
 .env.*
-secrets.yaml
-*.pem
-*.key
-
-# Google Cloud
 .gcloud/
-
-# OS/IDE
-.DS_Store
 .idea/
+.terraform/
+.terraform.lock.hcl
 .vscode/
-*.swp
-*.bak
-
-# Node (if any)
 node_modules/
 npm-debug.log*
+override.tf
+override.tf.json
+secrets.yaml

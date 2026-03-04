@@ -11,41 +11,41 @@
 apiVersion: gcp.liferay.com/v1alpha1
 kind: LiferayInfrastructure
 metadata:
-    # checkov:skip=CKV_K8S_21:Namespace is set dynamically by Helm/ArgoCD
-    annotations:
-        argocd.argoproj.io/sync-wave: "-20"
-    name: {{ .Release.Name }}
-    namespace: {{ .Release.Namespace }}
+        # checkov:skip=CKV_K8S_21:Namespace is set dynamically by Helm/ArgoCD
+        annotations:
+            argocd.argoproj.io/sync-wave: "-20"
+        name: {{ .Release.Name }}
+        namespace: {{ .Release.Namespace }}
 spec:
-    commonTags:
-        EnvironmentId: {{ .Values.environmentId }}
-        ProjectId: {{ .Values.projectId }}
-    database:
-        activeSlot: {{ $db.activeSlot | default "blue" | quote }}
-        blue:
-            engineVersion: {{ $dbBlue.engineVersion | default "POSTGRES_16" | quote }}
-            instanceClass: {{ $dbBlue.instanceClass | default "db-custom-1-3840" | quote }}
-    deletionProtection: {{ .Values.deletionProtection | default false }}
-    environmentId: {{ .Values.environmentId }}
-    overlay:
-        enabled: {{ $overlay.enabled | default false }}
-        githubRepo: {{ $overlay.githubRepo | default "" | quote }}
-    projectId: {{ .Values.projectId }}
-    search:
-        engineVersion: {{ $search.engineVersion | default "8.12.0" | quote }}
-        instanceCount: {{ $search.instanceCount | default 1 }}
-        storageSize: {{ $search.storageSize | default "2Gi" | quote }}
-        memory: {{ $search.memory | default "4Gi" | quote }}
-        heapSize: {{ $search.heapSize | default "2g" | quote }}
-        tlsDisabled: {{ $search.tlsDisabled | default true }}
-        env: {{ $search.env | default list | toJson }}
-        region: {{ $search.region | default "us-central1" | quote }}
-    storage:
-        activeSlot: {{ $storage.activeSlot | default "blue" | quote }}
-        blue:
-            enableVersioning: {{ $storageBlue.enableVersioning | default true }}
-            region: {{ $storageBlue.region | default "us-central1" | quote }}
-        green:
-            enableVersioning: {{ $storageGreen.enableVersioning | default true }}
-            region: {{ $storageGreen.region | default "us-central1" | quote }}
+        commonTags:
+            EnvironmentId: {{ .Values.environmentId }}
+            ProjectId: {{ .Values.projectId }}
+        database:
+            activeSlot: {{ $db.activeSlot | default "blue" | quote }}
+            blue:
+                engineVersion: {{ $dbBlue.engineVersion | default "POSTGRES_16" | quote }}
+                instanceClass: {{ $dbBlue.instanceClass | default "db-custom-1-3840" | quote }}
+        deletionProtection: {{ .Values.deletionProtection | default false }}
+        environmentId: {{ .Values.environmentId }}
+        overlay:
+            enabled: {{ $overlay.enabled | default false }}
+            githubRepo: {{ $overlay.githubRepo | default "" | quote }}
+        projectId: {{ .Values.projectId }}
+        search:
+            engineVersion: {{ $search.engineVersion | default "8.12.0" | quote }}
+            instanceCount: {{ $search.instanceCount | default 1 }}
+            storageSize: {{ $search.storageSize | default "2Gi" | quote }}
+            memory: {{ $search.memory | default "4Gi" | quote }}
+            heapSize: {{ $search.heapSize | default "2g" | quote }}
+            tlsDisabled: {{ $search.tlsDisabled | default true }}
+            env: {{ $search.env | default list | toJson }}
+            region: {{ $search.region | default "us-central1" | quote }}
+        storage:
+            activeSlot: {{ $storage.activeSlot | default "blue" | quote }}
+            blue:
+                enableVersioning: {{ $storageBlue.enableVersioning | default true }}
+                region: {{ $storageBlue.region | default "us-central1" | quote }}
+            green:
+                enableVersioning: {{ $storageGreen.enableVersioning | default true }}
+                region: {{ $storageGreen.region | default "us-central1" | quote }}
 {{- end -}}

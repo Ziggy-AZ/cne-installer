@@ -8,17 +8,17 @@ if [ -z "$PROJECT_ID" ] || [ -z "$SECRET_NAME" ]; then
     exit 1
 fi
 
-echo "Checking for existing secret: $SECRET_NAME..."
+echo "Checking for existing secret: ${SECRET_NAME}."
 
 if gcloud secrets describe "$SECRET_NAME" --project="$PROJECT_ID" > /dev/null 2>&1; then
-    echo "Secret '$SECRET_NAME' already exists."
+    echo "Secret \"${SECRET_NAME}\" already exists."
     read -p "Do you want to update the value? (y/N): " UPDATE
     if [[ ! "$UPDATE" =~ ^[Yy]$ ]]; then
         echo "Exiting without changes."
         exit 0
     fi
 else
-    echo "Creating new secret: $SECRET_NAME..."
+    echo "Creating new secret: ${SECRET_NAME}."
     gcloud secrets create "$SECRET_NAME" \
         --replication-policy="automatic" \
         --project="$PROJECT_ID"
@@ -26,7 +26,7 @@ fi
 
 if [ -n "$FILE_PATH" ]; then
     if [ -f "$FILE_PATH" ]; then
-        echo "Uploading content from $FILE_PATH..."
+        echo "Uploading content from ${FILE_PATH}."
         gcloud secrets versions add "$SECRET_NAME" --data-file="$FILE_PATH" --project="$PROJECT_ID"
     else
         echo "Error: File $FILE_PATH not found."

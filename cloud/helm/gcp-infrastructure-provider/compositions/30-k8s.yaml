@@ -3,144 +3,144 @@
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: Object
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-ksa
-  name: {{ $xr.metadata.name }}-ksa
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-ksa
+      name: {{ $xr.metadata.name }}-ksa
 spec:
-  forProvider:
-    manifest:
-      apiVersion: v1
-      kind: ServiceAccount
-      metadata:
-        name: liferay-default
-        namespace: {{ $namespace }}
-        annotations:
-          iam.gke.io/gcp-service-account: {{ $gsaEmail }}
+      forProvider:
+        manifest:
+          apiVersion: v1
+          kind: ServiceAccount
+          metadata:
+            name: liferay-default
+            namespace: {{ $namespace }}
+            annotations:
+              iam.gke.io/gcp-service-account: {{ $gsaEmail }}
 ---
 # 9. SQL Grant Job
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: Object
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-db-grant-job
-  name: {{ $jobName }}
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-db-grant-job
+      name: {{ $jobName }}
 spec:
-  readiness:
-    celQuery: "object.status.atProvider.manifest.status.succeeded == 1"
-  forProvider:
-    manifest:
-      apiVersion: batch/v1
-      kind: Job
-      metadata:
-        name: {{ $jobName }}
-        namespace: {{ $namespace }}
-      spec:
-        template:
+      readiness:
+        celQuery: "object.status.atProvider.manifest.status.succeeded == 1"
+      forProvider:
+        manifest:
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: {{ $jobName }}
+            namespace: {{ $namespace }}
           spec:
-            serviceAccountName: liferay-default
-            restartPolicy: OnFailure
-            volumes:
-              - name: term-log
-                emptyDir: {}
-            initContainers:
-              - name: cloud-sql-proxy
-                restartPolicy: Always
-                image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14.1
-                args:
-                  - "--private-ip"
-                  - "--auto-iam-authn"
-                  - "--structured-logs"
-                  - "--port={{ $databasePort }}"
-                  - "{{ $instanceConnectionName }}"
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 128Mi
-                  limits:
-                    cpu: 200m
-                    memory: 256Mi
+            template:
+              spec:
+                serviceAccountName: liferay-default
+                restartPolicy: OnFailure
+                volumes:
+                  - name: term-log
+                    emptyDir: {}
+                initContainers:
+                  - name: cloud-sql-proxy
+                    restartPolicy: Always
+                    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14.1
+                    args:
+                      - "--private-ip"
+                      - "--auto-iam-authn"
+                      - "--structured-logs"
+                      - "--port={{ $databasePort }}"
+                      - "{{ $instanceConnectionName }}"
+                    resources:
+                      requests:
+                        cpu: 100m
+                        memory: 128Mi
+                      limits:
+                        cpu: 200m
+                        memory: 256Mi
 
-                securityContext:
-                  # The default Cloud SQL Auth Proxy image runs as the
-                  # "nonroot" user and group (uid: 65532) by default.
-                  runAsNonRoot: true
-            containers:
-              - name: sql-runner
-                image: postgres:16-alpine
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 128Mi
-                  limits:
-                    cpu: 200m
-                    memory: 256Mi
-                env:
-                  - name: PGPASSWORD
-                    valueFrom:
-                      secretKeyRef:
-                        name: {{ $databaseName }}-root-password-secret
-                        key: password
-                command: ["/bin/sh", "-c"]
-                args:
-                  - |
-                    set -e
-                    until pg_isready -h 127.0.0.1 -p {{ $databasePort }}; do sleep 2; done
-                    psql -h 127.0.0.1 -v "ON_ERROR_STOP=1" -U postgres -d {{ $databaseName }} <<EOF
-                    GRANT ALL PRIVILEGES ON DATABASE "{{ $databaseName }}" TO "{{ $databaseIamUser }}";
-                    GRANT ALL ON ALL TABLES IN SCHEMA public TO "{{ $databaseIamUser }}";
-                    GRANT cloudsqlsuperuser TO "{{ $databaseIamUser }}";
-                    EOF
-  managementPolicies: {{ $managementPoliciesOnce }}
+                    securityContext:
+                      # The default Cloud SQL Auth Proxy image runs as the
+                      # "nonroot" user and group (uid: 65532) by default.
+                      runAsNonRoot: true
+                containers:
+                  - name: sql-runner
+                    image: postgres:16-alpine
+                    resources:
+                      requests:
+                        cpu: 100m
+                        memory: 128Mi
+                      limits:
+                        cpu: 200m
+                        memory: 256Mi
+                    env:
+                      - name: PGPASSWORD
+                        valueFrom:
+                          secretKeyRef:
+                            name: {{ $databaseName }}-root-password-secret
+                            key: password
+                    command: ["/bin/sh", "-c"]
+                    args:
+                      - |
+                        set -e
+                        until pg_isready -h 127.0.0.1 -p {{ $databasePort }}; do sleep 2; done
+                        psql -h 127.0.0.1 -v "ON_ERROR_STOP=1" -U postgres -d {{ $databaseName }} <<EOF
+                        GRANT ALL PRIVILEGES ON DATABASE "{{ $databaseName }}" TO "{{ $databaseIamUser }}";
+                        GRANT ALL ON ALL TABLES IN SCHEMA public TO "{{ $databaseIamUser }}";
+                        GRANT cloudsqlsuperuser TO "{{ $databaseIamUser }}";
+                        EOF
+      managementPolicies: {{ $managementPoliciesOnce }}
 
 ---
 # 8. Managed Service Details Secret
 # This is conditionally included ONLY when the Grant Job is finished.
 {{- $isReady := false -}}
 {{- if .observed.resources -}}
-  {{- if (index .observed.resources "liferay-db-grant-job") -}}
-    {{- $job := index .observed.resources "liferay-db-grant-job" -}}
-    {{- range $cond := $job.resource.status.conditions | default list }}
-      {{- if and (eq $cond.type "Ready") (eq $cond.status "True") }}
-        {{- $isReady = true }}
+      {{- if (index .observed.resources "liferay-db-grant-job") -}}
+        {{- $job := index .observed.resources "liferay-db-grant-job" -}}
+        {{- range $cond := $job.resource.status.conditions | default list }}
+          {{- if and (eq $cond.type "Ready") (eq $cond.status "True") }}
+            {{- $isReady = true }}
+          {{- end }}
+        {{- end }}
       {{- end }}
-    {{- end }}
-  {{- end }}
 {{- end }}
 
 {{- if $isReady }}
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: Object
 metadata:
-    annotations:
-        crossplane.io/external-name: {{ $baseName }}-managed-service-details-secret
-        gotemplating.fn.crossplane.io/composition-resource-name: managed-service-details-secret
-    labels:
-        app: liferay
-        environmentId: {{ $environmentId }}
-        projectId: {{ $projectId }}
-    name: {{ $baseName }}-managed-service-details-secret
+        annotations:
+            crossplane.io/external-name: {{ $baseName }}-managed-service-details-secret
+            gotemplating.fn.crossplane.io/composition-resource-name: managed-service-details-secret
+        labels:
+            app: liferay
+            environmentId: {{ $environmentId }}
+            projectId: {{ $projectId }}
+        name: {{ $baseName }}-managed-service-details-secret
 spec:
-    forProvider:
-        manifest:
-            apiVersion: v1
-            kind: Secret
-            metadata:
-                name: managed-service-details
-                namespace: {{ $namespace }}
-                labels:
-                    app: liferay
-                    environmentId: {{ $environmentId }}
-                    projectId: {{ $projectId }}
-            stringData:
-                DATABASE_INSTANCE_NAME: {{ $instanceConnectionName }}
-                DATABASE_ENDPOINT: localhost
-                DATABASE_PORT: {{ $databasePort | default 5432 | quote }}
-                DATABASE_USERNAME: {{ $databaseIamUser | toString }}
-                ELASTICSEARCH_HOST: es-es-http
-                ELASTICSEARCH_PORT: "9200"
-                ELASTICSEARCH_URL: "http://es-es-http:9200"
-                LIFERAY_GCS_BUCKET_NAME: {{ $baseName }}-dl
-                LIFERAY_OVERLAY_BUCKET_NAME: {{ $baseName }}-overlay
-                type: Opaque
-    managementPolicies: {{ $managementPolicies }}
+        forProvider:
+            manifest:
+                apiVersion: v1
+                kind: Secret
+                metadata:
+                    name: managed-service-details
+                    namespace: {{ $namespace }}
+                    labels:
+                        app: liferay
+                        environmentId: {{ $environmentId }}
+                        projectId: {{ $projectId }}
+                stringData:
+                    DATABASE_INSTANCE_NAME: {{ $instanceConnectionName }}
+                    DATABASE_ENDPOINT: localhost
+                    DATABASE_PORT: {{ $databasePort | default 5432 | quote }}
+                    DATABASE_USERNAME: {{ $databaseIamUser | toString }}
+                    ELASTICSEARCH_HOST: es-es-http
+                    ELASTICSEARCH_PORT: "9200"
+                    ELASTICSEARCH_URL: "http://es-es-http:9200"
+                    LIFERAY_GCS_BUCKET_NAME: {{ $baseName }}-dl
+                    LIFERAY_OVERLAY_BUCKET_NAME: {{ $baseName }}-overlay
+                    type: Opaque
+        managementPolicies: {{ $managementPolicies }}
 {{- end }}

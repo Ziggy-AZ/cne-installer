@@ -2,7 +2,7 @@ apiVersion: v2
 name: gateway-infra
 version: 1.0.2
 dependencies:
-  - name: gateway-helm
-    version: "v1.7.0"
-    repository: "oci://docker.io/envoyproxy"
-    condition: envoy-gateway.enabled
+      - name: gateway-helm
+        version: "v1.7.0"
+        repository: "oci://docker.io/envoyproxy"
+        condition: envoy-gateway.enabled

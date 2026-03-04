@@ -2,12 +2,12 @@
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: EnvoyProxy
 metadata:
-  name: custom-proxy-config
-  namespace: {{ .Release.Namespace }}
+      name: custom-proxy-config
+      namespace: {{ .Release.Namespace }}
 spec:
-  provider:
-    type: Kubernetes
-    kubernetes:
-      envoyService:
-        type: ClusterIP # Change from default LoadBalancer
-        name: envoy-internal-proxy
+      provider:
+        type: Kubernetes
+        kubernetes:
+          envoyService:
+            type: ClusterIP # Change from default LoadBalancer
+            name: envoy-internal-proxy

@@ -6,7 +6,7 @@ if [ -z "$PROJECT_ID" ]; then
     exit 1
 fi
 
-echo "Fetching available regions..."
+echo "Fetching available regions."
 gcloud compute regions list --project="$PROJECT_ID" --format="value(name)"
 
 read -p "Enter the region name you want to select (default: us-central1): " REGION_NAME
@@ -34,7 +34,7 @@ EOF
     echo "SUCCESS: Region set to $REGION_NAME"
     echo "Updated $TFVARS_FILE with automated settings."
     echo "------------------------------------"
-    echo "IMPORTANT: Run 'source ./setup-region.sh $PROJECT_ID' to keep the variable in your current shell."
+    echo "IMPORTANT: Run \"source ./setup-region.sh ${PROJECT_ID}\" to keep the variable in your current shell."
 else
     echo "Error: Could not find $TFVARS_FILE"
 fi

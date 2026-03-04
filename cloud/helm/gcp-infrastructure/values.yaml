@@ -1,5 +1,5 @@
 enabled: true
 
 overlay:
-    enabled: false
-    githubRepo: ""
+        enabled: false
+        githubRepo: ""

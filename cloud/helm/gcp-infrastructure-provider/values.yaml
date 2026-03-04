@@ -1,9 +1,9 @@
 gcp:
-  projectId: ""
-  projectNumber: ""
-  clusterName: ""
-  networkName: ""
-  subnetworkName: ""
+      projectId: ""
+      projectNumber: ""
+      clusterName: ""
+      networkName: ""
+      subnetworkName: ""
 
 crossplaneNamespace: crossplane-system
 deploymentName: ""

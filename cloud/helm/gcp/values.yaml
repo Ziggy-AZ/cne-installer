@@ -1,160 +1,160 @@
 liferay-gcp-backup-restore:
-    enabled: false
-liferay-default:
-    replicaCount: 1
-    podSecurityContext:
-        fsGroup: 1000
-    podAnnotations:
-        gke-gcsfuse/volumes: "true"
-    overlay:
         enabled: false
-        bucketName: "$[env:LIFERAY_OVERLAY_BUCKET_NAME]"
-        driver: "gcsfuse.csi.storage.gke.io"
-    customEnv:
-        x-virtualhostsignorehosts-enabled:
-            - name: LIFERAY_VIRTUAL_PERIOD_HOSTS_PERIOD_IGNORE_PERIOD_HOSTS
-              value: "127.0.0.1,localhost,${env:POD_IP}"
-        x-license:
-            - name: LIFERAY_DISABLE_TRIAL_LICENSE
-              value: "true"
-    customEnvFrom:
-        x-liferay-gcp:
-            - configMapRef:
-                  name: liferay-company-domain-config
-            - secretRef:
-                  name: managed-service-details
-    customLabels:
-        origin: liferay-gcp
-    securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-    customVolumes:
-        x-license:
-            - name: liferay-license
-              secret:
-                  secretName: liferay-license
-    customVolumeMounts:
-        x-license:
-            - mountPath: /etc/liferay/mount/files/deploy/license.xml
-              name: liferay-license
-              subPath: license.xml
-        x-liferay-gcp:
+liferay-default:
+        replicaCount: 1
+        podSecurityContext:
+            fsGroup: 1000
+        podAnnotations:
+            gke-gcsfuse/volumes: "true"
+        overlay:
+            enabled: false
+            bucketName: "$[env:LIFERAY_OVERLAY_BUCKET_NAME]"
+            driver: "gcsfuse.csi.storage.gke.io"
+        customEnv:
+            x-virtualhostsignorehosts-enabled:
+                - name: LIFERAY_VIRTUAL_PERIOD_HOSTS_PERIOD_IGNORE_PERIOD_HOSTS
+                  value: "127.0.0.1,localhost,${env:POD_IP}"
+            x-license:
+                - name: LIFERAY_DISABLE_TRIAL_LICENSE
+                  value: "true"
+        customEnvFrom:
+            x-liferay-gcp:
+                - configMapRef:
+                      name: liferay-company-domain-config
+                - secretRef:
+                      name: managed-service-details
+        customLabels:
+            origin: liferay-gcp
+        securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+        customVolumes:
+            x-license:
+                - name: liferay-license
+                  secret:
+                      secretName: liferay-license
+        customVolumeMounts:
+            x-license:
+                - mountPath: /etc/liferay/mount/files/deploy/license.xml
+                  name: liferay-license
+                  subPath: license.xml
+            x-liferay-gcp:
 
-            - mountPath: /opt/liferay/osgi/configs/com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
-              name: liferay-configmap
-              subPath: com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
-            - mountPath: /opt/liferay/osgi/configs/com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config
-              name: liferay-configmap
-              subPath: com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config
-    portalProperties: |
-        dl.store.impl=com.liferay.portal.store.gcs.GCSStore
-        jdbc.default.driverClassName=org.postgresql.Driver
-        jdbc.default.url=jdbc:postgresql://${env.DATABASE_ENDPOINT}:${env.DATABASE_PORT}/lportal?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
-        jdbc.default.username=${env.DATABASE_USERNAME}
-        web.server.protocol=https
-        auth.login.url=/home/-/login/openid_connect_request?p_p_state=maximized&_com_liferay_login_web_portlet_LoginPortlet_saveLastPath=false&_com_liferay_login_web_portlet_LoginPortlet_OPEN_ID_CONNECT_PROVIDER_NAME=Cloudflare - Github
-    resources:
-        limits:
-            cpu: 4000m
-            memory: 12Gi
-        requests:
-            cpu: 2000m
-            memory: 2Gi
-    volumeClaimTemplates:
-        - metadata:
-              name: liferay-persistent-volume
-          spec:
-              accessModes:
-                  - ReadWriteOnce
-              resources:
-                  requests:
-                      storage: 2Gi
-              storageClassName: standard-rwo
-    customInitContainers:
-        x-liferay-overlay:
-            - containerTemplate: |
-                -   command:
-                        -   bash
-                        -   -c
-                        -   |
-                            {{- if and .overlay .overlay.enabled }}
-                            echo "Overlay enabled. Syncing files..."
-                            {{- $overlay := .overlay -}}
-                            {{- range $overlay.copy }}
-                            mkdir \
-                                --parents \
-                                --verbose \
-                                /temp/{{ .into }}
+                - mountPath: /opt/liferay/osgi/configs/com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
+                  name: liferay-configmap
+                  subPath: com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config
+                - mountPath: /opt/liferay/osgi/configs/com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config
+                  name: liferay-configmap
+                  subPath: com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config
+        portalProperties: |
+            dl.store.impl=com.liferay.portal.store.gcs.GCSStore
+            jdbc.default.driverClassName=org.postgresql.Driver
+            jdbc.default.url=jdbc:postgresql://${env.DATABASE_ENDPOINT}:${env.DATABASE_PORT}/lportal?useUnicode=true&characterEncoding=UTF-8&useFastDateParsing=false
+            jdbc.default.username=${env.DATABASE_USERNAME}
+            web.server.protocol=https
+            auth.login.url=/home/-/login/openid_connect_request?p_p_state=maximized&_com_liferay_login_web_portlet_LoginPortlet_saveLastPath=false&_com_liferay_login_web_portlet_LoginPortlet_OPEN_ID_CONNECT_PROVIDER_NAME=Cloudflare - Github
+        resources:
+            limits:
+                cpu: 4000m
+                memory: 12Gi
+            requests:
+                cpu: 2000m
+                memory: 2Gi
+        volumeClaimTemplates:
+            - metadata:
+                  name: liferay-persistent-volume
+              spec:
+                  accessModes:
+                      - ReadWriteOnce
+                  resources:
+                      requests:
+                          storage: 2Gi
+                  storageClassName: standard-rwo
+        customInitContainers:
+            x-liferay-overlay:
+                - containerTemplate: |
+                    -   command:
+                            -   bash
+                            -   -c
+                            -   |
+                                {{- if and .overlay .overlay.enabled }}
+                                echo "Overlay enabled. Syncing files."
+                                {{- $overlay := .overlay -}}
+                                {{- range $overlay.copy }}
+                                mkdir \
+                                    --parents \
+                                    --verbose \
+                                    /temp/{{ .into }}
 
-                            if [ -d /mnt/liferay/overlay/{{ .from }} ] || [ -f /mnt/liferay/overlay/{{ .from }} ]; then
-                              cp \
-                                --recursive \
-                                --verbose \
-                                /mnt/liferay/overlay/{{ .from }} \
-                                /temp/{{ .into }}
-                            else
-                              echo "Source /mnt/liferay/overlay/{{ .from }} does not exist, skipping."
-                            fi
-                            {{- end }}
-                            {{- else }}
-                            echo "Overlay is not enabled."
-                            {{- end }}
-                    image: {{ printf "%s:%s" .image.repository (.image.tag | toString) }}
-                    imagePullPolicy: {{ .image.pullPolicy }}
-                    name: liferay-overlay
-                    {{- if and .overlay .overlay.enabled }}
-                    volumeMounts:
-                        -   mountPath: /mnt/liferay/overlay
-                            name: {{ .overlay.bucketName }}
-                        -   mountPath: /temp
-                            name: liferay-persistent-volume
-                    {{- end }}
-        x-cloud-sql-auth-proxy-enabled:
-            - name: cloud-sql-proxy
-              restartPolicy: Always
-              image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14.1
-              envFrom:
-                  - secretRef:
-                        name: managed-service-details
-              env:
-                  - name: CSQL_PROXY_HEALTH_CHECK
-                    value: "true"
-                  - name: CSQL_PROXY_HTTP_PORT
-                    value: "9801"
-                  - name: CSQL_PROXY_HTTP_ADDRESS
-                    value: 0.0.0.0
-              args:
-                  - "--private-ip"
-                  - "--auto-iam-authn"
-                  - "--structured-logs"
-                  - "--port=$(DATABASE_PORT)"
-                  - "$(DATABASE_INSTANCE_NAME)"
-              securityContext:
-                  # The default Cloud SQL Auth Proxy image runs as the
-                  # "nonroot" user and group (uid: 65532) by default.
-                  runAsNonRoot: true
-    startupProbe:
-        failureThreshold: 90
-        httpGet: 
-        exec:
-            command:
-            - /bin/sh
-            - -c
-            - |
-              curl -f http://localhost:9801/startup && \
-              curl -f http://localhost:8080/c/portal/robots
-        periodSeconds: 10
-        timeoutSeconds: 5
-    configmap:
-        data:
-            com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config:
-                |
-                networkHostAddresses=["$[env:ELASTICSEARCH_URL]"]
-                operationMode="REMOTE"
-                authenticationEnabled=B"false"
-                httpSSLEnabled=B"false"
-                active=B"true"
-                productionModeEnabled=B"false"
-            com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config:
-                |
-                bucketName="$[env:LIFERAY_GCS_BUCKET_NAME]"
+                                if [ -d /mnt/liferay/overlay/{{ .from }} ] || [ -f /mnt/liferay/overlay/{{ .from }} ]; then
+                                  cp \
+                                    --recursive \
+                                    --verbose \
+                                    /mnt/liferay/overlay/{{ .from }} \
+                                    /temp/{{ .into }}
+                                else
+                                  echo "Source /mnt/liferay/overlay/{{ .from }} does not exist, skipping."
+                                fi
+                                {{- end }}
+                                {{- else }}
+                                echo "Overlay is not enabled."
+                                {{- end }}
+                        image: {{ printf "%s:%s" .image.repository (.image.tag | toString) }}
+                        imagePullPolicy: {{ .image.pullPolicy }}
+                        name: liferay-overlay
+                        {{- if and .overlay .overlay.enabled }}
+                        volumeMounts:
+                            -   mountPath: /mnt/liferay/overlay
+                                name: {{ .overlay.bucketName }}
+                            -   mountPath: /temp
+                                name: liferay-persistent-volume
+                        {{- end }}
+            x-cloud-sql-auth-proxy-enabled:
+                - name: cloud-sql-proxy
+                  restartPolicy: Always
+                  image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14.1
+                  envFrom:
+                      - secretRef:
+                            name: managed-service-details
+                  env:
+                      - name: CSQL_PROXY_HEALTH_CHECK
+                        value: "true"
+                      - name: CSQL_PROXY_HTTP_PORT
+                        value: "9801"
+                      - name: CSQL_PROXY_HTTP_ADDRESS
+                        value: 0.0.0.0
+                  args:
+                      - "--private-ip"
+                      - "--auto-iam-authn"
+                      - "--structured-logs"
+                      - "--port=$(DATABASE_PORT)"
+                      - "$(DATABASE_INSTANCE_NAME)"
+                  securityContext:
+                      # The default Cloud SQL Auth Proxy image runs as the
+                      # "nonroot" user and group (uid: 65532) by default.
+                      runAsNonRoot: true
+        startupProbe:
+            failureThreshold: 90
+            httpGet: 
+            exec:
+                command:
+                - /bin/sh
+                - -c
+                - |
+                  curl -f http://localhost:9801/startup && \
+                  curl -f http://localhost:8080/c/portal/robots
+            periodSeconds: 10
+            timeoutSeconds: 5
+        configmap:
+            data:
+                com.liferay.portal.search.elasticsearch7.configuration.ElasticsearchConfiguration.config:
+                    |
+                    networkHostAddresses=["$[env:ELASTICSEARCH_URL]"]
+                    operationMode="REMOTE"
+                    authenticationEnabled=B"false"
+                    httpSSLEnabled=B"false"
+                    active=B"true"
+                    productionModeEnabled=B"false"
+                com.liferay.portal.store.gcs.configuration.GCSStoreConfiguration.config:
+                    |
+                    bucketName="$[env:LIFERAY_GCS_BUCKET_NAME]"

@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: latest
 description:
-    Liferay is an all-in-one DXP, LCAP, and Commerce platform. This chart provides cloud infrastructure resource definitions for GCP to support Liferay cloud-native infrastructure.
+        Liferay is an all-in-one DXP, LCAP, and Commerce platform. This chart provides cloud infrastructure resource definitions for GCP to support Liferay cloud-native infrastructure.
 icon: https://www-cdn.liferay.com/documents/d/guest/liferay-logo
 name: liferay-gcp-infrastructure-provider
 type: application

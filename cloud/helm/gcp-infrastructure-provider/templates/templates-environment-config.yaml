@@ -1,17 +1,17 @@
 {{- /* 1. Build the template string in a variable first (at the top of the file) */ -}}
 {{- $templates := list -}}
 {{- range $path, $_ := .Files.Glob "compositions/**" -}}
-  {{- $content := $.Files.Get $path | trim -}}
-  {{- if $content -}}
-    {{- $templates = append $templates $content -}}
-  {{- end -}}
+      {{- $content := $.Files.Get $path | trim -}}
+      {{- if $content -}}
+        {{- $templates = append $templates $content -}}
+      {{- end -}}
 {{- end -}}
 {{- $liferayTemplates := join "\n" $templates -}}
 
 apiVersion: apiextensions.crossplane.io/v1beta1
 kind: EnvironmentConfig
 metadata:
-  name: liferay-template-store
+      name: liferay-template-store
 data:
-  liferay-templates: |
+      liferay-templates: |
 {{ $liferayTemplates | indent 4 }}

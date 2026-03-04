@@ -2,118 +2,118 @@
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: Object
 metadata:
-    annotations:
-        crossplane.io/external-name: {{ $databaseName }}-root-password-secret
-        gotemplating.fn.crossplane.io/composition-resource-name: database-primary-root-password-secret
-    name: {{ $databaseName }}-root-password-secret
-    namespace: {{ $namespace }}
+        annotations:
+            crossplane.io/external-name: {{ $databaseName }}-root-password-secret
+            gotemplating.fn.crossplane.io/composition-resource-name: database-primary-root-password-secret
+        name: {{ $databaseName }}-root-password-secret
+        namespace: {{ $namespace }}
 spec:
-    forProvider:
-        manifest:
-            apiVersion: v1
-            kind: Secret
-            metadata:
-                name: {{ $databaseName }}-root-password-secret
-                namespace: {{ $namespace }}
-            stringData:
-                password: {{ print (randAlphaNum 16) "!#%+7QZ_b" | shuffle }}
-            type: Opaque
-    managementPolicies: {{ $managementPoliciesNoUpdate }}
+        forProvider:
+            manifest:
+                apiVersion: v1
+                kind: Secret
+                metadata:
+                    name: {{ $databaseName }}-root-password-secret
+                    namespace: {{ $namespace }}
+                stringData:
+                    password: {{ print (randAlphaNum 16) "!#%+7QZ_b" | shuffle }}
+                type: Opaque
+        managementPolicies: {{ $managementPoliciesNoUpdate }}
 ---
 # 6. Cloud SQL Instance
 apiVersion: sql.gcp.m.upbound.io/v1beta1
 kind: DatabaseInstance
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: database-primary
-  name: {{ $databaseInstanceName }}
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: database-primary
+      name: {{ $databaseInstanceName }}
 spec:
-  forProvider:
-    databaseVersion: {{ $databaseSpec.engineVersion | default "POSTGRES_16" }}
-    deletionProtection: {{ $deletionProtection }}
-    region: {{ $databaseSpec.region | default "us-central1" }}
-    settings:
-      tier: {{ $databaseSpec.instanceClass | default "db-custom-1-3840" }}
-      edition: ENTERPRISE
-      diskSize: {{ $databaseSpec.diskSize | default 10 }}
-      diskType: {{ $databaseSpec.diskType | default "PD_SSD" }}
-      ipConfiguration:
-         ipv4Enabled: false
-         privateNetwork: "projects/{{ $env.projectId }}/global/networks/{{ $env.vpcName }}"
-         sslMode: TRUSTED_CLIENT_CERTIFICATE_REQUIRED
-      databaseFlags:
-        - name: cloudsql.iam_authentication
-          value: "on"
-    rootPasswordSecretRef:
-      key: password
-      name: {{ $databaseName }}-root-password-secret
+      forProvider:
+        databaseVersion: {{ $databaseSpec.engineVersion | default "POSTGRES_16" }}
+        deletionProtection: {{ $deletionProtection }}
+        region: {{ $databaseSpec.region | default "us-central1" }}
+        settings:
+          tier: {{ $databaseSpec.instanceClass | default "db-custom-1-3840" }}
+          edition: ENTERPRISE
+          diskSize: {{ $databaseSpec.diskSize | default 10 }}
+          diskType: {{ $databaseSpec.diskType | default "PD_SSD" }}
+          ipConfiguration:
+             ipv4Enabled: false
+             privateNetwork: "projects/{{ $env.projectId }}/global/networks/{{ $env.vpcName }}"
+             sslMode: TRUSTED_CLIENT_CERTIFICATE_REQUIRED
+          databaseFlags:
+            - name: cloudsql.iam_authentication
+              value: "on"
+        rootPasswordSecretRef:
+          key: password
+          name: {{ $databaseName }}-root-password-secret
 ---
 # 7. Database
 apiVersion: sql.gcp.m.upbound.io/v1beta1
 kind: Database
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-db
-    crossplane.io/external-name: {{ $databaseName }}
-  name: {{ $xr.metadata.name }}-db
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-db
+        crossplane.io/external-name: {{ $databaseName }}
+      name: {{ $xr.metadata.name }}-db
 spec:
-  forProvider:
-    instanceSelector:
-      matchControllerRef: true
-    charset: UTF8
-    collation: en_US.UTF8
+      forProvider:
+        instanceSelector:
+          matchControllerRef: true
+        charset: UTF8
+        collation: en_US.UTF8
 ---
 # 8. Cloud SQL IAM User
 apiVersion: sql.gcp.m.upbound.io/v1beta1
 kind: User
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: liferay-iam-user
-    crossplane.io/external-name: {{ $databaseIamUser }}
-  name: {{ $xr.metadata.name }}-db-user
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: liferay-iam-user
+        crossplane.io/external-name: {{ $databaseIamUser }}
+      name: {{ $xr.metadata.name }}-db-user
 spec:
-  forProvider:
-    instanceSelector:
-      matchControllerRef: true
-    type: CLOUD_IAM_SERVICE_ACCOUNT
+      forProvider:
+        instanceSelector:
+          matchControllerRef: true
+        type: CLOUD_IAM_SERVICE_ACCOUNT
 ---
 # 9. Usage: Database depends on Instance
 apiVersion: protection.crossplane.io/v1beta1
 kind: Usage
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: usage-instance-by-database
-  name: {{ $xr.metadata.name }}-instance-by-database
-  namespace: {{ $namespace }}
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: usage-instance-by-database
+      name: {{ $xr.metadata.name }}-instance-by-database
+      namespace: {{ $namespace }}
 spec:
-  of:
-    apiVersion: sql.gcp.m.upbound.io/v1beta1
-    kind: DatabaseInstance
-    resourceRef:
-      name: {{ $databaseInstanceName }}
-  by:
-    apiVersion: sql.gcp.m.upbound.io/v1beta1
-    kind: Database
-    resourceRef:
-      name: {{ $xr.metadata.name }}-db
+      of:
+        apiVersion: sql.gcp.m.upbound.io/v1beta1
+        kind: DatabaseInstance
+        resourceRef:
+          name: {{ $databaseInstanceName }}
+      by:
+        apiVersion: sql.gcp.m.upbound.io/v1beta1
+        kind: Database
+        resourceRef:
+          name: {{ $xr.metadata.name }}-db
 ---
 # 10. Usage: User depends on Instance
 apiVersion: protection.crossplane.io/v1beta1
 kind: Usage
 metadata:
-  annotations:
-    gotemplating.fn.crossplane.io/composition-resource-name: usage-instance-by-user
-  name: {{ $xr.metadata.name }}-instance-by-user
-  namespace: {{ $namespace }}
+      annotations:
+        gotemplating.fn.crossplane.io/composition-resource-name: usage-instance-by-user
+      name: {{ $xr.metadata.name }}-instance-by-user
+      namespace: {{ $namespace }}
 spec:
-  of:
-    apiVersion: sql.gcp.m.upbound.io/v1beta1
-    kind: DatabaseInstance
-    resourceRef:
-      name: {{ $databaseInstanceName }}
-  by:
-    apiVersion: sql.gcp.m.upbound.io/v1beta1
-    kind: User
-    resourceRef:
-      name: {{ $xr.metadata.name }}-db-user
+      of:
+        apiVersion: sql.gcp.m.upbound.io/v1beta1
+        kind: DatabaseInstance
+        resourceRef:
+          name: {{ $databaseInstanceName }}
+      by:
+        apiVersion: sql.gcp.m.upbound.io/v1beta1
+        kind: User
+        resourceRef:
+          name: {{ $xr.metadata.name }}-db-user
 

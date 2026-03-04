@@ -1,21 +1,21 @@
 # Toggle to enable/disable the Envoy controller
 envoy-gateway:
-  enabled: true
-  service:
-    type: ClusterIP
-  resources:
-    limits:
-      cpu: 500m
-      memory: 512Mi
-    requests:
-      cpu: 100m
-      memory: 256Mi
+      enabled: true
+      service:
+        type: ClusterIP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 100m
+          memory: 256Mi
 
 # List of domains passed from Terraform
 domains: []
 
 listeners:
 - name: https
-  allowedRoutes:
-    namespaces:
-      from: All 
+      allowedRoutes:
+        namespaces:
+          from: All 

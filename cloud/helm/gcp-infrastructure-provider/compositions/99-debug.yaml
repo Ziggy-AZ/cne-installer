@@ -3,9 +3,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: debug-context
-  namespace: {{ .observed.composite.resource.metadata.namespace }}
+      name: debug-context
+      namespace: {{ .observed.composite.resource.metadata.namespace }}
 data:
-  context: |
-    {{- . | toJson }}
+      context: |
+        {{- . | toJson }}
 {{- end -}}

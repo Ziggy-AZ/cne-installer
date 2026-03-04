@@ -1,15 +1,15 @@
 output "deployment_name" {
-  value = var.deployment_name
+	value=var.deployment_name
 }
 
 output "region" {
-  value = var.region
+	value=var.region
 }
 
 output "repository_id" {
-  value = google_artifact_registry_repository.this.repository_id
+	value=google_artifact_registry_repository.this.repository_id
 }
 
 output "repository_url" {
-  value = "${google_artifact_registry_repository.this.location}-docker.pkg.dev/${google_artifact_registry_repository.this.project}/${google_artifact_registry_repository.this.repository_id}"
+	value="${google_artifact_registry_repository.this.location}-docker.pkg.dev/${google_artifact_registry_repository.this.project}/${google_artifact_registry_repository.this.repository_id}"
 }

@@ -2,31 +2,31 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: shared-gateway
-  namespace: {{ .Release.Namespace }}
+      name: shared-gateway
+      namespace: {{ .Release.Namespace }}
 spec:
-  gatewayClassName: eg
-  # LINK TO THE CONFIG ABOVE
-  infrastructure:
-    parametersRef:
-      group: gateway.envoyproxy.io
-      kind: EnvoyProxy
-      name: custom-proxy-config
-  listeners:
-  {{- if not .Values.domains }}
-  - name: http-default
-    protocol: HTTP
-    port: 80
-    allowedRoutes:
-      namespaces:
-        from: All
-  {{- end }}
-  {{- range $index, $domain := .Values.domains }}
-  - name: http-{{ $index }}
-    protocol: HTTP
-    port: 80
-    hostname: "*.{{ $domain }}"
-    allowedRoutes:
-      namespaces:
-        from: All
-  {{- end }}
+      gatewayClassName: eg
+      # LINK TO THE CONFIG ABOVE
+      infrastructure:
+        parametersRef:
+          group: gateway.envoyproxy.io
+          kind: EnvoyProxy
+          name: custom-proxy-config
+      listeners:
+      {{- if not .Values.domains }}
+      - name: http-default
+        protocol: HTTP
+        port: 80
+        allowedRoutes:
+          namespaces:
+            from: All
+      {{- end }}
+      {{- range $index, $domain := .Values.domains }}
+      - name: http-{{ $index }}
+        protocol: HTTP
+        port: 80
+        hostname: "*.{{ $domain }}"
+        allowedRoutes:
+          namespaces:
+            from: All
+      {{- end }}

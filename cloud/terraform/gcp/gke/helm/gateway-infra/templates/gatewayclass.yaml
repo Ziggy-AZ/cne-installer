@@ -2,7 +2,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: GatewayClass
 metadata:
-  name: eg # This MUST match the 'gatewayClassName' in your gateway.yaml
+      name: eg # This MUST match the 'gatewayClassName' in your gateway.yaml
 spec:
-  # This tells the Envoy Gateway controller to manage this class
-  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+      # This tells the Envoy Gateway controller to manage this class
+      controllerName: gateway.envoyproxy.io/gatewayclass-controller

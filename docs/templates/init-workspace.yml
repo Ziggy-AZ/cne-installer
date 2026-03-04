@@ -1,51 +1,51 @@
 name: Initialize Liferay Workspace
 
 on:
-  workflow_dispatch:
-    inputs:
-      liferay_version:
-        description: 'Liferay Version (e.g. dxp-2024.q1.11)'
-        required: true
-        default: 'dxp-2024.q1.11'
+    workflow_dispatch:
+      inputs:
+        liferay_version:
+          description: 'Liferay Version (e.g. dxp-2024.q1.11)'
+          required: true
+          default: 'dxp-2024.q1.11'
 
 jobs:
-  init-workspace:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    init-workspace:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'microsoft'
+        - name: Set up JDK 21
+          uses: actions/setup-java@v4
+          with:
+            java-version: '21'
+            distribution: 'microsoft'
 
-      - name: Install Liferay Blade CLI
-        run: |
-          curl -L https://raw.githubusercontent.com/liferay/liferay-blade-cli/master/install/install.sh | sh
-          echo "$HOME/.blade/bin" >> $GITHUB_PATH
+        - name: Install Liferay Blade CLI
+          run: |
+            curl -L https://raw.githubusercontent.com/liferay/liferay-blade-cli/master/install/install.sh | sh
+            echo "$HOME/.blade/bin" >> $GITHUB_PATH
 
-      - name: Run Blade Init
-        run: |
-          # Initialize the workspace in the current directory
-          blade init -v ${{ github.event.inputs.liferay_version }}
-          
-          # Ensure we don't overwrite the current workflow during init
-          # (Blade init usually creates a clean structure)
+        - name: Run Blade Init
+          run: |
+            # Initialize the workspace in the current directory
+            blade init -v ${{ github.event.inputs.liferay_version }}
+            
+            # Ensure we don't overwrite the current workflow during init
+            # (Blade init usually creates a clean structure)
 
-      - name: Add GCP Deployment Workflow
-        run: |
-          mkdir -p .github/workflows
-          # Fetch the latest deployment template from the CNE Installer repo
-          curl -L https://raw.githubusercontent.com/Ziggy-AZ/cne-installer/main/docs/templates/liferay-workspace-gcp.yml -o .github/workflows/deploy-gcp.yml
+        - name: Add GCP Deployment Workflow
+          run: |
+            mkdir -p .github/workflows
+            # Fetch the latest deployment template from the CNE Installer repo
+            curl -L https://raw.githubusercontent.com/Ziggy-AZ/cne-installer/main/docs/templates/liferay-workspace-gcp.yml -o .github/workflows/deploy-gcp.yml
 
-      - name: Commit and Push
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Initialize Liferay Workspace (${{ github.event.inputs.liferay_version }}) with GCP support"
-          git push
+        - name: Commit and Push
+          run: |
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git add .
+            git commit -m "Initialize Liferay Workspace (${{ github.event.inputs.liferay_version }}) with GCP support"
+            git push

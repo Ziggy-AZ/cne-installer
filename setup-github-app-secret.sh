@@ -41,7 +41,7 @@ EOF
 
 echo "------------------------------------"
 echo "Generated github-app-credentials.json"
-echo "Uploading to Secret Manager..."
+echo "Uploading to Secret Manager."
 echo "------------------------------------"
 
 ./setup-secret.sh "$PROJECT_ID" "$SECRET_NAME" github-app-credentials.json
