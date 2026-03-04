@@ -72,7 +72,7 @@ resource "helm_release" "cloudflare_tunnel" {
     {
       name  = "cloudflare.tunnel_token"
       value = data.cloudflare_zero_trust_tunnel_cloudflared_token.gke_tunnel_token.token
-    }, 
+    },
     {
       name  = "image.tag"
       value = "2026.2.0"

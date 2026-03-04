@@ -35,4 +35,4 @@ resource "helm_release" "crossplane" {
       }
     })
   ]
-  }
+}

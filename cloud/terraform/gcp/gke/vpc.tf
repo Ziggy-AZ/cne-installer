@@ -10,10 +10,10 @@ module "vpc" {
 
   subnets = [
     {
-      subnet_name           = "${var.deployment_name}-subnet"
-      subnet_ip             = var.vpc_cidr
-      subnet_region         = var.region
-      subnet_flow_logs      = "true"
+      subnet_name               = "${var.deployment_name}-subnet"
+      subnet_ip                 = var.vpc_cidr
+      subnet_region             = var.region
+      subnet_flow_logs          = "true"
       subnet_flow_logs_interval = "INTERVAL_10_MIN"
       subnet_flow_logs_sampling = 0.5
       subnet_flow_logs_metadata = "INCLUDE_ALL_METADATA"

@@ -6,7 +6,7 @@ locals {
   terraform_manager_name = "liferay-cloud-native-terraform"
 }
 
-resource "kubernetes_namespace" "kyverno" {
+resource "kubernetes_namespace_v1" "kyverno" {
   metadata {
     labels = local.common_labels
     name   = var.kyverno_namespace
@@ -17,7 +17,7 @@ resource "helm_release" "kyverno" {
   name       = "kyverno"
   repository = "https://kyverno.github.io/kyverno/"
   chart      = "kyverno"
-  namespace  = kubernetes_namespace.kyverno.metadata[0].name
+  namespace  = kubernetes_namespace_v1.kyverno.metadata[0].name
   version    = "3.3.4"
 
   values = [

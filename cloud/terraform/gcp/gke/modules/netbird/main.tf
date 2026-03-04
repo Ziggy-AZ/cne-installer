@@ -1,5 +1,5 @@
 # NetBird Reverse Proxy Deployment
-resource "kubernetes_deployment" "netbird_proxy" {
+resource "kubernetes_deployment_v1" "netbird_proxy" {
   metadata {
     name      = "netbird-reverse-proxy"
     namespace = var.namespace
@@ -37,7 +37,7 @@ resource "kubernetes_deployment" "netbird_proxy" {
           # The proxy will connect to the internal Envoy gateway
           # Note: NetBird Dashboard handles the actual mapping of public domains
           # to this internal target.
-          
+
           resources {
             limits = {
               cpu    = "500m"

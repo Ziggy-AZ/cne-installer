@@ -42,7 +42,7 @@ resource "google_service_account_iam_member" "cloudplatform_wi_binding" {
 locals {
   # The principal format for direct KSA binding follows the ns/NAMESPACE/sa/KSA hierarchy.
   ksa_principal_base = "principal://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${var.project_id}.svc.id.goog/subject/ns/${var.crossplane_namespace}/sa"
-  
+
   direct_provider_ksas = {
     sql     = "roles/cloudsql.admin"
     compute = "roles/compute.admin"

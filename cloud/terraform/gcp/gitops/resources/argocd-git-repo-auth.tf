@@ -96,10 +96,10 @@ resource "kubernetes_manifest" "git_repo_credentials_external_secret" {
               sshPrivateKey = "{{ .ssh_private_key }}"
             } : {},
             each.value.method == "github_app" ? {
-              githubAppID         = "{{ .github_app_id }}"
+              githubAppID             = "{{ .github_app_id }}"
               githubAppInstallationID = "{{ .github_app_installation_id }}"
-              githubAppPrivateKey = "{{ .github_app_private_key }}"
-            } : {})
+              githubAppPrivateKey     = "{{ .github_app_private_key }}"
+          } : {})
           metadata = {
             labels = merge(
               local.common_labels,

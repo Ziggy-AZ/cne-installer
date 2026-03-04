@@ -26,15 +26,15 @@ variable "infrastructure_git_repo_config" {
   type = object(
     {
       auth = object({
-        internal_secret_name                  = optional(string, "argocd-infrastructure-git-credentials")
-        method                                = optional(string, "https")
-        secret_store_provider_hcl             = optional(any, null)
-        ssh_private_key_vault_secret_property = optional(string, "git_ssh_private_key")
-        token_vault_secret_property           = optional(string, "git_access_token")
-        username_vault_secret_property        = optional(string, "git_machine_user_id")
-        github_app_id_vault_secret_property   = optional(string, "github_app_id")
+        internal_secret_name                        = optional(string, "argocd-infrastructure-git-credentials")
+        method                                      = optional(string, "https")
+        secret_store_provider_hcl                   = optional(any, null)
+        ssh_private_key_vault_secret_property       = optional(string, "git_ssh_private_key")
+        token_vault_secret_property                 = optional(string, "git_access_token")
+        username_vault_secret_property              = optional(string, "git_machine_user_id")
+        github_app_id_vault_secret_property         = optional(string, "github_app_id")
         github_app_install_id_vault_secret_property = optional(string, "github_app_installation_id")
-        github_app_key_vault_secret_property  = optional(string, "github_app_private_key")
+        github_app_key_vault_secret_property        = optional(string, "github_app_private_key")
         // no slashes allowed
         vault_secret_name = optional(string, "liferay-cloud-native-gitops-repo-credentials")
       })
@@ -103,15 +103,15 @@ variable "liferay_git_repo_config" {
   type = object(
     {
       auth = object({
-        internal_secret_name                  = optional(string, "argocd-liferay-git-credentials")
-        method                                = optional(string, "https")
-        secret_store_provider_hcl             = optional(any, null)
-        ssh_private_key_vault_secret_property = optional(string, "git_ssh_private_key")
-        token_vault_secret_property           = optional(string, "git_access_token")
-        username_vault_secret_property        = optional(string, "git_machine_user_id")
-        github_app_id_vault_secret_property   = optional(string, "github_app_id")
+        internal_secret_name                        = optional(string, "argocd-liferay-git-credentials")
+        method                                      = optional(string, "https")
+        secret_store_provider_hcl                   = optional(any, null)
+        ssh_private_key_vault_secret_property       = optional(string, "git_ssh_private_key")
+        token_vault_secret_property                 = optional(string, "git_access_token")
+        username_vault_secret_property              = optional(string, "git_machine_user_id")
+        github_app_id_vault_secret_property         = optional(string, "github_app_id")
         github_app_install_id_vault_secret_property = optional(string, "github_app_installation_id")
-        github_app_key_vault_secret_property  = optional(string, "github_app_private_key")
+        github_app_key_vault_secret_property        = optional(string, "github_app_private_key")
         // No slashes allowed
         vault_secret_name = optional(string, "liferay-cloud-native-gitops-repo-credentials")
       })

@@ -14,7 +14,7 @@ resource "helm_release" "gateway_infra" {
   version          = "1.0.2"
   skip_crds        = true
 
-  depends_on = [ helm_release.gateway_crds ]
+  depends_on = [helm_release.gateway_crds]
 
   # Ensure the subchart (Envoy Controller) is enabled
   set = [{

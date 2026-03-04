@@ -40,7 +40,7 @@ resource "helm_release" "nginx_ingress" {
             memory = "256Mi"
           }
         }
-        }
-        })
-        ]
-        }
+      }
+    })
+  ]
+}
