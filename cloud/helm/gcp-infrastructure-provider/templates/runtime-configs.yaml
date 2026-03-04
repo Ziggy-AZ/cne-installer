@@ -134,6 +134,19 @@ spec:
 
 ---
 
+# 5. Runtime Config for GCP Provider Family
+apiVersion: pkg.crossplane.io/v1beta1
+kind: DeploymentRuntimeConfig
+metadata:
+    annotations:
+        argocd.argoproj.io/sync-wave: "-90"
+    name: gcp-family-config
+spec:
+    deploymentTemplate:
+        spec:
+            selector:
+                matchLabels:
+                    pkg.crossplane.io/provider: upbound-provider-family-gcp
             template:
                 metadata:
                     labels:
@@ -155,7 +168,7 @@ spec:
 
 ---
 
-# 5. Runtime Config for GCP Cloud Platform Provider
+# 6. Runtime Config for GCP Cloud Platform Provider
 apiVersion: pkg.crossplane.io/v1beta1
 kind: DeploymentRuntimeConfig
 metadata:
