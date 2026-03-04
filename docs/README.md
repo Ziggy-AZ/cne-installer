@@ -2,11 +2,18 @@
 
 Welcome to the documentation for the **Liferay Cloud Native GCP Installer**. This project provides a robust, automated infrastructure for deploying Liferay DXP on Google Cloud Platform using GKE Autopilot, Crossplane, and ArgoCD.
 
+## Resources
+
+- **[Getting Started Guide](getting-started.md)** (Full Tutorial)
+- **[Source Code Repository](https://github.com/Ziggy-AZ/cne-installer)** (Main Project)
+
 ## Architecture & Harmonization
 
 Detailed comparisons between the GCP and AWS implementations:
 
 - **[Harmonization Summary](architecture/harmonization-summary.md)** (Feature Matrix & TODO)
+- [Module Configuration Reference](architecture/terraform-variables.md)
+- [Configuration Flexibility Comparison](architecture/configuration-comparison.md)
 - [Application Delivery](architecture/application-delivery-comparison.md)
 - [Artifact Management](architecture/artifact-management-comparison.md)
 - [Bootstrap & POC](architecture/bootstrap-comparison.md)
@@ -20,10 +27,3 @@ Detailed comparisons between the GCP and AWS implementations:
 ## Tools
 
 - [GitHub App Generator](github-app-generator.html ":ignore")
-
-## Getting Started
-
-To begin the installation, refer to the following resources in the main repository:
-
-- [Root README](https://github.com/Ziggy-AZ/cne-installer/blob/main/README.md ":ignore")
-- [Setup Tutorial](https://github.com/Ziggy-AZ/cne-installer/blob/main/tutorial.md ":ignore")

@@ -13,26 +13,29 @@
   
   <style>
     :root {
-      /* Bigger fonts for better readability */
       --content-max-width: 900px;
       --font-size-base: 18px;
     }
-    body {
-      font-size: 18px !important;
-    }
+    /* Ensure sidebar is visible and styled */
     .sidebar {
+      background-color: #282828 !important;
+      border-right: 1px solid #333 !important;
+    }
+    .sidebar-nav li a {
       font-size: 16px !important;
     }
+    /* Larger fonts for content */
     .markdown-section {
-      padding-top: 40px !important;
+      font-size: 18px !important;
+      line-height: 1.6;
     }
-    /* Search box styling for dark theme */
+    /* Search box styling */
     .search input {
-      background-color: #2d333b !important;
-      color: #adbac7 !important;
-      border: 1px solid #444c56 !important;
+      background-color: #333 !important;
+      color: #fff !important;
+      border: 1px solid #444 !important;
     }
-  </script>
+  </style>
 </head>
 <body>
   <div id="app">Loading...</div>
@@ -41,15 +44,16 @@
       name: 'Liferay Cloud Native',
       repo: 'https://github.com/Ziggy-AZ/cne-installer',
       loadSidebar: true,
-      subMaxLevel: 3,
       auto2top: true,
-      // Fix for subfolder/GitHub Pages hosting
-      relativePath: true,
-      // Search configuration
+      subMaxLevel: 2,
+      // Critical for GitHub Pages subfolder hosting
+      basePath: './',
+      // Explicitly set homepage
+      homepage: 'README.md',
       search: {
         maxAge: 86400000,
         paths: 'auto',
-        placeholder: 'Search docs...',
+        placeholder: 'Search documentation...',
         noData: 'No results found!',
         depth: 6
       }

@@ -1,7 +1,10 @@
 - [Home](README.md)
+- [Getting Started](getting-started.md)
+- [Source Code](https://github.com/Ziggy-AZ/cne-installer)
 - Architecture
   - [Harmonization Summary](architecture/harmonization-summary.md)
-  - [Harmonization Plan](architecture/harmonization-plan.md)
+  - [Module Configuration](architecture/terraform-variables.md)
+  - [Flexibility Comparison](architecture/configuration-comparison.md)
   - [Application Delivery](architecture/application-delivery-comparison.md)
   - [Artifact Management](architecture/artifact-management-comparison.md)
   - [Bootstrap & POC](architecture/bootstrap-comparison.md)
@@ -13,6 +16,3 @@
   - [VPC Comparison](architecture/vpc-comparison.md)
 - Tools
   - [GitHub App Generator](github-app-generator.html ":ignore")
-- Main Project
-  - [Root README](https://github.com/Ziggy-AZ/cne-installer/blob/main/README.md ":ignore")
-  - [Setup Tutorial](https://github.com/Ziggy-AZ/cne-installer/blob/main/tutorial.md ":ignore")
