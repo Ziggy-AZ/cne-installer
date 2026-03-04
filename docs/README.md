@@ -9,6 +9,7 @@ Detailed comparisons between the GCP and AWS implementations:
 - **[Harmonization Summary](architecture/harmonization-summary.md)** (Feature Matrix & TODO)
 - [Application Delivery](architecture/application-delivery-comparison.md)
 - [Artifact Management](architecture/artifact-management-comparison.md)
+- [Bootstrap & POC](architecture/bootstrap-comparison.md)
 - [Gateway API](architecture/gateway-comparison.md)
 - [GitOps Platform](architecture/gitops-platform-comparison.md)
 - [Infrastructure Provisioning](architecture/infrastructure-provisioning-comparison.md)
@@ -18,7 +19,7 @@ Detailed comparisons between the GCP and AWS implementations:
 
 ## Tools
 
-- [GitHub App Generator](github-app-generator.html)
+- [GitHub App Generator](github-app-generator.html ":ignore")
 
 ## Getting Started
 

@@ -12,7 +12,7 @@
   - [Resource Compositions](architecture/resource-compositions-comparison.md)
   - [VPC Comparison](architecture/vpc-comparison.md)
 - Tools
-  - [GitHub App Generator](github-app-generator.html)
+  - [GitHub App Generator](github-app-generator.html ":ignore")
 - Main Project
   - [Root README](https://github.com/Ziggy-AZ/cne-installer/blob/main/README.md)
   - [Setup Tutorial](https://github.com/Ziggy-AZ/cne-installer/blob/main/tutorial.md)

@@ -33,44 +33,6 @@
             font-size: 12px;
         }
     </style>
-</head>
-
-<body>
-    <h2>Create GitHub App Manifest</h2>
-
-    <div class="field">
-        <label>GitHub Organization Name:</label>
-        <input type="text" id="org_name" value="Your Organization" oninput="updateManifest()">
-    </div>
-
-    <div class="field">
-        <label>ArgoCD Base URL (no trailing slash):</label>
-        <input type="text" id="app_url" value="https://argocd.example.com" oninput="updateManifest()">
-    </div>
-
-    <form id="manifest-form" method="post">
-        <input type="hidden" name="manifest" id="manifest_input">
-        <input type="submit" value="Register GitHub App"
-            style="padding: 10px 20px; background-color: #2ea44f; color: white; border: none; border-radius: 6px; cursor: pointer;">
-    </form>
-
-    <h3>Manifest Preview:</h3>
-    <div id="manifest-preview"></div>
-
-    <div style="margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-left: 5px solid #2ea44f;">
-        <h2>Setup Instructions</h2>
-        <ol>
-            <li><strong>Register the App:</strong> Fill in your Organization and ArgoCD URL above, then click <strong>"Register GitHub App"</strong>. This will take you to GitHub to create the app based on the manifest previewed above.</li>
-            <li><strong>Install the App:</strong> Once created, go to the <strong>"Install App"</strong> menu in your GitHub App settings and install it on your organization.</li>
-            <li><strong>Finalize with API:</strong> After installation, you will be redirected to a success page. To finalize the conversion of the temporary code to permanent credentials, use the following curl command (replacing the ID in the URL with the one from your success page):
-                <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;">
-curl -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/app-manifests/7fb8e2bd1650052c1830662892592a0e6f8048f1/conversions</pre>
-            </li>
-        </ol>
-    </div>
-
     <script>
         function updateManifest() {
             const org = document.getElementById("org_name").value;
@@ -109,13 +71,53 @@ curl -X POST \
             const jsonString = JSON.stringify(manifest, null, 2);
 
             // Set values for the hidden input and the visual preview
-            document.getElementById("manifest_input").value = JSON.stringify(manifest);
-            document.getElementById("manifest-preview").textContent = jsonString;
+            const inputEl = document.getElementById("manifest_input");
+            const previewEl = document.getElementById("manifest-preview");
+            
+            if (inputEl) inputEl.value = JSON.stringify(manifest);
+            if (previewEl) previewEl.textContent = jsonString;
         }
 
         // Initialize on load
-        updateManifest();
+        window.onload = updateManifest;
     </script>
+</head>
+
+<body>
+    <h2>Create GitHub App Manifest</h2>
+
+    <div class="field">
+        <label>GitHub Organization Name:</label>
+        <input type="text" id="org_name" value="Your Organization" oninput="updateManifest()">
+    </div>
+
+    <div class="field">
+        <label>ArgoCD Base URL (no trailing slash):</label>
+        <input type="text" id="app_url" value="https://argocd.example.com" oninput="updateManifest()">
+    </div>
+
+    <form id="manifest-form" method="post">
+        <input type="hidden" name="manifest" id="manifest_input">
+        <input type="submit" value="Register GitHub App"
+            style="padding: 10px 20px; background-color: #2ea44f; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    </form>
+
+    <h3>Manifest Preview:</h3>
+    <div id="manifest-preview"></div>
+
+    <div style="margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-left: 5px solid #2ea44f;">
+        <h2>Setup Instructions</h2>
+        <ol>
+            <li><strong>Register the App:</strong> Fill in your Organization and ArgoCD URL above, then click <strong>"Register GitHub App"</strong>. This will take you to GitHub to create the app based on the manifest previewed above.</li>
+            <li><strong>Install the App:</strong> Once created, go to the <strong>"Install App"</strong> menu in your GitHub App settings and install it on your organization.</li>
+            <li><strong>Finalize with API:</strong> After installation, you will be redirected to a success page. To finalize the conversion of the temporary code to permanent credentials, use the following curl command (replacing the ID in the URL with the one from your success page):
+                <pre style="background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;">
+curl -X POST \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/app-manifests/7fb8e2bd1650052c1830662892592a0e6f8048f1/conversions</pre>
+            </li>
+        </ol>
+    </div>
 </body>
 
 </html>

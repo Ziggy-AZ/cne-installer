@@ -12,21 +12,21 @@ The primary differences stem from:
 
 | Feature Area | Feature | GCP (GKE) | AWS (EKS) | Alignment |
 | :--- | :--- | :---: | :---: | :---: |
-| **Artifacts** | Immutable Tags | ✅ | ✅ | High |
-| | Lifecycle Cleanup | ✅ | ❌ | Low |
-| **Kubernetes** | Managed Control Plane | ✅ | ✅ | High |
-| | Auto-scaling Nodes | ✅ (Autopilot) | ✅ (Managed) | Medium |
-| | Explicit Secrets Encryption | ❌ (Default) | ✅ (KMS) | Medium |
-| **Networking** | Gateway API (Envoy) | ✅ | ✅ | High |
-| | ProxyProtocol (Real IP) | ❌ | ✅ | Low |
-| | Multi-AZ Subnetting | ❌ (Flat) | ✅ (Tiered) | Low |
-| **Crossplane** | Modular Compositions | ✅ | ❌ | Low |
-| | Direct Workload Identity | ✅ | ✅ (IRSA) | High |
-| | Tag Manager | ❌ | ✅ | Low |
-| **GitOps** | ArgoCD SSO / UI Tools | ✅ | ❌ | Medium |
-| | Sync-Wave Strategy | ✅ (Limited) | ✅ (Full) | Medium |
-| **Application** | GCS Fuse Support | ✅ | ❌ | N/A |
-| | Native S3 Integration | ❌ | ✅ | N/A |
+| **Artifacts** | Immutable Tags | Yes | Yes | High |
+| | Lifecycle Cleanup | Yes | No | Low |
+| **Kubernetes** | Managed Control Plane | Yes | Yes | High |
+| | Auto-scaling Nodes | Yes (Autopilot) | Yes (Managed) | Medium |
+| | Explicit Secrets Encryption | No (Default) | Yes (KMS) | Medium |
+| **Networking** | Gateway API (Envoy) | Yes | Yes | High |
+| | ProxyProtocol (Real IP) | No | Yes | Low |
+| | Multi-AZ Subnetting | No (Flat) | Yes (Tiered) | Low |
+| **Crossplane** | Modular Compositions | Yes | No | Low |
+| | Direct Workload Identity | Yes | Yes (IRSA) | High |
+| | Tag Manager | No | Yes | Low |
+| **GitOps** | ArgoCD SSO / UI Tools | Yes | No | Medium |
+| | Sync-Wave Strategy | Yes (Limited) | Yes (Full) | Medium |
+| **Application** | GCS Fuse Support | Yes | No | N/A |
+| | Native S3 Integration | No | Yes | N/A |
 
 ## 2. Harmonization TODO List
 
