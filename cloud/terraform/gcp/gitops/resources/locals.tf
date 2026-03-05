@@ -17,7 +17,7 @@ locals {
 		"liferay.com/project"="liferay-cloud-native"
 	}
 	# Unique suffix using random_id to bypass GCP's 30-day soft-delete lock on names
-	github_workload_identity_pool_id="${var.github_workload_identity_pool_id}-${random_id.pool_suffix.hex}"
+	github_workload_identity_pool_name="${var.github_workload_identity_pool_id}-${random_id.pool_suffix.hex}"
 	
 	git_repo_auth_configs=merge(
 		local.git_repo_infrastructure_separate_from_liferay ? {

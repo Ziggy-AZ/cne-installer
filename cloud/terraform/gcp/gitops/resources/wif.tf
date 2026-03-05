@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "google_iam_workload_identity_pool" "github" {
-	workload_identity_pool_id=var.github_workload_identity_pool_id
+	workload_identity_pool_id=local.github_workload_identity_pool_name
 	display_name="GitHub Workload Identity Pool"
 	description="Identity pool for GitHub Actions"
 	project=var.project_id
