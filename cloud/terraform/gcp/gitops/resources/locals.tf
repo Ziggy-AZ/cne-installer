@@ -1,3 +1,7 @@
+resource "random_id" "pool_suffix" {
+	byte_length=2
+}
+
 locals {
 	# checkov:skip=CKV_SECRET_6:False positives for high entropy strings (OCI URLs and Regexes)
 
@@ -12,6 +16,9 @@ locals {
 		"environment"="internal"
 		"liferay.com/project"="liferay-cloud-native"
 	}
+	# Unique suffix using random_id to bypass GCP's 30-day soft-delete lock on names
+	github_workload_identity_pool_id="${var.github_workload_identity_pool_id}-${random_id.pool_suffix.hex}"
+	
 	git_repo_auth_configs=merge(
 		local.git_repo_infrastructure_separate_from_liferay ? {
 			"infrastructure"=merge(
