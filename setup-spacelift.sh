@@ -24,15 +24,15 @@ gcloud services enable \
 	--project="${PROJECT_ID}"
 
 # 2. Ensure Runner Service Account exists
-sa_name="infra-manager-runner"
-sa_email="${sa_name}@${PROJECT_ID}.iam.gserviceaccount.com"
+sa_name="spacelift-runner"
+sa_email=${SPACELIFT_SA}
 
 if gcloud iam service-accounts describe "${sa_email}" --project="${PROJECT_ID}" > /dev/null 2>&1; then
 	echo "service account \"${sa_email}\" already exists."
 else
 	echo "Creating service account \"${sa_name}\"."
 	gcloud iam service-accounts create "${sa_name}" \
-		--display-name="Infrastructure Manager Runner" \
+		--display-name="Spacelift Runner" \
 		--project="${PROJECT_ID}"
 fi
 
