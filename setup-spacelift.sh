@@ -4,10 +4,12 @@ SPACELIFT_HOSTNAME=$2
 SPACELIFT_SPACE_ID=$3
 
 if [ -z "$PROJECT_ID" ] || [ -z "$SPACELIFT_HOSTNAME" ] || [ -z "$SPACELIFT_SPACE_ID" ]; then
-    echo "Usage: ./setup-spacelift.sh <PROJECT_ID> <SPACELIFT_HOSTNAME> <SPACELIFT_SPACE_ID>"
-    echo "Example: ./setup-spacelift.sh my-project my-org.app.spacelift.io space-id"
+    echo "Usage: ./setup-spacelift.sh <PROJECT_ID> <SPACELIFT_HOSTNAME> <SPACELIFT_SPACE_ID> [SPACELIFT_SA_EMAIL]"
+    echo "Example: ./setup-spacelift.sh my-project my-org.app.spacelift.io space-id gcp-0123...@us-spacelift.iam.gserviceaccount.com"
     exit 1
 fi
+
+SPACELIFT_SA=$4
 
 echo "------------------------------------"
 echo "Bootstrapping spacelift for GCP."
@@ -82,6 +84,16 @@ gcloud iam service-accounts add-iam-policy-binding "${sa_email}" \
     --role="roles/iam.workloadIdentityUser" \
     --member="principalSet://iam.googleapis.com/projects/$(gcloud projects describe ${PROJECT_ID} --format='value(projectNumber)')/locations/global/workloadIdentityPools/${pool_id}/attribute.space/${SPACELIFT_SPACE_ID}" \
     --quiet > /dev/null
+
+if [ -n "$SPACELIFT_SA" ]; then
+    echo "Granting Spacelift native service account \"${SPACELIFT_SA}\" permission to impersonate the runner."
+    gcloud iam service-accounts add-iam-policy-binding "${sa_email}" \
+        --project="${PROJECT_ID}" \
+        --role="roles/iam.serviceAccountUser" \
+        --member="serviceAccount:${SPACELIFT_SA}" \
+        --quiet > /dev/null
+fi
+
 
 # 6. Generate gcp-credentials.json
 project_number=$(gcloud projects describe "${PROJECT_ID}" --format="value(projectNumber)")
