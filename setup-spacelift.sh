@@ -1,17 +1,26 @@
 #!/bin/bash
-PROJECT_ID=$1
-SPACELIFT_HOSTNAME=$2
-SPACELIFT_SPACE_ID=$3
-SPACELIFT_SA=$4
+# 0. Clean and Validate Inputs
+PROJECT_ID=$(echo "$1" | tr -d '[:space:]')
+SPACELIFT_HOSTNAME=$(echo "$2" | tr -d '[:space:]')
+SPACELIFT_SPACE_ID=$(echo "$3" | tr -d '[:space:]')
+SPACELIFT_SA=$(echo "$4" | tr -d '[:space:]')
 
 if [ -z "$PROJECT_ID" ] || [ -z "$SPACELIFT_HOSTNAME" ] || [ -z "$SPACELIFT_SPACE_ID" ] || [ -z "$SPACELIFT_SA" ]; then
 	echo "Usage: ./setup-spacelift.sh <PROJECT_ID> <SPACELIFT_HOSTNAME> <SPACELIFT_SPACE_ID> <SPACELIFT_SA_EMAIL>"
-	echo "Example: ./setup-spacelift.sh gcp-liferay ziggy.app.us.spacelift.io space-id gcp-01kkeqdvpg6tgvxd3exp2qacsj@us-spacelift.iam.gserviceaccount.com"
+	echo "Example: ./setup-spacelift.sh gcp-liferay ziggy.app.us.spacelift.io space-id gcp-01kkfc9kshvstmet6wwmtw7kg2@us-spacelift.iam.gserviceaccount.com"
+	exit 1
+fi
+
+# Validate project existence and get project number early
+echo "Validating project: ${PROJECT_ID}..."
+project_number=$(gcloud projects describe "${PROJECT_ID}" --format="value(projectNumber)" 2>/dev/null)
+if [ -z "${project_number}" ]; then
+	echo "ERROR: Project \"${PROJECT_ID}\" not found or inaccessible."
 	exit 1
 fi
 
 echo "------------------------------------"
-echo "Bootstrapping spacelift for GCP (WIF + Direct Roles)."
+echo "Bootstrapping Spacelift for GCP Project: ${PROJECT_ID} (#${project_number})"
 echo "------------------------------------"
 
 # 1. Enable APIs
@@ -23,9 +32,9 @@ gcloud services enable \
 	sts.googleapis.com \
 	--project="${PROJECT_ID}"
 
-# 2. Ensure Runner Service Account exists
+# 2. Ensure Spacelift Runner Service Account exists
 sa_name="spacelift-runner"
-sa_email=${SPACELIFT_SA}
+sa_email="${sa_name}@${PROJECT_ID}.iam.gserviceaccount.com"
 
 if gcloud iam service-accounts describe "${sa_email}" --project="${PROJECT_ID}" > /dev/null 2>&1; then
 	echo "service account \"${sa_email}\" already exists."
@@ -36,7 +45,7 @@ else
 		--project="${PROJECT_ID}"
 fi
 
-# 3. Grant roles to both the Runner and the Spacelift Native SA
+# 3. Grant roles to both the Spacelift Runner and the Spacelift Native SA
 resource_roles=(
 	"roles/artifactregistry.admin"
 	"roles/cloudsql.admin"
@@ -57,17 +66,29 @@ resource_roles=(
 
 echo "Ensuring project-level IAM bindings for both identities."
 for role in "${resource_roles[@]}"; do
-	# Grant to the runner
-	gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
-		--member="serviceAccount:${sa_email}" \
-		--role="${role}" \
-		--quiet > /dev/null
+	# 1. Grant to the runner
+	if [ -n "${sa_email}" ]; then
+		echo "  - Granting ${role} to runner: ${sa_email}."
+		gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+			--member="serviceAccount:${sa_email}" \
+			--role="${role}" \
+			--quiet > /dev/null
+	fi
 	
-	# Grant directly to the Spacelift identity
-	gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
-		--member="serviceAccount:${SPACELIFT_SA}" \
-		--role="${role}" \
-		--quiet > /dev/null
+	# 2. Grant directly to the Spacelift native identity or WIF principal
+	if [ -n "${SPACELIFT_SA}" ]; then
+		spacelift_member="${SPACELIFT_SA}"
+		# Detect if we need to prefix with serviceAccount:
+		if [[ ! "${spacelift_member}" =~ ^(serviceAccount:|user:|group:|domain:|principal:|principalSet:) ]]; then
+			spacelift_member="serviceAccount:${spacelift_member}"
+		fi
+		
+		echo "  - Granting ${role} to spacelift: ${spacelift_member}."
+		# Removed quiet to allow visibility of the 'does not exist' error if it persists
+		gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
+			--member="${spacelift_member}" \
+			--role="${role}"
+	fi
 done
 
 # 4. Create Workload Identity Pool
@@ -118,7 +139,7 @@ gcloud iam service-accounts add-iam-policy-binding "${sa_email}" \
 	--role="roles/iam.workloadIdentityUser" \
 	--quiet > /dev/null
 
-# 7. Generate gcp-credentials.json (Used when native integration isn't enough)
+# 7. Generate gcp-credentials.json
 project_number=$(gcloud projects describe "${PROJECT_ID}" --format="value(projectNumber)")
 cat <<EOF > gcp-credentials.json
 {
