@@ -7,7 +7,6 @@ SPACELIFT_SA=$(echo "$4" | tr -d '[:space:]')
 
 if [ -z "$PROJECT_ID" ] || [ -z "$SPACELIFT_HOSTNAME" ] || [ -z "$SPACELIFT_SPACE_ID" ] || [ -z "$SPACELIFT_SA" ]; then
 	echo "Usage: ./setup-spacelift.sh <PROJECT_ID> <SPACELIFT_HOSTNAME> <SPACELIFT_SPACE_ID> <SPACELIFT_SA_EMAIL>"
-	echo "Example: ./setup-spacelift.sh gcp-liferay ziggy.app.us.spacelift.io space-id gcp-01kkfc9kshvstmet6wwmtw7kg2@us-spacelift.iam.gserviceaccount.com"
 	exit 1
 fi
 
