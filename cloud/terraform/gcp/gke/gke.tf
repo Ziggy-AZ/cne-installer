@@ -38,7 +38,7 @@ module "gke" {
 			display_name="User-Authorized-Access",
 		},
 	] : []
-	master_ipv4_cidr_block="172.16.0.0/28"
+	master_ipv4_cidr_block=var.master_ipv4_cidr_block
 	name="${var.deployment_name}-gke"
 	network=module.vpc.network_name
 	project_id=var.project_id

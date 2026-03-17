@@ -51,6 +51,7 @@ resource_roles=(
 	"roles/compute.admin"
 	"roles/config.admin"
 	"roles/container.admin"
+	"roles/gkehub.admin"
 	"roles/iam.serviceAccountAdmin"
 	"roles/iam.serviceAccountUser"
 	"roles/iam.workloadIdentityPoolAdmin"

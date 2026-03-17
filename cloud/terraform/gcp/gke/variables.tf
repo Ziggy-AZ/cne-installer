@@ -52,6 +52,10 @@ variable "enable_netbird" {
 	type=bool
 }
 
+variable "master_ipv4_cidr_block" {
+	default="172.16.0.0/28"
+}
+
 variable "networking_mode" {
 	default="gateway"
 	type=string

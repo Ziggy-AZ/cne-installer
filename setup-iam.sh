@@ -29,6 +29,7 @@ resource_roles=(
     "roles/container.admin" 
     "roles/storage.admin" 
     "roles/cloudsql.admin" 
+    "roles/gkehub.admin"
     "roles/iam.serviceAccountAdmin" 
     "roles/resourcemanager.projectIamAdmin"
     "roles/secretmanager.admin"
