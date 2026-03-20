@@ -17,7 +17,7 @@ The following issues have been fully addressed in the current codebase:
 | **10** | Move to Gateway instead of ingress | Fully migrated to the Kubernetes Gateway API (Envoy Gateway) in `cloud/terraform/gcp/gke`. |
 | **11** | Get gitops working in GCP | ArgoCD platform bootstrap is fully functional and validated in `cloud/terraform/gcp/gitops/platform`. |
 | **24** | Auto Pilot | Cluster implementation is standardized on GKE Autopilot in `gke.tf`. |
-| **22** | Allow specifying GKE CIDR ranges | Variables for `pod_cidr` and `service_cidr` are implemented in `gke/variables.tf`. |
+| **22** | Allow specifying GKE CIDR ranges | CIDR ranges for Pods and Services are now dynamically calculated from `vpc_cidr` in `locals.tf`. |
 | **38** | Auth woes | Resolved via the `argocd_auth_resources` module with explicit secret mapping. |
 | **12** | Do we need this cluster command? | **CLOSED.** |
 
@@ -56,6 +56,7 @@ Major functional gaps that still need to be addressed:
 ### C. Security & Governance
 - [ ] **#72**: CKV_GCP_49 (Service Account Impersonation check).
 - [ ] **#51**: Implement full Liferay Infosec security requirements.
+    - [ ] *Pending*: Apply `NetworkPolicy` manifests to restrict cross-namespace and egress traffic (required by InfoSec, even with GKE Datapath V2 enabled).
 - [ ] **#34**: Address `cloudflared` pod security concerns.
 
 ---

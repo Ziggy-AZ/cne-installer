@@ -34,7 +34,7 @@ The **AWS implementation** is significantly more mature in **Data Management and
 
 ### Compute/Cluster Management
 The GCP implementation allows for much finer control over the GKE environment directly from Terraform:
-*   **Networking**: GCP exposes `pod_cidr`, `service_cidr`, and `authorized_ipv4_cidr_block`. AWS EKS assumes existing subnets or uses a simpler `vpc_cidr` approach.
+*   **Networking**: GCP automatically calculates `pod_cidr` and `service_cidr` from the provided `vpc_cidr` using `cidrsubnet()`. AWS EKS assumes existing subnets or uses a simpler `vpc_cidr` approach.
 *   **Zones**: GCP allows explicitly defining `node_zones` for cluster spread.
 *   **Features**: GCP integrates `demo_mode` and `networking_mode` (Gateway vs. Ingress) as top-level variables.
 

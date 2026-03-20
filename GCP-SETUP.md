@@ -108,7 +108,5 @@ Before running the GitOps or Platform Terraform, ensure required secrets exist i
 
 When configuring the Terraform variables, ensure the following CIDR ranges are planned and do not overlap with existing corporate networks if peering is required:
 
-- **VPC CIDR:** `10.0.0.0/16` (Default)
-- **GKE Pod CIDR:** `10.1.0.0/16` (Default)
-- **GKE Service CIDR:** `10.2.0.0/16` (Default)
+- **VPC CIDR:** `10.0.0.0/16` (Default - Pod and Service ranges are automatically calculated from this block)
 - **GKE Master IPv4 CIDR:** `172.16.0.0/28` (Used for Private Cluster peering - customizable via `master_ipv4_cidr_block` variable)

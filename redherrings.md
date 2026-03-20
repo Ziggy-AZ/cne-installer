@@ -11,7 +11,7 @@ This document details security scan warnings from Trivy and Checkov that have be
 The scanners flag the `allow_internal` firewall rule because it allows broad access to protocols and ports.
 
 ### Analysis
-The `allow_internal` rule is specifically scoped to **Internal CIDR ranges only** (`pod_cidr`, `service_cidr`, `vpc_cidr`). It is designed to allow service-to-service communication within the trusted VPC and Kubernetes network.
+The `allow_internal` rule is specifically scoped to **Internal CIDR ranges only** (Pods, Services, and Node subnet). It is designed to allow service-to-service communication within the trusted VPC and Kubernetes network. These ranges are dynamically calculated from the `vpc_cidr`.
 
 *   **ICMP Confusion:** Scanners often flag ICMP rules as "Allowing All Ports" because ICMP doesn't have the concept of ports. 
 *   **Broad Access:** Modern service meshes and discovery tools require flexible internal port access.

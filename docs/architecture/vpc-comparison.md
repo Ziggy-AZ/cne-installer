@@ -11,7 +11,7 @@ This report analyzes the architectural differences between the Google Cloud Plat
 | **NAT Gateway** | **Cloud NAT:** Managed via Cloud Router and a single NAT resource. | **AWS NAT Gateway:** Uses a single NAT Gateway shared across private subnets (cost-optimized). |
 | **Private Access** | **Private Service Access (PSA):** Explicitly reserves a `/16` range for VPC Peering with Google services (SQL, etc.). | **Implicit:** Uses IAM roles and security groups for service access. |
 | **Ingress Integration** | **Internal Ingress:** Relies on GKE-specific secondary ranges for native routing. | **ELB/ALB Integration:** Uses specific subnet tags (`kubernetes.io/role/elb`) for Load Balancer discovery. |
-| **Default CIDR** | `10.0.0.0/16` (VPC), `10.1.0.0/16` (Pods), `10.2.0.0/16` (Services) | `10.0.0.0/16` (VPC), split into `/24` subnets. |
+| **Default CIDR** | `10.0.0.0/16` (Primary VPC), dynamically split for Pods and Services. | `10.0.0.0/16` (VPC), split into `/24` subnets. |
 
 ## 2. Key Differences & Observations
 
@@ -33,4 +33,4 @@ GCP GKE Autopilot (and standard) uses **Network Endpoint Groups (NEG)** or stand
 ## 3. Recommendations for GCP Harmonization
 1.  **Flow Log Consistency:** AWS implementation doesn't explicitly define flow logs in the VPC module block shown, while GCP has them enabled. Consider standardizing the retention and sampling rates for security audits.
 2.  **Tagging Standard:** Adopt the `DeploymentName` tag standard from the AWS team for all VPC resources to ensure cross-platform consistency in resource management.
-3.  **Secondary Range Documentation:** Ensure all developers are aware that GCP CIDR planning must account for the Pod and Service ranges up-front, unlike AWS where these are often managed within the node subnet CIDRs.
+3.  **Secondary Range Automation:** The GCP implementation now automatically calculates Pod and Service secondary ranges from the primary `vpc_cidr`. Ensure developers understand that this `/16` (or provided block) is mathematically partitioned to prevent overlaps.

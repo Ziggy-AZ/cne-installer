@@ -35,13 +35,11 @@ This document provides a comprehensive reference for all Terraform variables use
 | `master_authorized_networks` | `list(string)` | `["10.0.0.0/16"]` | List of CIDR blocks allowed to access the GKE master endpoint. |
 | `max_node_count` | `number` | `3` | Maximum number of nodes in the general-purpose node pool. |
 | `min_node_count` | `number` | `1` | Minimum number of nodes in the general-purpose node pool. |
-| `pod_cidr` | `string` | `"10.1.0.0/16"` | Secondary IP range for Kubernetes Pods. |
-| `project_id" | `string` | Required | The GCP Project ID. |
+| `project_id` | `string` | Required | The GCP Project ID. |
 | `region` | `string` | Required | The GCP region where the cluster will be deployed. |
 | `regional_cluster` | `bool` | `true` | Whether to create a regional GKE cluster (high availability) or a zonal one. |
-| `service_cidr` | `string` | `"10.2.0.0/16"` | Secondary IP range for Kubernetes Services. |
 | `spot_instances` | `bool` | `false` | Whether to use GKE Spot Instances for the node pool to reduce cost. |
-| `vpc_cidr` | `string` | `"10.0.0.0/16"` | The primary CIDR block for the VPC network. |
+| `vpc_cidr` | `string` | `"10.0.0.0/16"` | The primary CIDR block for the VPC. Subnet, Pod, and Service ranges are automatically calculated from this block. |
 
 ## GKE Add-ons
 ### Cloudflare Module
