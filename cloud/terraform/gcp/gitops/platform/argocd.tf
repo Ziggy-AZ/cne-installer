@@ -97,11 +97,11 @@ resource "helm_release" "argocd" {
 				redis={
 					resources={
 						limits={
-							cpu="200m"
+							cpu="500m"
 							memory="512Mi"
 						}
 						requests={
-							cpu="100m"
+							cpu="200m"
 							memory="256Mi"
 						}
 					}
@@ -110,12 +110,12 @@ resource "helm_release" "argocd" {
 				repoServer={
 					resources={
 						limits={
-							cpu="800m"
-							memory="1Gi"
+							cpu="1000m"
+							memory="2Gi"
 						}
 						requests={
-							cpu="250m"
-							memory="512Mi"
+							cpu="500m"
+							memory="1Gi"
 						}
 					}
 				}
@@ -132,12 +132,12 @@ resource "helm_release" "argocd" {
 					}
 					resources={
 						limits={
-							cpu="500m"
-							memory="1Gi"
+							cpu="1000m"
+							memory="2Gi"
 						}
 						requests={
-							cpu="250m"
-							memory="512Mi"
+							cpu="500m"
+							memory="1Gi"
 						}
 					}
 					service={
@@ -167,37 +167,6 @@ resource "kubernetes_namespace" "argocd" {
 resource "random_password" "argocd_server_secretkey" {
 	length=32
 	special=false
-}
-
-resource "kubernetes_manifest" "argocd_http_route" {
-	count=var.argocd_domain != "" ? 1 : 0
-	manifest={
-		"apiVersion"="gateway.networking.k8s.io/v1"
-		"kind"="HTTPRoute"
-		"metadata"={
-			"name"="argocd-route"
-			"namespace"=var.argocd_namespace
-		}
-		"spec"={
-			"hostnames"=[var.argocd_domain]
-			"parentRefs"=[
-				{
-					"name"="shared-gateway"
-					"namespace"="infra"
-				}
-			]
-			"rules"=[
-				{
-					"backendRefs"=[
-						{
-							"name"="argocd-server"
-							"port"=80
-						}
-					]
-				}
-			]
-		}
-	}
 }
 
 module "argocd_auth_resources" {

@@ -1,0 +1,22 @@
+apiVersion: cloudplatform.gcp.m.upbound.io/v1beta1
+kind: ServiceAccount
+metadata:
+    name: test-serviceaccount
+spec:
+    forProvider:
+        displayName: "Liferay test service account"
+    providerConfigRef:
+        name: default
+        kind: ClusterProviderConfig
+---
+apiVersion: storage.gcp.m.upbound.io/v1beta1
+kind: Bucket
+metadata:
+    name: test-bucket-outside-pipeline
+spec:
+    forProvider:
+        location: us-central1
+        storageClass: STANDARD
+    providerConfigRef:
+        name: default
+        kind: ClusterProviderConfig

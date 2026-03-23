@@ -1,4 +1,23 @@
 enabled: true
 
+
+region: required
+
+
 global:
     projectID: ""
+
+
+-- todo: put defaults here
+
+
+
+search:
+    engineVersion: {{ $search.engineVersion | default "8.12.0" | quote }}
+    instanceCount: {{ $search.instanceCount | default 1 }}
+    storageSize: {{ $search.storageSize | default "2Gi" | quote }}
+    memory: {{ $search.memory | default "4Gi" | quote }}
+    heapSize: {{ $search.heapSize | default "2g" | quote }}
+    tlsDisabled: {{ $search.tlsDisabled | default true }}
+    env: {{ $search.env | default list | toJson }}
+    region: {{ $search.region | default "us-central1" | quote }}

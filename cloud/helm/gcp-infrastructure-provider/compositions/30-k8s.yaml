@@ -1,5 +1,6 @@
 ---
 # 5. The Kubernetes Service Account
+# TODO - parameterize in liferay chart
 apiVersion: kubernetes.m.crossplane.io/v1alpha1
 kind: Object
 metadata:
@@ -140,6 +141,6 @@ spec:
                 ELASTICSEARCH_URL: "http://es-es-http:9200"
                 LIFERAY_GCS_BUCKET_NAME: {{ $baseName }}-dl
                 LIFERAY_OVERLAY_BUCKET_NAME: {{ $baseName }}-overlay
-                type: Opaque
+            type: Opaque
     managementPolicies: {{ $managementPolicies }}
 {{- end }}

@@ -29,8 +29,13 @@ resource "helm_release" "kyverno_policies" {
 										{
 											resources={
 												namespaces=[
+													"argocd",
+													"crossplane-system",
+													"elastic-system",
+													"external-secrets",
 													"gatekeeper-system",
 													"gke-system",
+													"infra",
 													"kube-system",
 													"kyverno"
 												]
@@ -72,7 +77,19 @@ resource "helm_release" "kyverno_policies" {
 															weight=100
 														},
 														{
-															# Preference 2: Scale-Out compute class
+															# Preference 2: Standard Nodes (Low Weight)
+															preference={
+																matchExpressions=[
+																	{
+																		key="cloud.google.com/gke-spot"
+																		operator="DoesNotExist"
+																	}
+																]
+															}
+															weight=10
+														},
+														{
+															# Preference 3: Scale-Out compute class
 															preference={
 																matchExpressions=[
 																	{
