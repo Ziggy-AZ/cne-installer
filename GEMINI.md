@@ -11,25 +11,28 @@
 *   **Exception:** Order can only be broken for strict functional dependencies (e.g., creating a VPC before a Subnet).
 
 ### 2. Documentation & UI Strings (The "Wordsmith" Rules)
-*   **Sentence Termination:** Every log message and status output MUST end with a single period (`.`). NEVER use ellipses (`...`).
-*   **The "Tesla car" Rule:** Use lowercase for common technical nouns (`username`, `password`, `infrastructure`, `cluster`) unless they start a sentence.
 *   **Escaped Quoting:** Use escaped double quotes (`\"`) for highlighting values in log strings. NEVER use single quotes (`'`).
-*   **Direct Voice:** Prefer "does not exist" over "not found".
 *   **Minimalist Documentation:** Avoid optional \"description\" strings in Terraform configurations.
 *   **No Trailing Slashes:** URIs and bucket paths in logs should not have trailing slashes (e.g., `gs://bucket`).
+*   **Sentence Termination:** Every log message and status output MUST end with a single period (`.`). NEVER use exclamation marks (`!`) or ellipses (`...`).
+*   **The "Tesla car" Rule:** Use lowercase for common technical nouns (`cluster`, `green`, `infrastructure`, `password`, `ready`, `red`, `unreachable`, `username`, `yellow`) unless they start a sentence.
+*   **Voice Style:** Prefer "does not exist" over "not found" (Direct Voice).
 
 ### 3. Bash & Terraform Logic (The "Simplify" Rules)
+*   **Brand Integrity:** Use `argocd` (identifiers) and `ArgoCD` (text).
 *   **Declaration & Assignment:** In Bash, consolidate `local` declaration and assignment: `local var="${val}"`. **Exception:** Split them only if using a sub-shell:
     ```bash
     local var
     var=$(cmd)
     ```
+*   **Loop Syntax:** For `until` or `while` loops, move the `do` keyword to its own line and remove the preceding semicolon.
+*   **Main Function Wrapping:** Wrap all non-trivial inline shell scripts in a `function main { ... }` block and call it at the end.
+*   **No Abbreviations:** Use full descriptive names: `configuration_json_file` instead of `config_file`.
 *   **No Assignment Spacing:** Remove spaces around `=` in Shell and Terraform: `key=value`.
 *   **Trailing Commas:** All lists (except JSON) MUST use trailing commas for every element.
 *   **Vertical Density:** Remove empty lines between related resource or output blocks.
-*   **Brand Integrity:** Use `argocd` (identifiers) and `ArgoCD` (text).
-*   **No Abbreviations:** Use full descriptive names: `configuration_json_file` instead of `config_file`.
 *   **Vertical Padding:** Use empty `echo ""` commands to group output logically in CLI tools.
+*   **Vertical Script Spacing:** Add empty lines between major shell statements and inside loop bodies to improve readability.
 
 ### 4. Code Maintenance
 *   **Commit Messages:** Prefix with a JIRA ID (e.g., `LCD-12345`). Use `Wordsmith`, `Simplify`, or `Sort` as summaries for maintenance tasks.
